@@ -1,15 +1,55 @@
 :root {
   --primary: #3545ac;
-  --secondary: #ffffff;
-  --background: #ffffff;
+  --secondary: #95979b;
+  --background1: #edf2f8;
+  --text: black;
+  --header-height: 114px;
+  --dots-width: 98px;
+  --font-family: "DMSans";
+  --font-family-medium: "DMSans-medium";
+  --font-family-bold: "DMSans-bold";
 }
 
-.section {
+@font-face {
+  font-family: "DMSans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+000-5FF;
+  src: 
+    local("DMSans"),
+    url("@/assets/fonts/DM_Sans/DMSans-Regular.woff") format("woff"), 
+    url("@/assets/fonts/DM_Sans/DMSans-Regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "DMSans-medium";
+  font-weight: 700;
+  font-style: normal;
+  font-display: medium;
+  unicode-range: U+000-5FF;
+  src: 
+    local("DMSans"),
+    url("@/assets/fonts/DM_Sans/DMSans-Medium.woff") format("woff"), 
+    url("@/assets/fonts/DM_Sans/DMSans-Medium.ttf") format("ttf");
+}
+@font-face {
+  font-family: "DMSans-bold";
+  font-weight: 900;
+  font-style: bold;
+  font-display: block;
+  unicode-range: U+000-5FF;
+  src: 
+    local("DMSans"),
+    url("@/assets/fonts/DM_Sans/DMSans-Bold.woff") format("woff"), 
+    url("@/assets/fonts/DM_Sans/DMSans-Bold.ttf") format("ttf");
+}
+
+.main-view-section {
   min-height: 100vh;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 114px 0 0 0;
+  padding: var(--header-height) var(--dots-width) 0 var(--dots-width);
 }

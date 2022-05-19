@@ -38,17 +38,15 @@ export default {
   justify-content: center;
   padding: 32px 0 32px 0;
   ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
     li {
       display: inline-block;
+      padding: 16px;
       a {
-        padding: 16px;
+        cursor: pointer;
         text-decoration: none;
-        font-weight: bold;
-        color: #95979b;
+        font-family: var(--font-family-medium);
+        color: var(--secondary);
       }
       a.current {
         color: var(--primary);

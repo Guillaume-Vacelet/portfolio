@@ -24,22 +24,19 @@ export default {
 
 <style lang="scss" scoped>
 #scroll-dots {
-  height: 125px;
-  float: right;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  left: 100%;
+  height: 50px;
+  position: fixed;
+  left: calc(100% - 98px);
   top: calc(50% - 75px);
   padding-right: 50px;
   display: flex;
   ul {
-    list-style-type: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 0;
     div {
+      cursor: pointer;
       width: 8px;
       height: 8px;
       border-radius: 100%;
