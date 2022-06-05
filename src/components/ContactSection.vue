@@ -1,5 +1,5 @@
 <template lang="en">
-  <div id="contact-section" class="main-view-section">
+  <section id="contact-section" class="main-view-section">
     <h2 class="section-title">Contactez-moi !</h2>
     <div class="body">
       <ul class="contact-cards-list">
@@ -15,7 +15,7 @@
       </ul>
       <ContactLinksBubbles />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

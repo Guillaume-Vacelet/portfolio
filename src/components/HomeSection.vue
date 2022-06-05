@@ -1,5 +1,5 @@
 <template lang="en">
-  <div id="home-section" class="main-view-section">
+  <section id="home-section" class="main-view-section">
     <PolaroidPicture :image="'me'" />
     <div id="home-section-left">
       <div class="top">
@@ -16,7 +16,7 @@
       <ImageBubble :img-name="'paint'" :title="'UI/UX'" :size="'110px'" />
       <ImageBubble :img-name="'chess'" :title="'AI'" :size="'130px'" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

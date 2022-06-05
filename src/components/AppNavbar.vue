@@ -21,7 +21,7 @@ export default {
   props: {
     pages: Array,
     onClick: Function,
-    currentPage: String,
+    currentPage: Number,
   },
 };
 </script>

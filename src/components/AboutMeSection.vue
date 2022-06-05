@@ -1,5 +1,5 @@
 <template lang="en">
-  <div id="about-me-section" class="main-view-section">
+  <section id="about-me-section" class="main-view-section">
     <h2 class="section-title">Compétences & Parcours</h2>
     <div class="body">
       <div class="column left">
@@ -14,7 +14,7 @@
         <ExperiencesList :experiences="experiences" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

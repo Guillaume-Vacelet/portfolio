@@ -1,5 +1,5 @@
 <template lang="en">
-  <div id="projects-section" class="main-view-section">
+  <section id="projects-section" class="main-view-section">
     <h2 class="section-title">Projets</h2>
     <div class="body">
       <div class="top">
@@ -20,7 +20,7 @@
         <ContactLinksBubbles />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
