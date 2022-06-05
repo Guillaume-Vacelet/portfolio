@@ -91,6 +91,7 @@ export default {
 #projects-section {
   background: var(--background1);
   flex-direction: column;
+  font-size: 1rem;
   .body {
     height: 100%;
     width: 100%;

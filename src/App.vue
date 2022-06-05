@@ -19,6 +19,7 @@ export default {
 html {
   height: 100%;
   scrollbar-width: none;
+  font-size: 16px;
   body::-webkit-scrollbar {
     display: none;
   }
@@ -27,7 +28,6 @@ html {
     margin: 0;
     #app {
       height: 100%;
-      background-color: #d3dee8;
       ul {
         list-style-type: none;
         margin: 0;

@@ -28,6 +28,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
   .top {
     height: v-bind(size);
     width: v-bind(size);
@@ -42,14 +43,11 @@ export default {
   }
   .bottom {
     p {
-      font-family: var(--font-family-bold);
-      font-size: 14px;
+      font-family: var(--font-family-medium);
+      font-size: 1em;
       color: var(--text);
       margin: 10px 0 0 0;
     }
   }
-  // .shadow {
-  //   box-shadow: 0px 7px #e9ebef;
-  // }
 }
 </style>

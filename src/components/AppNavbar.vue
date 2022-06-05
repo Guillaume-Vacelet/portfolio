@@ -38,6 +38,7 @@ export default {
   justify-content: center;
   padding: 32px 0 32px 0;
   z-index: 5;
+  font-size: 1rem;
   ul {
     overflow: hidden;
     li {
@@ -47,6 +48,7 @@ export default {
         cursor: pointer;
         text-decoration: none;
         font-family: var(--font-family-medium);
+        font-size: 1em;
         color: var(--secondary);
       }
       a.current {

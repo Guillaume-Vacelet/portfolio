@@ -76,3 +76,8 @@ h1, h2, h3, h4, a, p, img {
   -o-user-select: none;
   user-select: none;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}

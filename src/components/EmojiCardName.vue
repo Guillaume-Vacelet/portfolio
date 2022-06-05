@@ -29,10 +29,7 @@ export default {
   box-shadow: 0 7px #e9ebef;
   border-radius: 24px;
   z-index: 3;
-  p {
-    font-family: var(--font-family-medium);
-    margin: 0;
-  }
+  font-size: 1rem;
   .left {
     display: flex;
     justify-content: center;
@@ -50,14 +47,18 @@ export default {
     justify-content: center;
     align-items: flex-start;
     flex: 2;
-    .card-title {
+    p.card-title {
       font-family: var(--font-family-bold);
-      font-size: 40px;
+      font-size: 2.5em;
+      color: var(--text);
+      margin: 0;
       padding: 8px 0 0 0;
     }
-    .card-subtitle {
-      font-size: 15px;
+    p.card-subtitle {
+      font-family: var(--font-family-medium);
+      font-size: 1.125rem;
       color: var(--secondary);
+      margin: 0;
     }
   }
 }

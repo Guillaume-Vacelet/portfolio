@@ -62,13 +62,14 @@ export default {
 #contact-section {
   background-color: white;
   flex-direction: column;
+  font-size: 1rem;
   .body {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     .contact-cards-list {
       width: 400px;
       height: 450px;
@@ -77,7 +78,7 @@ export default {
       justify-content: center;
       align-items: center;
       li {
-        margin: auto;
+        margin: 20px;
       }
     }
     .contact-links-bubbles {

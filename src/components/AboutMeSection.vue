@@ -153,6 +153,7 @@ export default {
 #about-me-section {
   flex-direction: column;
   background-color: white;
+  font-size: 1rem;
   .body {
     height: 100%;
     display: flex;

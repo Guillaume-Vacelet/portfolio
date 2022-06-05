@@ -4,14 +4,14 @@
     <div id="home-section-left">
       <div class="top">
         <EmojiCardName />
-        <TextCard :texts="['DEVELOPPEUR WEB & MOBILE', 'UI/UX']" />
+        <TextCard :texts="['DEVELOPPEUR WEB & MOBILE', 'IA', 'UI/UX']" />
       </div>
       <div class="bottom">
         <ContactLinksBubbles />
       </div>
     </div>
     <div id="home-section-right">
-      <ImageBubble :img-name="'mobile'" :title="'MOBILE'" :size="'110px'" />
+      <ImageBubble :img-name="'mobile'" :title="'MOBILE'" :size="'130px'" />
       <ImageBubble :img-name="'browser'" :title="'WEB'" :size="'200px'" :shadow="true" />
       <ImageBubble :img-name="'paint'" :title="'UI/UX'" :size="'110px'" />
       <ImageBubble :img-name="'chess'" :title="'AI'" :size="'130px'" />
@@ -47,6 +47,7 @@ export default {
   flex-direction: row;
   background: var(--background1);
   background: radial-gradient(circle, #58689b 0%, var(--background1) 55%);
+  font-size: 1rem;
   #home-section-left {
     display: flex;
     min-width: 50%;

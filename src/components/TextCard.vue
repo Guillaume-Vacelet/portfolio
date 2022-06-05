@@ -19,14 +19,15 @@ export default {
 
 <style lang="scss" scoped>
 .text-card {
-  width: 250px;
-  min-height: 75px;
+  width: 275px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: white;
   border-radius: 20px;
+  font-size: 1rem;
   ul {
     display: flex;
     flex-direction: column;
@@ -34,7 +35,7 @@ export default {
     align-items: flex-start;
     margin: 10px 25px 10px 25px;
     .card-text {
-      font-size: 14px;
+      font-size: 1em;
       font-family: var(--font-family-medium);
       color: black;
       margin: 0 0 5px 0;

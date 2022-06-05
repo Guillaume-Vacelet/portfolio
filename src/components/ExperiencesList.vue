@@ -35,6 +35,7 @@ export default {
 #experience-list {
   width: 100%;
   overflow: hidden;
+  font-size: 1rem;
   .row-year {
     display: flex;
     flex-direction: row;
@@ -73,15 +74,15 @@ export default {
     }
     .exp-year {
       color: var(--primary);
-      font-size: 14px;
+      font-size: 1em;
     }
     .exp-title {
-      font-size: 20px;
+      font-size: 1.25em;
     }
     .exp-place {
       font-family: var(--font-family-medium);
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 1em;
       color: var(--secondary);
     }
   }

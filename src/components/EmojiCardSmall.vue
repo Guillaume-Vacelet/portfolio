@@ -22,28 +22,27 @@ export default {
 <style lang="scss" scoped>
 .emoji-card-small {
   display: flex;
-  width: 400px;
-  height: 100px;
+  width: 430px;
+  height: 130px;
   border-radius: 20px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   background-color: v-bind(color);
+  font-size: 1rem;
   img {
-    width: 55px;
-    height: 55px;
-    padding: 0 20px 0 30px;
+    width: 75px;
+    height: 75px;
+    padding: 0 30px 0 30px;
   }
-  p {
-    font-family: var(--font-family-bold);
-    font-size: 18px;
+  p,
+  a {
+    font-family: var(--font-family-medium);
+    font-size: 1.125em;
     margin: 0;
     color: var(--text);
   }
   a {
-    font-family: var(--font-family-bold);
-    font-size: 18px;
-    margin: 0;
     color: #1c75b3;
   }
 }

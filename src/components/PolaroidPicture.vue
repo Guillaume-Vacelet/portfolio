@@ -1,19 +1,19 @@
 <template lang="en">
   <div class="polaroid-picture">
-    <div class="header">
+    <div class="border header">
       <div class="avatar" />
       <div class="titles">
-        <p>guillaume.vacelet</p>
-        <p>Seoul</p>
+        <p class="name">guillaume.vacelet</p>
+        <p class="localisation">Seoul</p>
       </div>
     </div>
     <div class="image-container">
       <img :src="require(`@/assets/images/${image}.jpeg`)">
     </div>
-    <div class="footer">
+    <div class="border footer">
       <font-awesome-icon 
         :icon="heartRegular"
-        size="lg"
+        size="xl"
         color="black"
       />
     </div>
@@ -48,7 +48,7 @@ export default {
 <style lang="scss" scoped>
 .polaroid-picture {
   width: 550px;
-  height: 650px;
+  height: 666px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,16 +58,18 @@ export default {
   left: calc(50vw - 275px);
   top: calc(100vh - 650px - var(--section-padding));
   border-radius: 10px;
-  border: 1px solid #dbdbdb;
   box-sizing: border-box;
-  .header {
+  font-size: 1rem;
+  .border {
+    height: 58px;
     width: 100%;
-    height: 50px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+  }
+  .header {
+    box-sizing: border-box;
     padding: 0 0 0 15px;
     .avatar {
       height: 40px;
@@ -79,16 +81,15 @@ export default {
       display: flex;
       flex-direction: column;
       margin: 0 0 0 15px;
-      p {
-        font-size: 1rem;
-      }
-      p:nth-child(1) {
+      p.name {
         font-family: var(--font-family-medium);
+        font-size: 1em;
         color: var(--text);
         margin: 0;
       }
-      p:nth-child(2) {
-        font-family: var(--font-family);
+      p.localisation {
+        font-family: var(--font-family-medium);
+        font-size: 0.875em;
         color: var(--secondary);
         margin: 0;
       }
@@ -104,12 +105,6 @@ export default {
     }
   }
   .footer {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
     padding: 0 0 0 45px;
   }
 }

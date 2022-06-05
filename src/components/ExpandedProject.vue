@@ -68,13 +68,14 @@ export default {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  font-size: 1rem;
   .body {
     position: relative;
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: row;
-    padding: 50px;
+    padding: 75px;
     box-sizing: border-box;
     border-radius: 15px;
     .fa-xmark {
@@ -97,7 +98,7 @@ export default {
         align-items: flex-start;
         h3 {
           font-family: var(--font-family-bold);
-          font-size: 2rem;
+          font-size: 2em;
           color: var(--text);
           margin: 0 0 3px 0;
           text-transform: capitalize;
@@ -105,18 +106,19 @@ export default {
         h4 {
           font-family: var(--font-family);
           font-weight: normal;
-          font-size: 1.5rem;
+          font-size: 1.5em;
           color: var(--text);
           margin: 0 0 10px 0;
           white-space: pre-line;
         }
         p {
           font-family: var(--font-family);
-          font-size: 1rem;
+          font-size: 1em;
           color: var(--text);
           white-space: pre-line;
           text-align: justify;
           margin: 0;
+          max-width: 80ch;
         }
       }
       .infos {
@@ -128,9 +130,10 @@ export default {
           width: 50%;
           margin: 15px 0 0 0;
           p {
-            margin: 0;
-            color: var(--text);
             font-family: var(--font-family);
+            font-size: 1em;
+            color: var(--text);
+            margin: 0;
             white-space: pre-line;
           }
           .info-label {
@@ -143,10 +146,10 @@ export default {
     .right {
       display: flex;
       flex-grow: 1;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       img {
-        width: 500px;
+        width: 650px;
       }
     }
   }

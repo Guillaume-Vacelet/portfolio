@@ -32,6 +32,7 @@ export default {
 .skill-grid {
   display: flex;
   flex-direction: column;
+  font-size: 1rem;
   .row:not(:first-child) {
     margin: 50px 0 0 0;
   }
@@ -54,7 +55,7 @@ export default {
         display: none;
         position: absolute;
         font-family: var(--font-family-bold);
-        font-size: 24px;
+        font-size: 1.5em;
         color: white;
       }
     }
