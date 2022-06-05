@@ -1,9 +1,11 @@
 <template lang="en">
   <div id="main-view">
     <AppNavbar :pages="pages" :on-click="scrollTo" :current-page="currentPage" />
-    <ScrollDots :pages="pages" :on-click="scrollTo" :current-page="currentPage" />
+    <!-- <ScrollDots :pages="pages" :on-click="scrollTo" :current-page="currentPage" /> -->
     <HomeSection />
     <AboutMeSection />
+    <ProjectsSection />
+    <ContactSection />
   </div>
 </template>
 
@@ -12,6 +14,8 @@ import AppNavbar from "@/components/AppNavbar.vue";
 import ScrollDots from "@/components/ScrollDots.vue";
 import HomeSection from "@/components/HomeSection.vue";
 import AboutMeSection from "@/components/AboutMeSection.vue";
+import ProjectsSection from "@/components/ProjectsSection.vue";
+import ContactSection from "@/components/ContactSection.vue";
 import Scroll from "@/modules/Scroll";
 
 export default {
@@ -21,6 +25,8 @@ export default {
     ScrollDots,
     HomeSection,
     AboutMeSection,
+    ProjectsSection,
+    ContactSection,
   },
   data() {
     return {
@@ -29,20 +35,21 @@ export default {
       pages: [
         { id: "home-section", label: "ACCUEIL" },
         { id: "about-me-section", label: "PROFIL" },
+        { id: "projects-section", label: "PROJETS" },
+        { id: "contact-section", label: "CONTACT" },
       ],
       lastScrollPos: window.window.pageYOffset,
       timerId: 0,
     };
   },
-  created() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
+  // created() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  // },
+  // unmounted() {
+  //   window.removeEventListener("scroll", this.handleScroll);
+  // },
   methods: {
     scrollTo(id) {
-      console.log(id);
       document.getElementById(id).scrollIntoView({
         behavior: "smooth",
       });
@@ -80,8 +87,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#main-view {
-  height: 100%;
-  // overflow: hidden;
-}
+// #main-view {
+//   height: 100%;
+//   overflow: hidden;
+// }
 </style>

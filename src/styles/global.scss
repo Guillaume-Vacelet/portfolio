@@ -1,10 +1,10 @@
 :root {
-  --primary: #3545ac;
+  --primary: #3161ff;
   --secondary: #95979b;
   --background1: #edf2f8;
   --text: black;
   --header-height: 114px;
-  --dots-width: 98px;
+  --section-padding: 58px;
   --font-family: "DMSans";
   --font-family-medium: "DMSans-medium";
   --font-family-bold: "DMSans-bold";
@@ -45,11 +45,34 @@
 }
 
 .main-view-section {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  z-index: 0;
+  padding: var(--header-height) var(--section-padding) var(--section-padding) var(--section-padding);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  padding: var(--header-height) var(--dots-width) 0 var(--dots-width);
+}
+h2.section-title {
+  font-family: var(--font-family-bold);
+  font-size: 2.5rem;
+  color: var(--text);
+  text-align: center;
+  margin: 0 0 75px 0;
+}
+
+h1, h2, h3, h4, a, p, img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }

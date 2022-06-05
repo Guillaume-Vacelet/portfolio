@@ -24,12 +24,13 @@ export default {
 
 <style lang="scss" scoped>
 #scroll-dots {
-  height: 50px;
+  height: 100px;
   position: fixed;
-  left: calc(100% - 98px);
+  left: calc(100% - 58px);
   top: calc(50% - 75px);
   padding-right: 50px;
   display: flex;
+  z-index: 5;
   ul {
     display: flex;
     flex-direction: column;

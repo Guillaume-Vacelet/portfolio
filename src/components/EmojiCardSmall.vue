@@ -25,7 +25,6 @@ export default {
   width: 400px;
   height: 100px;
   border-radius: 20px;
-  margin: 0 0 15px 0;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -47,5 +46,8 @@ export default {
     margin: 0;
     color: #1c75b3;
   }
+}
+.emoji-card-small:hover {
+  transform: scale(1.1);
 }
 </style>

@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "EmojiCard",
+  name: "TextCard",
   props: {
     texts: Array,
   },
@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 .text-card {
-  min-width: 225px;
+  width: 250px;
   min-height: 75px;
   display: flex;
   flex-direction: row;

@@ -37,6 +37,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 32px 0 32px 0;
+  z-index: 5;
   ul {
     overflow: hidden;
     li {
