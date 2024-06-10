@@ -1,0 +1,133 @@
+.card {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    cursor: pointer;
+    
+    .card-content {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #A0FFCA;
+        padding: 16px;
+
+        .header {
+            height: auto;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            .card-close-btn {
+                opacity: 0;
+                position: absolute;
+                top: 16px;
+                right: -40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                padding: 0;
+            }
+
+            .title {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 500;
+                width: auto;
+                line-height: 1;
+            }
+
+            .subtitle {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                font-size: 16px;
+                font-weight: normal;
+                width: auto;
+            }
+    
+            .desc {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                font-size: 16px;
+                font-weight: normal;
+            }
+        }
+    
+        .imgContainer {
+            width: 340px;
+    
+            img {
+    
+            }
+        }
+    }
+}
+
+.card.fullscreen {
+    cursor: default;
+
+    .card-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding: 64px;
+        z-index: 100;
+        overflow: auto;
+
+        .header {
+            position: relative;
+
+            .card-close-btn {
+                opacity: 1;
+                top: 0;
+                right: 0;
+                align-self: flex-end;
+            }
+
+            .title {
+                font-size: 48px;
+            }
+
+            .subtitle {
+                opacity: 1;
+                position: relative;
+                top: 0;
+                left: 0;
+                font-size: 24px;
+            }
+
+            .desc {
+                opacity: 1;
+                position: relative;
+                top: 0;
+                left: 0;
+                font-size: 16px;
+                padding-top: 16px;
+            }
+        }
+
+        .imgContainer {
+            width: 972px;
+            margin-top: 10%;
+    
+            img {
+                
+            }
+        }
+    }
+}
