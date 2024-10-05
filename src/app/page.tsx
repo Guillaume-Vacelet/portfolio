@@ -10,8 +10,8 @@ export default function Home() {
     { label: 'Contact', anchor: 'contact' },
   ]
   const socialLinks: SocialLink[] = [
-    { icon: '', label: 'linkedin', url: '' },
-    { icon: '', label: 'github', url: '' },
+    { icon: 'linkedin.svg', label: 'linkedin', url: '' },
+    { icon: 'github.svg', label: 'github', url: '' },
     { icon: 'envelope.fill.svg', label: 'email', url: 'mailto:guillaume.vacelet@gmail.com' },
   ]
 
