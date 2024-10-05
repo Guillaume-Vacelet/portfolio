@@ -19,7 +19,8 @@ export default function Home() {
     <div className="w-full h-full flex flex-col bg-slate-700">
       <Navbar navLinks={navLinks} />
 
-      <section id="home" className="w-full h-screen flex flex-col p-8 bg-green-400 pt-[var(--header-h)] box-border">
+      <section id="home" className="w-full flex flex-col justify-between p-8 bg-green-400 pt-[var(--header-h)] box-border"
+        style={{height: "calc(100vh - var(--header-h))"}}>
         <div>
           <h1 className="text-5xl font-bold pb-2">Guillaume <br /> Vacelet</h1>
           <h2 className="text-2xl font-medium pb-4">Software engineer</h2>
