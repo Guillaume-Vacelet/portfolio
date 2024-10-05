@@ -11,7 +11,7 @@ export default function Home() {
   ]
   const socialLinks: SocialLink[] = [
     { icon: 'linkedin.svg', label: 'linkedin', url: '' },
-    { icon: 'github.svg', label: 'github', url: '' },
+    { icon: 'github.svg', label: 'github', url: 'https://github.com/Guillaume-Vacelet' },
     { icon: 'envelope.fill.svg', label: 'email', url: 'mailto:guillaume.vacelet@gmail.com' },
   ]
 
