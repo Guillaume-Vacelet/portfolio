@@ -15,6 +15,11 @@ const workSans = localFont({
       style: 'normal',
     },
     {
+      path: '../../public/static/fonts/WorkSans/WorkSans-SemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
       path: '../../public/static/fonts/WorkSans/WorkSans-Bold.woff',
       weight: '700',
       style: 'normal',
