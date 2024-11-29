@@ -15,6 +15,11 @@ const workSans = localFont({
       style: 'normal',
     },
     {
+      path: '../../public/static/fonts/WorkSans/WorkSans-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
       path: '../../public/static/fonts/WorkSans/WorkSans-SemiBold.woff',
       weight: '600',
       style: 'normal',
@@ -41,6 +46,42 @@ const workSans = localFont({
     },
   ],
   variable: '--font-worksans'
+});
+
+const clash = localFont({
+  src: [
+    {
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Extralight.woff',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Light.woff',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-SemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-clash'
 })
 
 export const metadata: Metadata = {
@@ -54,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable}`}>
+    <html lang="en" className={`${workSans.variable} ${clash.variable}`}>
       <body className="antialiased font-worksans">
         {children}
       </body>

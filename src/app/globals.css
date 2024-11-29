@@ -3,24 +3,77 @@
 @tailwind utilities;
 
 :root {
-  /* --background: #2b2b2b; */
+  --background: #0f0f0f;
+  --primary: #e1e1e1;
+  --accent: rgb(167 139 250);
   --header-h: 56px;
+  --app-px: 1.5rem;
 }
 
 html {
-  /* height: 100%; */
   scroll-behavior: smooth;
+  transition: all .3s ease-in;
 }
 
 body {
-  /* height: 100%; */
-  color: var(--foreground);
+  color: var(--primary);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 740px;
+  min-height: 100vh;
+  /* height: 100%; */
+  padding: 1rem;
+  /* padding-bottom: 1rem; */
+  padding-top: calc(2rem + var(--header-h));
+}
+
+/* @media (min-width: 640px) {
+  .section {
+    padding: ;
   }
+} */
+
+strong {
+  font-weight: 500;
+  /* color: var(--accent); */
+}
+
+li.magnetic:has(a:is(:hover, :focus-visible)) {
+  anchor-name: --a;
+}
+
+.magnetic-li {
+  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
+  border-radius: 0.5rem;
+  /* group hover:bg-slate-800 px-6 py-1 rounded-lg */
+}
+
+.magnetic-li:hover {
+  background-color: rgb(30 41 59);
+}
+
+.magnetic-li:has(a:is(:hover, :focus-visible)) {
+  anchor-name: --a;
+}
+
+.magnetic-ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgb(0 0 0 / 0.85);
+  /* w-full flex flex-row justify-around bg-black/85 rounded-xl py-2 */
+}
+
+.magnetic-ul::before {
+  left: anchor(--a left);
+  width: anchor-size(--a width);
 }

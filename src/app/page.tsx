@@ -7,14 +7,14 @@ import React from "react";
 
 export default function Home() {
   const navLinks: NavLink[] = [
-    { label: 'Home', anchor: '' },
+    { label: 'Home', anchor: 'home' },
     { label: 'Experiences', anchor: 'experiences' },
     { label: 'Projects', anchor: 'projects' },
     { label: 'Contact', anchor: 'contact' },
   ]
 
   return (
-    <div className="w-full h-full flex flex-col bg-slate-600">
+    <div className="w-full h-full flex flex-col items-center bg-slate-900">
       <Navbar navLinks={navLinks} />
       <HomeSection />
       <ExperiencesSection />
