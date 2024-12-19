@@ -36,10 +36,10 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
 
   return (
     <div className="w-[456px] pt-4 sticky top-0 left-0 z-50">
-      <ul className="w-full flex flex-row justify-around rounded-[12px] py-2 px-1 bg-slate-950">
+      <ul className="w-full flex flex-row justify-around rounded-[16px] py-2 px-2 gap-2 bg-slate-950">
         {navLinks.map(navLink => 
           <li onClick={() => handleNavClick(`#${navLink.anchor}`)}
-            className="py-1 px-6 rounded-[8px] group"
+            className="w-full flex justify-center py-1 px-6 rounded-[8px] group"
             style={{
               background: activeSection ===  navLink.label.toLowerCase()
               ? 'rgb(15 23 42)'
