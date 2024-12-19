@@ -35,14 +35,14 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
   const handleNavClick = (target: string) => {router.push(target)};
 
   return (
-    <div className="max-w-[740px] pt-4 sticky top-0 left-0 z-50">
-      <ul className="magnetic-ul">
+    <div className="w-[456px] pt-4 sticky top-0 left-0 z-50">
+      <ul className="w-full flex flex-row justify-around rounded-[12px] py-2 px-1 bg-slate-950">
         {navLinks.map(navLink => 
           <li onClick={() => handleNavClick(`#${navLink.anchor}`)}
-            className="magnetic-li group"
+            className="py-1 px-6 rounded-[8px] group"
             style={{
               background: activeSection ===  navLink.label.toLowerCase()
-              ? 'rgb(30 41 59)'
+              ? 'rgb(15 23 42)'
               : ''
             }}
             key={navLink.label}>

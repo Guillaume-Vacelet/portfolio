@@ -71,7 +71,7 @@ const clash = localFont({
       style: 'normal',
     },
     {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-SemiBold.woff',
+      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Semibold.woff',
       weight: '600',
       style: 'normal',
     },

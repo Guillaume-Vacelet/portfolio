@@ -43,37 +43,3 @@ strong {
   font-weight: 500;
   /* color: var(--accent); */
 }
-
-li.magnetic:has(a:is(:hover, :focus-visible)) {
-  anchor-name: --a;
-}
-
-.magnetic-li {
-  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
-  border-radius: 0.5rem;
-  /* group hover:bg-slate-800 px-6 py-1 rounded-lg */
-}
-
-.magnetic-li:hover {
-  background-color: rgb(30 41 59);
-}
-
-.magnetic-li:has(a:is(:hover, :focus-visible)) {
-  anchor-name: --a;
-}
-
-.magnetic-ul {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-radius: 0.75rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  background-color: rgb(0 0 0 / 0.85);
-  /* w-full flex flex-row justify-around bg-black/85 rounded-xl py-2 */
-}
-
-.magnetic-ul::before {
-  left: anchor(--a left);
-  width: anchor-size(--a width);
-}
