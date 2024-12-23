@@ -27,9 +27,9 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
 
     if (rect.top <= 0) {
       if (rect.bottom > window.innerHeight) {
-        elVisibleHeight = window.innerHeight; // le haut & le bas de l'élément dépassent le viewport
+        elVisibleHeight = window.innerHeight;
       } else {
-        elVisibleHeight = rect.bottom; // le haut de l'élément dépasse le viewport
+        elVisibleHeight = rect.bottom;
       }
     }
 
@@ -61,18 +61,18 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
 
   const handleScroll = debounce(() => {
     let sectionsInViewportPercentages: number[] = [];
+    let newActiveSection = "";
 
     document.querySelectorAll('.section').forEach(section => {
       sectionsInViewportPercentages.push(getElementHeightPercentageInViewport(section as HTMLElement));
     })
 
-    setActiveSection(navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)].anchor);
+    newActiveSection = navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)].anchor;
+    setActiveSection(newActiveSection);
+    router.push(`#${newActiveSection}`)
   }, 100);
 
   async function handleOnClick(target: any) {
-    console.log(target);
-    setIsScrolling(true);
-  
     const element = document.getElementById(target);
   
     if (element) {
@@ -80,7 +80,6 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
       element.scrollIntoView({behavior: 'smooth'})
   
       setTimeout(() => {
-        setIsScrolling(false);
         setActiveSection(target);
       }, 500)
     }
