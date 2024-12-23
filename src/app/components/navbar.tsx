@@ -1,7 +1,8 @@
 'use client'
 import Link from "next/link";
-import router, { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
 export interface NavLink {
   label: string;
   anchor: string;
@@ -12,33 +13,84 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    const sections = document.querySelectorAll('.section');
-    const observerOptions = {
-      root: null, // Use the viewport as the root
-      threshold: 0.5, // 50% of the section must be visible
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-          // window.history.replaceState(null, '', `${window.location.pathname}#${activeSection}`);
-        }
-      });
-    }, observerOptions);
+    window.addEventListener('scroll', handleScroll);
 
-    sections.forEach((section) => observer.observe(section));
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const handleNavClick = (target: string) => {router.push(target)};
+  function getElementHeightPercentageInViewport(el: HTMLElement) {
+    const rect = el.getBoundingClientRect();
+    const elTotalHeight = rect.bottom - rect.top;
+    let elVisibleHeight = window.innerHeight - rect.top;
+
+    if (rect.top <= 0) {
+      if (rect.bottom > window.innerHeight) {
+        elVisibleHeight = window.innerHeight; // le haut & le bas de l'élément dépassent le viewport
+      } else {
+        elVisibleHeight = rect.bottom; // le haut de l'élément dépasse le viewport
+      }
+    }
+
+    return elVisibleHeight / elTotalHeight * 100;
+  }
+
+  function debounce(func: (...args: any[]) => void, wait: number) {
+    let timeout: NodeJS.Timeout;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  function getIndexOfHighestNumber(arr: number[]) {
+    let res = 0;
+
+    arr.forEach((x, i) => {
+      if (x > arr[res] + 15) {
+        res = i;
+      }
+    })
+    return res;
+  }
+
+  const handleScroll = debounce(() => {
+    let sectionsInViewportPercentages: number[] = [];
+
+    document.querySelectorAll('.section').forEach(section => {
+      sectionsInViewportPercentages.push(getElementHeightPercentageInViewport(section as HTMLElement));
+    })
+
+    setActiveSection(navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)].anchor);
+  }, 100);
+
+  async function handleOnClick(target: any) {
+    console.log(target);
+    setIsScrolling(true);
+  
+    const element = document.getElementById(target);
+  
+    if (element) {
+      router.push(`#${target}`)
+      element.scrollIntoView({behavior: 'smooth'})
+  
+      setTimeout(() => {
+        setIsScrolling(false);
+        setActiveSection(target);
+      }, 500)
+    }
+  }
 
   return (
     <div className="w-[456px] pt-4 sticky top-0 left-0 z-50">
       <ul className="w-full flex flex-row justify-around rounded-[16px] py-2 px-2 gap-2 bg-slate-950">
         {navLinks.map(navLink => 
-          <li onClick={() => handleNavClick(`#${navLink.anchor}`)}
+          <li onClick={() => handleOnClick(navLink.anchor)}
             className="w-full flex justify-center py-1 px-6 rounded-[8px] group"
             style={{
               background: activeSection ===  navLink.label.toLowerCase()
@@ -46,10 +98,6 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
               : ''
             }}
             key={navLink.label}>
-            {/* <a className="text-stone-500 text-xs group-hover:text-white"
-              style={{ color: activeSection ===  navLink.label.toLowerCase() ? 'white' : ''}}>
-              {navLink.label}
-            </a> */}
             <Link
               href={`#${navLink.anchor}`}
               className="text-stone-500 text-xs group-hover:text-white"
