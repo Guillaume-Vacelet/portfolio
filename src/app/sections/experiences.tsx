@@ -71,7 +71,7 @@ export default function ExperiencesSection() {
 
             <div className="flex flex-row gap-1 flex-wrap mt-4">
               {xp.techstack.map(tech => 
-                <div className="flex px-2 py-0 border border-gray-800 rounded-lg text-xs group-hover:bg-blue-950 group-hover:border-blue-900">
+                <div key={tech} className="flex px-2 py-0 border border-gray-800 rounded-lg text-xs group-hover:bg-blue-950 group-hover:border-blue-900">
                   {tech}
                 </div>
               )}

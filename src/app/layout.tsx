@@ -2,87 +2,41 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const workSans = localFont({
+const nuckle = localFont({
   src: [
     {
-      path: '../../public/static/fonts/WorkSans/WorkSans-Light.woff',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-Regular.woff',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-Medium.woff',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-SemiBold.woff',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-Bold.woff',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-LightItalic.woff',
-      weight: '300',
-      style: 'italic',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-Italic.woff',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: '../../public/static/fonts/WorkSans/WorkSans-BoldItalic.woff',
-      weight: '700',
-      style: 'italic',
-    },
-  ],
-  variable: '--font-worksans'
-});
-
-const clash = localFont({
-  src: [
-    {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Extralight.woff',
+      path: '../../public/static/fonts/Nuckle/Nuckle-Extralight.woff2',
       weight: '200',
       style: 'normal',
     },
     {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Light.woff',
+      path: '../../public/static/fonts/Nuckle/Nuckle-Light.woff2',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Regular.woff',
+      path: '../../public/static/fonts/Nuckle/Nuckle-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Medium.woff',
+      path: '../../public/static/fonts/Nuckle/Nuckle-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Semibold.woff',
+      path: '../../public/static/fonts/Nuckle/Nuckle-Semibold.woff2',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../../public/static/fonts/ClashDisplay/ClashDisplay-Bold.woff',
+      path: '../../public/static/fonts/Nuckle/Nuckle-Bold.woff2',
       weight: '700',
       style: 'normal',
     }
   ],
-  variable: '--font-clash'
-})
+  variable: '--font-nuckle'
+}) 
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -95,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable} ${clash.variable}`}>
-      <body className="antialiased font-worksans">
+    <html lang="en" className={`${nuckle.variable}`}>
+      <body className="antialiased font-switzer">
         {children}
       </body>
     </html>

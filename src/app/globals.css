@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0f0f0f;
+  /* --background: #0f0f0f; */
+  --background: #f5f1ee;
   --primary: #e1e1e1;
   --accent: rgb(167 139 250);
   --header-h: 56px;
@@ -12,7 +13,7 @@
 
 html {
   scroll-behavior: smooth;
-  transition: all .3s ease-in;
+  transition: all 1s ease-out;
 }
 
 body {
@@ -25,19 +26,19 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 740px;
   min-height: 100vh;
-  /* height: 100%; */
-  padding: 1rem;
-  /* padding-bottom: 1rem; */
-  padding-top: calc(2rem + var(--header-h));
 }
 
-/* @media (min-width: 640px) {
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+@media (min-width: 640px) {
   .section {
-    padding: ;
+    width: 100%;
   }
-} */
+}
 
 strong {
   font-weight: 500;

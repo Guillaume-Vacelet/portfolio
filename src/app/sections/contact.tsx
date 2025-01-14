@@ -9,28 +9,20 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="section">
-      <div className="w-full flex flex-col items-center justify-evenly gap-4">
+    <section id="contact" className="section flex-col px-4 pt-24">
+      <h2 className="text-black">Contact me</h2>
+      <div className="flex flex-col items-center justify-evenly gap-4 bg-red-200">
         {contacts.map(contact =>
-          <Squircle
-            cornerRadius={40}
-            cornerSmoothing={1}
-            width={160}
-            height={160}
-            className="flex items-center gap-1 bg-white bg-opacity-10 text-white border-white border-1">
-            <a className="flex w-full h-full p-8"
-              href={contact.url}
-              target="_blank">
-              <div className="relative w-full h-full">
-                <Image
-                  src={`/static/images/${contact.icon}`}
-                  alt={`${contact.label} icon`}
-                  fill
-                />
-              </div>
-              {/* {contact.label} */}
-            </a>
-          </Squircle>
+          <div className="rounded-lg p-2 bg-gray-400" key={contact.label}>
+            <div className="relative w-[32px] h-[32px]">
+              <Image
+                src={`/static/images/${contact.icon}`}
+                alt={`${contact.label} icon`}
+                fill
+                style={{objectFit:"cover"}}
+              />
+            </div>
+          </div>
         )}
       </div>
     </section>

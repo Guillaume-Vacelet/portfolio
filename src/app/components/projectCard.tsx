@@ -1,3 +1,4 @@
+import { Squircle } from "@squircle-js/react";
 import Image from "next/image";
 
 interface ProjectCardProps {
@@ -9,20 +10,20 @@ interface ProjectCardProps {
 
 export default function ProjectCard({project} : {project: ProjectCardProps}) {
   return (
-    <div className="w-full h-[350px] flex flex-col border border-slate-700 rounded-md overflow-hidden">
-      <div className="relative w-full h-1/2">
+    <div className="w-full md:w-[324px] sm:h-[350px] flex flex-col overflow-hidden">
+      <div className="relative w-full sm:h-1/2 h-[175px]">
         <Image
           src={project.image}
           alt="Project card image"
           fill
-          objectPosition="top"
+          className="rounded-lg"
           style={{objectFit:"cover"}}
         />
       </div>
-      <div className="h-1/2 flex flex-col justify-between p-4 gap-2">
+      <div className="h-1/2 flex flex-col sm:justify-between sm:p-4 p-2 gap-3">
         <div className="flex flex-col">
-          <span className="text-lg font-bold text-white">{project.title}</span>
-          <p className="text-xs text-gray-200">{project.desc}</p>
+          <span className="text-lg font-semibold text-black">{project.title}</span>
+          <p className="text-xs font-medium text-gray-900">{project.desc}</p>
         </div>
         <a className="flex flex-row items-center gap-2 text-xs font-semibold text-accent">
           See more

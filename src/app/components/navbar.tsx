@@ -1,18 +1,24 @@
 'use client'
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export interface NavLink {
   label: string;
   anchor: string;
 }
 
-export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
-  const router = useRouter();
-  const [activeSection, setActiveSection] = useState<string>('home');
+export default function Navbar() {
+  const [activeSection, setActiveSection] = useState<string>('');
+  const navLinks: NavLink[] = [
+    { label: 'Home', anchor: 'home' },
+    // { label: 'Experiences', anchor: 'experiences' },
+    { label: 'Projects', anchor: 'projects' },
+    { label: 'Contact', anchor: 'contact' },
+  ]
 
   useEffect(() => {
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -50,9 +56,10 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
 
   function getIndexOfHighestNumber(arr: number[]) {
     let res = 0;
+    let diffMargin = 15;
 
     arr.forEach((x, i) => {
-      if (x > arr[res] + 15) {
+      if (x > arr[res] + diffMargin) {
         res = i;
       }
     })
@@ -69,44 +76,41 @@ export default function Navbar({navLinks} : { navLinks: NavLink[] }) {
 
     newActiveSection = navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)].anchor;
     setActiveSection(newActiveSection);
-    router.push(`#${newActiveSection}`)
   }, 100);
 
-  async function handleOnClick(target: any) {
-    const element = document.getElementById(target);
-  
+  function handleOnClick(event: React.MouseEvent, sectionId: string) {
+    const element = document.getElementById(sectionId);
+
+    event.preventDefault();
     if (element) {
-      router.push(`#${target}`)
       element.scrollIntoView({behavior: 'smooth'})
   
       setTimeout(() => {
-        setActiveSection(target);
+        setActiveSection(sectionId);
       }, 500)
     }
   }
 
   return (
-    <div className="w-[456px] pt-4 sticky top-0 left-0 z-50">
-      <ul className="w-full flex flex-row justify-around rounded-[16px] py-2 px-2 gap-2 bg-slate-950">
-        {navLinks.map(navLink => 
-          <li onClick={() => handleOnClick(navLink.anchor)}
-            className="w-full flex justify-center py-1 px-6 rounded-[8px] group"
-            style={{
-              background: activeSection ===  navLink.label.toLowerCase()
-              ? 'rgb(15 23 42)'
-              : ''
-            }}
-            key={navLink.label}>
+    <header className="w-full flex justify-center py-4 font-medium fixed top-0 z-50">
+      <ul className="flex flex-row items-start justify-center gap-8 px-8 pb-2 pt-3 rounded-xl bg-black">
+        {navLinks.map(navLink =>
+          <li className="group flex flex-col items-center cursor-pointer" key={navLink.anchor}>
             <Link
               href={`#${navLink.anchor}`}
-              className="text-stone-500 text-xs group-hover:text-white"
-              style={{ color: activeSection ===  navLink.label.toLowerCase() ? 'white' : ''}}>
+              onClick={(e) => handleOnClick(e, navLink.anchor)}
+              className="text-stone-500 text-sm group-hover:text-white"
+              style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
               {navLink.label}
             </Link>
+            {navLink.anchor === activeSection
+              ? <div className="w-1 h-1 bg-white rounded-full"></div>
+              : null
+            }
           </li>
         )}
       </ul>
-    </div>
+    </header>
   );
 }
 

@@ -6,18 +6,12 @@ import ContactSection from "./sections/contact";
 import React from "react";
 
 export default function Home() {
-  const navLinks: NavLink[] = [
-    { label: 'Home', anchor: 'home' },
-    { label: 'Experiences', anchor: 'experiences' },
-    { label: 'Projects', anchor: 'projects' },
-    { label: 'Contact', anchor: 'contact' },
-  ]
 
   return (
-    <div className="w-full h-full flex flex-col items-center bg-slate-900">
-      <Navbar navLinks={navLinks} />
+    <div className="font-nuckle w-full h-full flex flex-col items-center relative">
+      <Navbar />
       <HomeSection />
-      <ExperiencesSection />
+      {/* <ExperiencesSection /> */}
       <ProjectsSection />
       <ContactSection />
     </div>

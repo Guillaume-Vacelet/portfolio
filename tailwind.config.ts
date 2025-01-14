@@ -16,6 +16,8 @@ const config: Config = {
       fontFamily: {
         worksans: ['var(--font-worksans)'],
         clashdisplay: ['var(--font-clashdisplay)'],
+        switzer: ['var(--font-switzer)'],
+        nuckle: ['var(--font-nuckle)']
       },
     },
   },
