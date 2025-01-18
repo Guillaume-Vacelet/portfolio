@@ -1,32 +1,34 @@
+import { Squircle } from "@squircle-js/react";
 import Image from "next/image";
 
-export interface SocialLink {
-  label: string;
-  icon: string;
-  url: string;
-}
+export default function SocialLinks() {
+  const links = [
+    { label: "linkedin", icon: "linkedin.svg", url: "https://www.linkedin.com/in/guillaume-vacelet/" },
+    { label: "github", icon: "github.svg", url: "https://github.com/Guillaume-Vacelet" },
+    { label: "email", icon: "envelope.fill.svg", url: "mailto:guillaume.vacelet@gmail.com" },
+  ];
 
-export default function SocialLinks({socialLinks} : { socialLinks: SocialLink[] }) {
   return (
-    <div className="flex flex-col w-fit">
-        <ul className="flex flex-col gap-2">
-          {socialLinks.map(socialLink =>
-            <li key={socialLink.label} className="flex w-8 h-8 items-center rounded-full border border-white p-2 hover:bg-slate-900">
-              <a className="relative w-full h-full"
-                href={socialLink.url}
-                target="_blank">
-                <Image
-                  src={`/static/images/${socialLink.icon}`}
-                  // width={14}
-                  // height={14}
-                  fill
-                  alt={`${socialLink.label} icon`}
-                />
-              </a>
-            </li>
-          )}
-        </ul>
-      </div>
+    <div className="flex flex-row gap-4">
+      {links.map(link =>
+        // <Squircle
+        //   cornerRadius={10}
+        //   cornerSmoothing={1}
+        //   width={40}
+        //   height={40}
+        //   className="bg-gray-700 p-3 cursor-pointer">
+        //   <a href={link.url} target="_blank" className="relative size-full flex">
+          <a href={link.url} target="_blank" className="relative h-5 w-5 flex p-2" key={link.label}>
+            <Image
+              src={`/static/images/${link.icon}`}
+              alt={`${link.label} icon`}
+              fill
+              style={{objectFit: "cover"}}
+            />
+          </a>
+        // </Squircle>
+      )}
+    </div>
   );
 }
 

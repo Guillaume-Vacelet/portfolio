@@ -1,9 +1,10 @@
-import Navbar, { NavLink } from "./components/navbar";
+import Navbar from "./components/navbar";
 import HomeSection from "./sections/home";
 import ExperiencesSection from "./sections/experiences";
 import ProjectsSection from "./sections/projects";
-import ContactSection from "./sections/contact";
+import Footer from "./sections/footer";
 import React from "react";
+import AboutSection from "./sections/about";
 
 export default function Home() {
 
@@ -11,9 +12,10 @@ export default function Home() {
     <div className="font-nuckle w-full h-full flex flex-col items-center relative">
       <Navbar />
       <HomeSection />
+      <AboutSection />
       {/* <ExperiencesSection /> */}
       <ProjectsSection />
-      <ContactSection />
+      <Footer />
     </div>
   );
 }

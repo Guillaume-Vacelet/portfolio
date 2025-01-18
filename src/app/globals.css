@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: NotoColorEmoji;
+  unicode-range: U+1F1E6-1F1FF;
+  src: url(https://raw.githack.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf);
+}
+
 :root {
-  /* --background: #0f0f0f; */
   --background: #f5f1ee;
   --primary: #e1e1e1;
   --accent: rgb(167 139 250);
@@ -27,20 +32,95 @@ body {
   display: flex;
   width: 100%;
   min-height: 100vh;
+  /* padding: 5rem 0.5rem 0.5rem 0.5rem; */
 }
 
-h2 {
-  font-size: 3rem;
-  font-weight: 500;
+h1 {
+  /* dominant-baseline: text-bottom; */
 }
 
-@media (min-width: 640px) {
-  .section {
-    width: 100%;
+@media screen and (min-width: 640px) {
+  /* .section {
+    padding: 4rem 0.5rem 0.5rem 0.5rem;
+  }  */
+}
+
+@media screen and (max-width: 851px) {
+  h1 {
+    font-size: 3.75rem;
   }
 }
 
 strong {
   font-weight: 500;
-  /* color: var(--accent); */
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+::selection {
+  color: black;
+  background: var(--accent);
+}
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background: var(--accent);
+}
+
+/* Animation */
+
+.shrink-animation {
+  margin: 0;
+  border-radius: 0;
+  animation: .5s shrinkingAnimation 1s ease-in forwards;
+}
+
+.fade-in-right {
+  opacity: 0;
+  animation: 1s fade-in-right 1.25s ease forwards;
+}
+
+.fade-drop-0 {
+  opacity: 0;
+  animation: .5s fade-drop 1.25s ease-in forwards;
+}
+.fade-drop-1 {
+  opacity: 0;
+  animation: .5s fade-drop 1.30s ease-in forwards;
+}
+.fade-drop-2 {
+  opacity: 0;
+  animation: .5s fade-drop 1.35s ease-in forwards;
+}
+
+@keyframes shrinkingAnimation {
+  from {
+    margin: 0;
+    border-radius: 0;
+  }
+  to {
+    margin: 10px;
+    border-radius: 0.5rem;
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fade-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

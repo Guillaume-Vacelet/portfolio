@@ -11,9 +11,9 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>('');
   const navLinks: NavLink[] = [
     { label: 'Home', anchor: 'home' },
+    { label: 'About', anchor: 'about' },
     // { label: 'Experiences', anchor: 'experiences' },
     { label: 'Projects', anchor: 'projects' },
-    { label: 'Contact', anchor: 'contact' },
   ]
 
   useEffect(() => {
@@ -92,24 +92,26 @@ export default function Navbar() {
   }
 
   return (
-    <header className="w-full flex justify-center py-4 font-medium fixed top-0 z-50">
-      <ul className="flex flex-row items-start justify-center gap-8 px-8 pb-2 pt-3 rounded-xl bg-black">
-        {navLinks.map(navLink =>
-          <li className="group flex flex-col items-center cursor-pointer" key={navLink.anchor}>
-            <Link
-              href={`#${navLink.anchor}`}
-              onClick={(e) => handleOnClick(e, navLink.anchor)}
-              className="text-stone-500 text-sm group-hover:text-white"
-              style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
-              {navLink.label}
-            </Link>
-            {navLink.anchor === activeSection
-              ? <div className="w-1 h-1 bg-white rounded-full"></div>
-              : null
-            }
-          </li>
-        )}
-      </ul>
+    <header className="w-[320px] md:w-[400px] flex justify-center px-[10px] py-4 font-medium fixed top-0 z-50">
+      <div className="w-full flex justify-center px-12 pb-2 pt-3 rounded-full bg-black">
+        <ul className="w-full flex flex-row items-start justify-between">
+          {navLinks.map((navLink, index) =>
+            <li className={"group flex flex-col items-center cursor-pointer" + " fade-drop-" + index} key={navLink.anchor}>
+              <Link
+                href={`#${navLink.anchor}`}
+                onClick={(e) => handleOnClick(e, navLink.anchor)}
+                className="text-stone-500 text-xs md:text-base group-hover:text-white"
+                style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
+                {navLink.label}
+              </Link>
+              {navLink.anchor === activeSection
+                ? <div className="w-1 h-1 bg-white rounded-full"></div>
+                : null
+              }
+            </li>
+          )}
+        </ul>
+      </div>
     </header>
   );
 }

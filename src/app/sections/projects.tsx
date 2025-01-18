@@ -11,13 +11,13 @@ export default function ProjectsSection() {
     {
       image: "/static/images/bento-thumbnail.png",
       title: "Bento",
-      desc: "A web agency platform to centralize the company tools and resources.",
+      desc: "A fullstack application centralizing resources and allowing widgets creation.",
       techstack: ["react", "java", "docker"],
     },
     {
       image: "/static/images/blindspot-thumbnail.svg",
       title: "Blindspot",
-      desc: "An IoT belt prototype equiped with cameras to help visually impaired people to navigate through their environment.",
+      desc: "A belt prototype equiped with cameras to help visually impaired people.",
       techstack: ["react", "java", "docker"],
     },
     {
@@ -29,14 +29,15 @@ export default function ProjectsSection() {
   ]
 
   return (
-    <section id="projects" className="section flex-col items-center sm:px-16 px-4 pt-16">
-      <div className="w-full flex items-start py-8">
-        <h2 className="text-black">Projects</h2>
-      </div>
-      <div className="w-full grid sm:grid-cols-4 sm:gap-40 gap-8">
-        {projects.map(project =>
-          <ProjectCard key={project.title} project={project} />
-        )}
+    <section id="projects" className="section flex-col items-center p-6 pt-16 text-black">
+      <div className="w-full flex flex-col items-start gap-8">
+        <h2 className="text-2xl font-semibold">Projects</h2>
+
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {projects.map(project =>
+            <ProjectCard key={project.title} project={project} />
+          )}
+        </div>
       </div>
     </section>
   );
