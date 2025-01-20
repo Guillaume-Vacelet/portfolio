@@ -92,7 +92,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="w-[320px] md:w-[400px] flex justify-center px-[10px] py-4 font-medium fixed top-0 z-50">
+    <header className="w-[320px] md:w-[400px] flex justify-center px-[10px] pt-8 font-medium fixed top-0 z-50">
       <div className="w-full flex justify-center px-12 pb-2 pt-3 rounded-full bg-black">
         <ul className="w-full flex flex-row items-start justify-between">
           {navLinks.map((navLink, index) =>

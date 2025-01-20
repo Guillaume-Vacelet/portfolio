@@ -31,7 +31,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="section flex-col items-center p-6 pt-16 text-black">
       <div className="w-full flex flex-col items-start gap-8">
-        <h2 className="text-2xl font-semibold">Projects</h2>
+        <h2 className="text-2xl font-semibold">Milestones in the learning journey</h2>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-8">
           {projects.map(project =>

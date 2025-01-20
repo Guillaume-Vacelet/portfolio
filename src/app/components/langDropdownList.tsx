@@ -1,0 +1,35 @@
+'use client'
+import React, { useState } from "react";
+
+export default function LangDropdownList() {
+  const [languages, setLanguages] = useState<string[]>(['En', 'Fr', 'Kr']);
+  const [listDown, setListDown] = useState<boolean>(false);
+
+  function setLanguage(index: number) {
+    let i = index + 1;
+    let tmp = [...languages];
+    let prevLang = tmp[0];
+
+    tmp[0] = tmp[i];
+    tmp[i] = prevLang
+    setLanguages(tmp);
+    setListDown(false);
+  }
+
+  return (
+    <div className="relative w-fit flex flex-col gap-0 text-sm cursor-pointer" onBlur={() => setListDown(false)}>
+      <button onClick={() => setListDown(!listDown)}
+        className={`size-12 flex items-center justify-center rounded-md font-semibold bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
+        {languages[0]}
+      </button>
+      <ul className={`w-full absolute top-12 h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`}>
+        {languages.slice(1).map((lang, i) => 
+          <li key={i}
+            className="size-12 flex items-center justify-center bg-gray-100 hover:bg-gray-300">
+            <button className="size-full" onClick={() => setLanguage(i)}>{lang}</button>
+          </li>
+        )}
+      </ul>
+    </div>
+  )
+}

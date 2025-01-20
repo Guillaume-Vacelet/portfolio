@@ -11,14 +11,17 @@
 :root {
   --background: #f5f1ee;
   --primary: #e1e1e1;
-  --accent: rgb(167 139 250);
+  --accent: #ff5e2b;
   --header-h: 56px;
   --app-px: 1.5rem;
 }
 
+* {
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 html {
   scroll-behavior: smooth;
-  transition: all 1s ease-out;
 }
 
 body {
@@ -32,17 +35,12 @@ body {
   display: flex;
   width: 100%;
   min-height: 100vh;
-  /* padding: 5rem 0.5rem 0.5rem 0.5rem; */
 }
 
-h1 {
-  /* dominant-baseline: text-bottom; */
-}
-
-@media screen and (min-width: 640px) {
-  /* .section {
-    padding: 4rem 0.5rem 0.5rem 0.5rem;
-  }  */
+.dot-grid {
+  background-image: radial-gradient(black 1px, transparent 0);
+  background-size: 40px 40px;
+  background-position: -19px -19px;
 }
 
 @media screen and (max-width: 851px) {
@@ -67,7 +65,6 @@ strong {
 }
 
 /* Animation */
-
 .shrink-animation {
   margin: 0;
   border-radius: 0;
