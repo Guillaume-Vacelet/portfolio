@@ -17,15 +17,15 @@ export default function LangDropdownList() {
   }
 
   return (
-    <div className="relative w-fit flex flex-col gap-0 text-sm cursor-pointer" onBlur={() => setListDown(false)}>
+    <div className="relative w-fit flex flex-col gap-0 text-xs sm:text-sm cursor-pointer z-50" onBlur={() => setListDown(false)}>
       <button onClick={() => setListDown(!listDown)}
-        className={`size-12 flex items-center justify-center rounded-md font-semibold bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
+        className={`size-10 md:size-12 flex items-center justify-center rounded-md font-medium bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
         {languages[0]}
       </button>
-      <ul className={`w-full absolute top-12 h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`}>
+      <ul className={`w-full absolute top-10 md:top-12 h-20 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`}>
         {languages.slice(1).map((lang, i) => 
           <li key={i}
-            className="size-12 flex items-center justify-center bg-gray-100 hover:bg-gray-300">
+            className="size-10 md:size-12 flex items-center justify-center bg-gray-100 hover:bg-gray-300">
             <button className="size-full" onClick={() => setLanguage(i)}>{lang}</button>
           </li>
         )}
