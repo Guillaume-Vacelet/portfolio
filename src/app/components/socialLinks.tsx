@@ -15,7 +15,7 @@ export default function SocialLinks() {
             src={`/static/images/${link.icon}`}
             alt={`${link.label} icon`}
             fill
-            style={{objectFit: "cover", background: 'black'}}
+            style={{objectFit: "cover"}}
           />
         </a>
       )}

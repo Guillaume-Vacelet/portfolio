@@ -36,6 +36,7 @@ body {
   display: flex;
   width: 100%;
   min-height: 100vh;
+  z-index: 30;
 }
 
 @media screen and (max-width: 851px) {
@@ -59,48 +60,22 @@ strong {
   background: var(--accent);
 }
 
-@property --x {
-  syntax: '<length-percentage>';
-  initial-value: 50vw;
-  inherits: false
+.radial-bg {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 85%;
+  height: 65%;
+  background: radial-gradient(
+          ellipse 50% 30% at 50% 50%, 
+          #241212 50%,
+          #000 100%);
+  transform: rotate(5deg);
 }
 
-@property --y {
-  syntax: '<length-percentage>';
-  initial-value: 100vh;
-  inherits: false
-}
-
-#dot-grid {
-  --pattern: radial-gradient(closest-side, #a4a4a4, #000) 0 / 10px 10px space;
-  --map: radial-gradient(circle farthest-corner at var(--x) var(--y), #fff, #646464);
-  background: var(--pattern), var(--map);
-  background-blend-mode: multiply;
-  filter: contrast(8); 
-  transition: .25s cubic-bezier(.1,0,.5,1.5);
-  transition-property: --x, --y;
-}
-
-@media screen and (max-width: 768px) {  
-  #dot-grid {
-    --pattern: radial-gradient(closest-side, #a4a4a4, #000) 0 / 10px 10px space;
-    --map: radial-gradient(circle farthest-corner at var(--x) var(--y), #fff, #646464);
-    background: var(--pattern), var(--map);
-    background-blend-mode: multiply;
-    filter: contrast(8); 
-    transition: .25s cubic-bezier(.1,0,.5,1.5);
-    transition-property: --x, --y;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  #dot-grid {
-    --pattern: radial-gradient(closest-side, #a4a4a4, #000) 0 / 8px 8px space;
-    --map: radial-gradient(circle farthest-corner at var(--x) var(--y), #fff, #646464);
-    background: var(--pattern), var(--map);
-    background-blend-mode: multiply;
-    filter: contrast(8); 
-    transition: .25s cubic-bezier(.1,0,.5,1.5);
-    transition-property: --x, --y;
-  }
+.sunrise-gradient {
+  background: radial-gradient(
+          ellipse 75vw 30% at bottom, 
+          #481515 0%,
+          #000 100%);
 }

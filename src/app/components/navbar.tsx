@@ -74,7 +74,7 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
   }
 
   function handleScroll() {
-    if (!hideOnScroll) {
+    if (hideOnScroll) {
       setHide(window.scrollY >= lastScrollY.current);
       lastScrollY.current = window.scrollY;
     }
@@ -110,60 +110,65 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
   function handleMobileMenuVisibility() {
     const modal = document.getElementById('navbar-modal');
 
-    if (modal) {
-      modal.style.display = 'flex';
-      modal.classList.add(!showMobileMenu ? 'fade-in' : 'fade-out');
-      modal.classList.remove(!showMobileMenu ? 'fade-out' : 'fade-in');
+    if (!modal) return;
+    
+    modal.style.display = 'flex';
+    modal.classList.add(!showMobileMenu ? 'fade-in' : 'fade-out');
+    modal.classList.remove(!showMobileMenu ? 'fade-out' : 'fade-in');
+
+    if (!showMobileMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'scroll';
     }
     setShowMobileMenu(!showMobileMenu);
   }
 
   return (
-    <header className={`size-full font-medium z-50 ${hideOnScroll ? 'bg-black -translate-y-full' : 'bg-none translate-y-0'}`}>
-      {/* <header className="w-[320px] md:w-[400px] flex justify-center px-[10px] pt-[30px] font-medium fixed top-0 z-50"> */}
-        {/* <div className="w-full flex justify-center px-12 pb-2 pt-3 rounded-xl bg-gray-900"> */}
+    <header className={
+      `size-full font-medium z-50
+      ${hideOnScroll ? 'bg-black' : 'bg-none'}
+      ${hideOnScroll && hide ? '-translate-y-full opacity-0' : 'translate-y-0'}
+      `}>
+      <div className="relative w-full flex items-center justify-end sm:justify-center p-[26px] sm:p-[30px] md:p-10">
+        <button onClick={() => handleMobileMenuVisibility()} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
+          <div className="relative size-full">
+            <Image
+              src={`/static/images/${showMobileMenu ? 'close' : 'menu'}.svg`}
+              alt="menu icon"
+              fill
+              style={{objectFit: "cover"}}
+            />
+          </div>
+        </button>
 
-        <div className="relative w-full flex items-center justify-end sm:justify-center p-[26px] sm:p-[30px] md:p-10">
-          <button onClick={() => handleMobileMenuVisibility()} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
-            <div className="relative size-full">
-              <Image
-                src={`/static/images/${showMobileMenu ? 'close' : 'menu'}.svg`}
-                alt="menu icon"
-                fill
-                style={{objectFit: "cover"}}
-              />
-            </div>
-          </button>
-
-          <div className="w-[320px] md:w-[400px] hidden sm:flex">
-            <ul className="h-10 md:h-12 w-full flex flex-row items-center justify-between">
-              {navLinks.map((navLink, index) =>
-                <li className={`group flex flex-col items-center cursor-pointer ${'fade-drop-' + index}`} key={navLink.anchor}>
-                  <Link
-                    href={`#${navLink.anchor}`}
-                    onClick={(e) => handleOnClick(e, navLink.anchor)}
-                    className="text-stone-500 text-xs md:text-base group-hover:text-white"
-                    style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
-                    {navLink.label}
-                  </Link>
-                  {navLink.anchor === activeSection
-                    ? <div className="w-1 h-1 bg-white rounded-full"></div>
-                    : null
-                  }
-                </li>
-              )}
-            </ul>
-            
-            <div className="absolute right-[30px] md:right-10 fade-drop-2">
-              <LangDropdownList />
-            </div>
+        <div className="w-[320px] md:w-[400px] hidden sm:flex">
+          <ul className="h-10 md:h-12 w-full flex flex-row items-center justify-between">
+            {navLinks.map((navLink, index) =>
+              <li className={`group flex flex-col items-center cursor-pointer ${'fade-drop-' + index}`} key={navLink.anchor}>
+                <Link
+                  href={`#${navLink.anchor}`}
+                  onClick={(e) => handleOnClick(e, navLink.anchor)}
+                  className="text-stone-500 text-xs md:text-base group-hover:text-white"
+                  style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
+                  {navLink.label}
+                </Link>
+                {navLink.anchor === activeSection
+                  ? <div className="w-1 h-1 bg-white rounded-full"></div>
+                  : null
+                }
+              </li>
+            )}
+          </ul>
+          
+          <div className="absolute right-[30px] md:right-10 fade-drop-2">
+            <LangDropdownList />
           </div>
         </div>
-          
-        {/* </div> */}
+      </div>
 
       <div id="navbar-modal" className={`absolute top-0 left-0 w-full h-[100vh] hidden items-center justify-center bg-black z-40`}>
-        <div className="absolute top-0 left-0 p-6">
+        <div className="fixed top-0 left-0 p-6">
           <LangDropdownList />
         </div>
         <ul className="flex flex-col justify-end gap-6">

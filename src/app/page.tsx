@@ -10,17 +10,14 @@ export default function Home() {
 
   return (
     <div className="font-nuckle w-full h-full flex flex-col items-center relative">
-      {/* <Navbar /> */}
+      {/* <div className="absolute top-0 left-0 w-full">
+        <Navbar hideOnScroll />
+      </div> */}
       <HomeSection />
-      <div className="relative bg-blue-500">
-        {/* <div className="sticky top-0 left-0 z-50">
-          <Navbar hideOnScroll />
-        </div> */}
-        <AboutSection />
-        {/* <ExperiencesSection /> */}
-        <ProjectsSection />
-        <Footer />
-      </div>
+      <AboutSection />
+      {/* <ExperiencesSection /> */}
+      <ProjectsSection />
+      <Footer />
     </div>
   );
 }
