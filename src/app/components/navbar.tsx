@@ -3,24 +3,23 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import LangDropdownList from "./langDropdownList";
+import { toggleModal } from "./navbarModal";
 
 interface NavLink {
   label: string;
   anchor: string;
 }
 
+export const navLinks: NavLink[] = [
+  { label: 'Home', anchor: 'home' },
+  { label: 'About', anchor: 'about' },
+  // { label: 'Experiences', anchor: 'experiences' },
+  { label: 'Projects', anchor: 'projects' },
+]
+
 export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean }) {
   const [activeSection, setActiveSection] = useState<string>('');
   const lastScrollY = useRef<number>(0);
-  const [hide, setHide] = useState<boolean>(true);
-  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
-
-  const navLinks: NavLink[] = [
-    { label: 'Home', anchor: 'home' },
-    { label: 'About', anchor: 'about' },
-    // { label: 'Experiences', anchor: 'experiences' },
-    { label: 'Projects', anchor: 'projects' },
-  ]
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -73,12 +72,29 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
     return res;
   }
 
+  function handleHideOnScroll() {
+    const navbar = document.getElementById('mobile-navbar');
+    const isScrollingDown = window.scrollY > lastScrollY.current;
+    const isThresholdReached = window.scrollY <= 25;
+
+    if (!navbar) return;
+
+    lastScrollY.current = window.scrollY;
+
+    if (isScrollingDown || isThresholdReached) {
+      navbar.classList.remove('unfolding');
+      navbar.classList.add('folding');
+    } else {
+      navbar.style.display = "block";
+      navbar.classList.remove('folding');
+      navbar.classList.add('unfolding');
+    }
+  }
+
   function handleScroll() {
     if (hideOnScroll) {
-      setHide(window.scrollY >= lastScrollY.current);
-      lastScrollY.current = window.scrollY;
+      handleHideOnScroll();
     }
-
     handleActiveSection();
   }
 
@@ -107,34 +123,16 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
     }
   }
 
-  function handleMobileMenuVisibility() {
-    const modal = document.getElementById('navbar-modal');
-
-    if (!modal) return;
-    
-    modal.style.display = 'flex';
-    modal.classList.add(!showMobileMenu ? 'fade-in' : 'fade-out');
-    modal.classList.remove(!showMobileMenu ? 'fade-out' : 'fade-in');
-
-    if (!showMobileMenu) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'scroll';
-    }
-    setShowMobileMenu(!showMobileMenu);
-  }
-
   return (
-    <header className={
-      `size-full font-medium z-50
-      ${hideOnScroll ? 'bg-black' : 'bg-none'}
-      ${hideOnScroll && hide ? '-translate-y-full opacity-0' : 'translate-y-0'}
-      `}>
-      <div className="relative w-full flex items-center justify-end sm:justify-center p-[26px] sm:p-[30px] md:p-10">
-        <button onClick={() => handleMobileMenuVisibility()} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
+    <header
+      id={`${hideOnScroll ? 'mobile-navbar' : 'navbar'}`}
+      className={`w-full font-medium z-50 bg-black ${hideOnScroll ? 'hidden py-2 px-[26px]' : ''}`}>
+      <div className="relative w-full flex items-center justify-end sm:justify-center">
+        {/* Mobile navbar */}
+        <button onClick={() => toggleModal()} className={`sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50 ${hideOnScroll ? '' : 'fade-in-right'}`}>
           <div className="relative size-full">
             <Image
-              src={`/static/images/${showMobileMenu ? 'close' : 'menu'}.svg`}
+              src={`/static/images/menu.svg`}
               alt="menu icon"
               fill
               style={{objectFit: "cover"}}
@@ -142,10 +140,11 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
           </div>
         </button>
 
+        {/* Desktop navbar */}
         <div className="w-[320px] md:w-[400px] hidden sm:flex">
           <ul className="h-10 md:h-12 w-full flex flex-row items-center justify-between">
             {navLinks.map((navLink, index) =>
-              <li className={`group flex flex-col items-center cursor-pointer ${'fade-drop-' + index}`} key={navLink.anchor}>
+              <li className={`group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink.anchor}>
                 <Link
                   href={`#${navLink.anchor}`}
                   onClick={(e) => handleOnClick(e, navLink.anchor)}
@@ -161,32 +160,10 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
             )}
           </ul>
           
-          <div className="absolute right-[30px] md:right-10 fade-drop-2">
+          <div className={`absolute right-[30px] md:right-10 ${hideOnScroll ?? 'fade-drop-2'}`}>
             <LangDropdownList />
           </div>
         </div>
-      </div>
-
-      <div id="navbar-modal" className={`absolute top-0 left-0 w-full h-[100vh] hidden items-center justify-center bg-black z-40`}>
-        <div className="fixed top-0 left-0 p-6">
-          <LangDropdownList />
-        </div>
-        <ul className="flex flex-col justify-end gap-6">
-          {navLinks.map((navLink) =>
-            <li className="group flex flex-col justify-center items-center gap-2 cursor-pointer" key={navLink.anchor}>
-              <Link
-                href={`#${navLink.anchor}`}
-                onClick={(e) => {
-                  handleMobileMenuVisibility();
-                  handleOnClick(e, navLink.anchor);
-                }}
-                className="text-stone-500 text-2xl group-hover:text-white"
-                style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
-                {navLink.label}
-              </Link>
-            </li>
-          )}
-        </ul>
       </div>
     </header>
   );

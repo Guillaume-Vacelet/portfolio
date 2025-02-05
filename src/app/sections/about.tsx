@@ -32,7 +32,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="section text-black p-6 pt-24">
+    <section id="about" className="section text-black p-6">
       <div className="w-full flex flex-col gap-4 text-sm font-medium">
         <p className="text-sm">
           Mostly working around the Javascript ecosystem, I like contributing to meaningful projects with real world impact.

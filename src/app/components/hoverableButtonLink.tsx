@@ -1,15 +1,27 @@
+'use client'
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HoverableButtonLink({
   url, label, bgColor, hoverBgColor="white", textColor='black', hoverTextColor='black' 
 } : { url: string, label: string, bgColor?: string, hoverBgColor?: string, textColor?: string, hoverTextColor?: string}) {
+  function handleOnClick(event: React.MouseEvent, sectionId: string) {
+    const element = document.getElementById(sectionId);
+
+    event.preventDefault();
+    if (element) {
+      element.scrollIntoView({behavior: 'smooth'})
+    }
+  }
+
   return (
-    <a className="group self-start flex flex-col items-center gap-1 sm:gap-2 px-3 py-2 rounded-md overflow-hidden bg-[var(--bg-color)] hover:bg-[var(--hover-bg-color)]"
+    <Link className="group self-start flex flex-col items-center gap-1 sm:gap-2 px-3 py-2 rounded-md overflow-hidden bg-[var(--bg-color)] hover:bg-[var(--hover-bg-color)]"
       style={{
         '--bg-color': bgColor ? bgColor : "var(--accent)",
         '--hover-bg-color': hoverBgColor,
       }}
-      href={url}>
+      href={url}
+      onClick={(e) => handleOnClick(e, url)}>
       <span className="h-full relative text-xs sm:text-sm text-[var(--text-color)]" style={{'--text-color': textColor}}>
         <span className="w-full flex flex-row items-center gap-2 group-hover:-translate-y-full group-hover:opacity-0 font-semibold">
           {label}
@@ -39,6 +51,6 @@ export default function HoverableButtonLink({
           </div>
         </span>
       </span>
-    </a>
+    </Link>
   );
 }

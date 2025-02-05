@@ -1,50 +1,30 @@
 'use client'
-import React, { useEffect } from "react";
-import LangDropdownList from "../components/langDropdownList";
+import React from "react";
 import LightIndicator from "../components/lightIndicator";
 import SocialLinks from "../components/socialLinks";
 import HoverableButtonLink from "../components/hoverableButtonLink";
 import Navbar from "../components/navbar";
+import Image from "next/image";
 
 export default function HomeSection() {
-  
-  // useEffect(() => {
-  //   const homeSectionEl = document.getElementById('dot-grid');
-
-  //   if (!homeSectionEl) return;
-    
-  //   const handleMouseMove = (e: MouseEvent) => {
-  //     homeSectionEl.style.setProperty('--x', `${e.clientX}px`);
-  //     homeSectionEl.style.setProperty('--y', `${e.clientY}px`);
-  //   };
-  
-  //   window.addEventListener('mousemove', handleMouseMove);
-  
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleMouseMove);
-  //   };
-  // }, []);
-
   return (
     <section id="home" className="section">
-      <div className="absolute top-0 right-0 w-full z-50">
-        <Navbar />
-      </div>
-
-      
       <div className="relative w-full gap-8 p-4 sm:p-5 shrink-animation bg-black">
-        {/* <div className="radial-bg"></div> */}
-        {/* <div id="dot-grid" className="absolute top-0 left-0 size-full round-corners-animation"></div> */}
+        <Navbar />
 
         <div className="size-full flex flex-col items-center justify-center gap-10 fade-in-right">          
           <div className="flex flex-col items-center gap-2">
             <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700">
               <LightIndicator />
-              <span className="text-xs sm:text-sm leading-none mt-[2px]">
-                Available to work in
-                <span style={{fontFamily: "NotoColorEmoji"}}> 🇰🇷</span>
-                Seoul
-              </span>
+              <span className="text-xs sm:text-sm leading-none mt-[2px]">Available to work in Seoul</span>
+              <div className="relative size-3 sm:size-4 inline-block self-center">
+                <Image
+                  src="/static/images/korea-flag.svg"
+                  alt="korean flag"
+                  fill
+                  style={{objectFit: "cover"}}
+                />
+              </div>
             </div>
 
             <div className="flex flex-col items-start gap-1">
@@ -60,7 +40,7 @@ export default function HomeSection() {
           </div>
 
           <div className="flex flex-col justify-center items-center gap-6">
-            <HoverableButtonLink url="#about" label="More about me" />
+            <HoverableButtonLink url="about" label="More about me" />
             <SocialLinks />
           </div>
         </div>

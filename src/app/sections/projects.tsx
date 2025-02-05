@@ -29,7 +29,7 @@ export default function ProjectsSection() {
   ]
 
   return (
-    <section id="projects" className="section flex-col items-center p-6 pt-24">
+    <section id="projects" className="section flex-col items-center p-6">
       <div className="w-full flex flex-col items-start gap-8">
         <h2 className="text-black text-2xl font-semibold">Milestones in the learning journey</h2>
 

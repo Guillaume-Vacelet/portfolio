@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function LangDropdownList() {
   const [languages, setLanguages] = useState<string[]>(['En', 'Fr', 'Kr']);
@@ -25,13 +25,13 @@ export default function LangDropdownList() {
         }
       }}>
       <button onClick={() => setListDown(!listDown)}
-        className={`size-10 md:size-12 flex items-center justify-center rounded-md font-medium bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
+        className={`size-8 md:size-12 flex items-center justify-center rounded-md font-medium bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
         {languages[0]}
       </button>
-      <ul className={`w-full absolute top-10 md:top-12 h-20 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`} style={{transitionDuration: '100ms'}}>
+      <ul className={`w-full absolute top-8 md:top-12 h-16 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`} style={{transitionDuration: '100ms'}}>
         {languages.slice(1).map((lang, i) => 
           <li key={i}
-            className="size-10 md:size-12 flex items-center justify-center bg-gray-100 hover:bg-gray-300">
+            className="size-8 md:size-12 flex items-center justify-center bg-gray-200 hover:bg-gray-300">
             <button className="size-full" onClick={() => {setLanguage(i)}}>{lang}</button>
           </li>
         )}
