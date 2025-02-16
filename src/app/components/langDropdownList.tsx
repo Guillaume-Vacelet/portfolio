@@ -31,7 +31,7 @@ export default function LangDropdownList() {
       <ul className={`w-full absolute top-8 md:top-12 h-16 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`} style={{transitionDuration: '100ms'}}>
         {languages.slice(1).map((lang, i) => 
           <li key={i}
-            className="size-8 md:size-12 flex items-center justify-center bg-gray-200 hover:bg-gray-300">
+            className="size-8 md:size-12 flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer">
             <button className="size-full" onClick={() => {setLanguage(i)}}>{lang}</button>
           </li>
         )}

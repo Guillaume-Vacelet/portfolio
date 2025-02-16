@@ -3,11 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: #f3f4f6;
+  --background: #F9FAFA;
   --primary: #e1e1e1;
   --accent: #ff5e2b;
   --header-h: 56px;
   --app-px: 1.5rem;
+
+  --card-border: #D9D9D9;
+  --card-background: #EEEEEE;
+  --card-primary: white;
+  --card-accent: var(--accent);
+  --card-hover: #FFF4F0;
 }
 
 * {
@@ -40,7 +46,7 @@ body {
 }
 
 strong {
-  font-weight: 500;
+  /* font-weight: 500; */
   text-decoration: underline;
   text-decoration-color: var(--accent);
 }
@@ -72,4 +78,8 @@ strong {
           ellipse 75vw 30% at bottom, 
           #481515 0%,
           #000 100%);
+}
+
+.accent-svg {
+  filter: invert(48%) sepia(20%) saturate(6322%) hue-rotate(342deg) brightness(101%) contrast(103%);
 }

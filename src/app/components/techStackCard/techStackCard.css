@@ -1,0 +1,48 @@
+.slideshow-container {
+  --slideshow-gap: 8px;
+ 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--slideshow-gap);
+  padding: 16px 16px 0 16px;
+  background-color: var(--card-background);
+  border-radius: 16px;
+  border: var(--card-border) solid 0.35px;
+}
+
+.slideshow-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--slideshow-gap);
+  align-items: center;
+  overflow-x: hidden;
+  mask-image: linear-gradient(
+    to right,
+    hsl(0 0% 0% / 0),
+    hsl(0 0% 0% / 1) 10%,
+    hsl(0 0% 0% / 1) 90%,
+    hsl(0 0% 0% / 0)
+  );
+}
+
+.slideshow-block {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--slideshow-gap);
+  animation: slideshow 60s linear infinite;
+}
+
+.slideshow--reversed .slideshow-block {
+  animation-direction: reverse;
+  animation-delay: -50s;
+}
+
+@keyframes slideshow {
+  from {
+    transform: translateX(var(0));
+  }
+  to {
+    transform: translateX(calc(-100% - var(--slideshow-gap)));
+  }
+}

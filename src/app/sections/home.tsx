@@ -16,15 +16,15 @@ export default function HomeSection() {
           <div className="flex flex-col items-center gap-2">
             <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700">
               <LightIndicator />
-              <span className="text-xs sm:text-sm leading-none mt-[2px]">Available to work in Seoul</span>
-              <div className="relative size-3 sm:size-4 inline-block self-center">
+              <span className="text-xs sm:text-sm leading-none mt-[2px]">Available to work</span>
+              {/* <div className="relative size-3 sm:size-4 inline-block self-center">
                 <Image
                   src="/static/images/korea-flag.svg"
                   alt="korean flag"
                   fill
                   style={{objectFit: "cover"}}
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className="flex flex-col items-start gap-1">

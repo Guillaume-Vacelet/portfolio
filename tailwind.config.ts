@@ -11,12 +11,14 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        accent: "var(--accent)"
+        accent: "var(--accent)",
+        cardBorder: 'var(--card-border)',
+        cardBackground: 'var(--card-background)',
+        cardPrimary: 'var(--card-primary)',
+        cardAccent: 'var(--card-accent)',
+        cardHover: 'var(--card-hover)',
       },
       fontFamily: {
-        worksans: ['var(--font-worksans)'],
-        clashdisplay: ['var(--font-clashdisplay)'],
-        switzer: ['var(--font-switzer)'],
         nuckle: ['var(--font-nuckle)']
       },
     },

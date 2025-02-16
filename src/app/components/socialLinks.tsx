@@ -8,7 +8,7 @@ export default function SocialLinks() {
   ];
 
   return (
-    <div className="w-fit flex flex-row justify-start gap-4 sm:gap-6">
+    <div className="w-fit flex flex-row justify-start gap-5 sm:gap-6">
       {links.map(link =>
         <a href={link.url} target="_blank" className="relative size-5 sm:size-6 flex p-2" key={link.label}>
           <Image

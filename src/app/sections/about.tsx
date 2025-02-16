@@ -1,59 +1,59 @@
-import HoverableButtonLink from "../components/hoverableButtonLink";
-import Image from "next/image";
+import TechStackCard from "../components/techStackCard/techStackCard";
+import ResumeListCard from "../components/resumeListCard";
+import SchoolLinkCard, {SchoolCard} from "../components/schoolCard";
 
 export default function AboutSection() {
-  const resumes = [
-    { label: "French", url: "/static/documents/resume-english.pdf" },
-    { label: "English", url: "/static/documents/resume-english.pdf" },
-    { label: "Korean", url: "/static/documents/resume-korean.pdf" },
-    // { label: "Portfolio", url: "/static/documents/portfolio.pdf" }
-  ];
-
-  const ResponsiveSquare = ({title, url} : {title: string, url: string}) => {
-    return (
-      <div className="relative w-full pt-[100%]">
-        <a className="absolute top-0 left-0 size-full p-4 rounded-xl bg-white hover:scale-105 shadow-[0px_4px_12px_0px_#00000014]"
-          href={url}
-          target="_blank">
-          <div className="flex items-start justify-between text-sm sm:text-base font-medium !leading-none">
-            {title}
-            <div className="relative size-3">
-              <Image
-                src={'/static/images/arrow.up.right.svg'}
-                alt="Up right arrow icon"
-                fill
-                style={{objectFit: "cover"}}
-              />
-            </div>
-          </div>
-        </a>
-      </div>
-    );
-  };
+  const schools: SchoolCard[] = [
+    { 
+      image: "/static/images/epitech.svg",
+      imgW: "w-44",
+      imgH: "h-11",
+      url: "https://www.epitech.eu/",
+      title: "Master degree in IT",
+      desc: "From understanding Unix and low level coding principles, to learning the latest stacks and development frameworks."
+    },
+    { 
+      image: "/static/images/cau.svg",
+      imgW: "w-24",
+      imgH: "h-24",
+      url: "https://www.cau.ac.kr/index.do",
+      title: "Exchange year in Seoul",
+      desc: "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
+    },
+  ]
 
   return (
-    <section id="about" className="section text-black p-6">
-      <div className="w-full flex flex-col gap-4 text-sm font-medium">
-        <p className="text-sm">
-          Mostly working around the Javascript ecosystem, I like contributing to meaningful projects with real world impact.
-          <br />
-          I am now seeking opportunities in Seoul, South-Korea.
-        </p>
-        <div className="size-[272px] bg-white rounded-xl grid grid-cols-2 grid-rows-2 gap-3 p-4">
-          <div className="relative w-full pt-[100%]">
-            <div className="absolute top-0 left-0 text-xl font-semibold !leading-none p-2">
-              My resumes
-            </div>
+    <section id="about" className="section flex-col items-center gap-4 text-black px-6 py-16">
+
+      <div className="w-full max-w-md sm:max-w-xl md:max-w-4xl flex flex-col items-center gap-4">
+
+        <div className="w-full flex flex-col sm:flex-row items-start gap-6 sm:gap-16">
+          <div className="w-full sm:w-3/5 flex flex-col">
+            <h2 className="text-black text-5xl sm:text-5xl font-medium">Who am I?</h2>
+            <p className="text-sm sm:text-base font-normal">
+              Graduated from Epitech IT school, I am a software engineer who thrives on solving problems.
+              Mostly working around the Javascript ecosystem, I create memorable websites through a polished user experience.
+            </p>
           </div>
 
-          {resumes.map((resume) =>
-            <ResponsiveSquare title={resume.label} url={resume.url} key={resume.label} />
-          )}
+          <div className="w-full sm:w-3/5 flex flex-col">
+            <ResumeListCard />
+          </div>
+        </div>
+
+        <div className="w-full flex flex-col sm:flex-row gap-4">
+          <ResumeListCard />
+          
+          <div className="w-full md:w-1/2">
+            <TechStackCard />
+          </div>
+        </div>
+
+        <div className="w-full flex flex-col sm:flex-row gap-4">
+          <SchoolLinkCard schoolCard={schools[0]}/>
+          <SchoolLinkCard schoolCard={schools[1]}/>
         </div>
       </div>
     </section>
-
-
-
   );
 }
