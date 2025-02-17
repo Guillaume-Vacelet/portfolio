@@ -6,12 +6,7 @@ export default function LangDropdownList() {
   const { languages, setLanguages } = useContext(LanguageContext);
   const [listDown, setListDown] = useState<boolean>(false);
 
-  useEffect(() => {
-    console.log(languages);
-  }, [languages]);
-
   function handleSwitchLanguage(index: number) {
-    console.log(index);
     let i = index + 1;
     let tmp = languages;
     let prevLang = tmp[0];
