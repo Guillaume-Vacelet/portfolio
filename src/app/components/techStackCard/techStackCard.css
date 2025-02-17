@@ -2,16 +2,16 @@
   --slideshow-gap: 8px;
  
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: var(--slideshow-gap);
-  padding: 16px 16px 0 16px;
-  background-color: var(--card-background);
-  border-radius: 16px;
-  border: var(--card-border) solid 0.35px;
+  padding: 8px 0;
 }
 
 .slideshow-row {
+  height: 100%;
   display: flex;
   flex-direction: row;
   gap: var(--slideshow-gap);
@@ -27,6 +27,7 @@
 }
 
 .slideshow-block {
+  height: 100%;
   display: flex;
   flex-shrink: 0;
   gap: var(--slideshow-gap);

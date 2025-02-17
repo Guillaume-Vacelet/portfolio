@@ -8,7 +8,7 @@ export default function ResumeListCard() {
   ];
 
   return (
-    <div className={`w-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px]`}>
+    <div className="h-full w-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-md">
       <h3 className="text-lg font-medium p-4">Resumes</h3>
       <div className="h-full flex flex-col gap-1 bg-white p-1 rounded-[14px] border-cardBorder border-[0.35px]">
         {resumes.map((resume, i) =>

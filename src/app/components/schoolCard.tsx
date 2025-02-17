@@ -12,7 +12,7 @@ export interface SchoolCard {
 
 export default function SchoolLinkCard({schoolCard} : {schoolCard: SchoolCard}) {
   return (
-    <div className="w-full md:w-1/2 flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px]">
+    <div className="w-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-md">
       <a href={schoolCard.url} target="_blank" className="flex flex-col bg-white p-1 rounded-[14px] border-cardBorder border-[0.35px]">
         <div className="p-[14px] rounded-[10px] hover:bg-cardHover">
           <div className="flex flex-row justify-end">
