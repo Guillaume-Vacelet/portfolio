@@ -160,7 +160,7 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
             )}
           </ul>
           
-          <div className={`absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
+          <div className={`z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
             <LangDropdownList />
           </div>
         </div>
