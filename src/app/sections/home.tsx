@@ -4,7 +4,6 @@ import LightIndicator from "../components/lightIndicator";
 import SocialLinks from "../components/socialLinks";
 import HoverableButtonLink from "../components/hoverableButtonLink";
 import Navbar from "../components/navbar";
-import Image from "next/image";
 
 export default function HomeSection() {
   return (
@@ -17,14 +16,6 @@ export default function HomeSection() {
             <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700">
               <LightIndicator />
               <span className="text-xs sm:text-sm leading-none mt-[2px]">Available to work</span>
-              {/* <div className="relative size-3 sm:size-4 inline-block self-center">
-                <Image
-                  src="/static/images/korea-flag.svg"
-                  alt="korean flag"
-                  fill
-                  style={{objectFit: "cover"}}
-                />
-              </div> */}
             </div>
 
             <div className="flex flex-col items-start gap-1">
@@ -40,7 +31,10 @@ export default function HomeSection() {
           </div>
 
           <div className="flex flex-col justify-center items-center gap-6">
-            <HoverableButtonLink url="about" label="More about me" />
+            <div className="grid grid-cols-2 gap-4">
+              <HoverableButtonLink label="More about me" url="about" />
+              <HoverableButtonLink label="Contact me" url="mailto:guillaume.vacelet@gmail.com" primary />
+            </div>
             <SocialLinks />
           </div>
         </div>

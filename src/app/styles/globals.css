@@ -80,6 +80,10 @@ strong {
           #000 100%);
 }
 
-.accent-svg {
+.svg-to-accent {
   filter: invert(48%) sepia(20%) saturate(6322%) hue-rotate(342deg) brightness(101%) contrast(103%);
+}
+
+.svg-to-white {
+  filter: invert(86%) sepia(49%) saturate(77%) hue-rotate(271deg) brightness(113%) contrast(100%);
 }
