@@ -2,10 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HoverableButtonLink({
-  url, label, bgColor, hoverBgColor="white", textColor='black', hoverTextColor='black' 
-} : { url: string, label: string, bgColor?: string, hoverBgColor?: string, textColor?: string, hoverTextColor?: string}) {
+export default function HoverableButtonLink({ label, url, primary=false } : { label: string, url: string, primary?: boolean }) {
   function handleOnClick(event: React.MouseEvent, sectionId: string) {
+    if (primary) {
+      return;
+    }
     const element = document.getElementById(sectionId);
 
     event.preventDefault();
@@ -15,19 +16,15 @@ export default function HoverableButtonLink({
   }
 
   return (
-    <Link className="group self-start flex flex-col items-center gap-1 sm:gap-2 px-3 py-2 rounded-md overflow-hidden bg-[var(--bg-color)] hover:bg-[var(--hover-bg-color)]"
-      style={{
-        '--bg-color': bgColor ? bgColor : "var(--accent)",
-        '--hover-bg-color': hoverBgColor,
-      }}
+    <Link className={`w-full box-border group self-start flex flex-col items-center gap-1 sm:gap-2 px-3 py-2 rounded-md overflow-hidden ${primary ? 'bg-accent' : 'bg-none border-white border-[1px]'} hover:bg-white`}
       href={url}
       onClick={(e) => handleOnClick(e, url)}>
-      <span className="h-full relative text-xs sm:text-sm text-[var(--text-color)]" style={{'--text-color': textColor}}>
-        <span className="w-full flex flex-row items-center gap-2 group-hover:-translate-y-full group-hover:opacity-0 font-semibold">
+      <span className={`h-full relative text-xs sm:text-sm font-medium ${primary ? 'text-black' : 'text-white'}`}>
+        <span className="delay-100 w-full flex flex-row items-center gap-2 group-hover:-translate-y-full group-hover:opacity-0">
           {label}
-          <div className="relative size-2 rotate-45">
+          <div className={`relative ${primary ? 'size-2' : 'size-[10px] svg-to-white'}`}>
             <Image
-              src={'/static/images/arrow.up.right.svg'}
+              src={`/static/images/${primary ? 'arrow.up.right.svg' : 'arrow.right.svg'}`}
               alt="Up right arrow icon"
               fill
               style={{objectFit: "cover"}}
@@ -35,15 +32,11 @@ export default function HoverableButtonLink({
           </div>
         </span>
 
-        <span
-          className="absolute w-full flex flex-row items-center gap-2 opacity-0 translate-y-0 group-hover:-translate-y-full group-hover:opacity-100 text-[var(--hover-text-color)] font-semibold"
-          style={{'--hover-text-color': hoverTextColor}}>
-            
+        <span className={`delay-100 absolute w-full flex flex-row items-center gap-2 opacity-0 translate-y-0 group-hover:-translate-y-full group-hover:opacity-100 text-black font-medium`}>
           {label}
-
-          <div className="relative size-2 rotate-45">
+          <div className={`relative ${primary ? 'size-2' : 'size-[10px]'}`}>
             <Image
-              src={'/static/images/arrow.up.right.svg'}
+              src={`/static/images/${primary ? 'arrow.up.right.svg' : 'arrow.right.svg'}`}
               alt="Up right arrow icon"
               fill
               style={{objectFit: "cover"}}
