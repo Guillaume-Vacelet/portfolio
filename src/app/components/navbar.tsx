@@ -142,7 +142,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
 
         {/* Desktop navbar */}
         <div className="w-[320px] md:w-[400px] hidden sm:flex">
-          <Link className={`z-50 absolute left-0 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
+          <Link className={`z-50 absolute left-4 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
             href="#home"
             onClick={(e) => handleOnClick(e,"home")}>
             <div className="relative size-12 svg-to-white">
@@ -173,7 +173,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
             )}
           </ul>
           
-          <div className={`z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
+          <div className={`self-center z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
             <LangDropdownList />
           </div>
         </div>

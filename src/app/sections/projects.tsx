@@ -2,12 +2,12 @@ import ProjectCard from "../components/projectCard";
 
 export default function ProjectsSection() {
   const projects = [
-    // {
-    //   image: "/static/images/bordeaux-bg.jpg",
-    //   title: "Bento",
-    //   desc: "A web agency platform to centralize the company tools and resources.",
-    //   techstack: ["react", "java", "docker"],
-    // },
+    {
+      image: "/static/images/bordeaux-bg.jpg",
+      title: "Canal+",
+      desc: "An.",
+      techstack: ["react", "java", "docker"],
+    },
     {
       image: "/static/images/bento-thumbnail.png",
       title: "Bento",

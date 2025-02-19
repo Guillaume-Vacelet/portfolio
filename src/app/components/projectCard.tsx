@@ -1,6 +1,5 @@
-import { Squircle } from "@squircle-js/react";
 import Image from "next/image";
-import HoverableButtonLink from "./hoverableButtonLink";
+import Link from "next/link";
 
 interface ProjectCardProps {
   image: string;
@@ -27,8 +26,9 @@ export default function ProjectCard({project} : {project: ProjectCardProps}) {
           <span className="text-xl font-semibold text-black">{project.title}</span>
           <p className="text-gray-500">{project.desc}</p>
         </div>
-
-        <HoverableButtonLink url="" label="See more" bgColor="white" hoverBgColor="var(--accent)" />
+        <Link className="text-base text-black" href={`/projects/${project.title.toLowerCase()}`}>
+          See more
+        </Link>
       </div>
     </div>
   )
