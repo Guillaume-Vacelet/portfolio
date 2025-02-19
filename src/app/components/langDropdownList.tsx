@@ -1,6 +1,6 @@
 'use client'
-import React, { useContext, useEffect, useState } from "react";
-import LanguageContext, { LanguageProvider } from "@/app/LanguageContext";
+import React, { useContext, useState } from "react";
+import LanguageContext, { LanguageProvider } from "@/app/contexts/LanguageContext";
 
 export default function LangDropdownList() {
   const { languages, setLanguages } = useContext(LanguageContext);
