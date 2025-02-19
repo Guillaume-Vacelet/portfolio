@@ -1,6 +1,6 @@
-import TechStackCard from "../components/techStackCard/techStackCard";
-import ResumeListCard from "../components/resumeListCard";
-import SchoolLinkCard, {SchoolCard} from "../components/schoolCard";
+import TechStackCard from "@/_components/techStackCard/techStackCard";
+import ResumeListCard from "@/_components/resumeListCard";
+import SchoolLinkCard, {SchoolCard} from "@/_components/schoolCard";
 
 export default function AboutSection() {
   const schools: SchoolCard[] = [

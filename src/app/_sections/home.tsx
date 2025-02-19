@@ -1,9 +1,9 @@
 'use client'
 import React from "react";
-import LightIndicator from "../components/lightIndicator";
-import SocialLinks from "../components/socialLinks";
-import HoverableButtonLink from "../components/hoverableButtonLink";
-import Navbar from "../components/navbar";
+import LightIndicator from "@/_components/lightIndicator";
+import SocialLinks from "@/_components/socialLinks";
+import HoverableButtonLink from "@/_components/hoverableButtonLink";
+import Navbar from "@/_components/navbar";
 
 export default function HomeSection() {
   return (

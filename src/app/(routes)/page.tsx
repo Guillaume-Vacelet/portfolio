@@ -1,11 +1,11 @@
-import Navbar from "./components/navbar";
-import HomeSection from "./sections/home";
-import ExperiencesSection from "./sections/experiences";
-import ProjectsSection from "./sections/projects";
-import Footer from "./sections/footer";
+import Navbar from "@/_components/navbar";
+import HomeSection from "@/_sections/home";
+import ExperiencesSection from "@/_sections/experiences";
+import ProjectsSection from "@/_sections/projects";
+import Footer from "@/_sections/footer";
 import React from "react";
-import AboutSection from "./sections/about";
-import NavbarModal from "./components/navbarModal";
+import AboutSection from "@/_sections/about";
+import NavbarModal from "@/_components/navbarModal";
 
 export default function Home() {
 

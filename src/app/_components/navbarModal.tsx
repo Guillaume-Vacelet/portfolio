@@ -1,9 +1,9 @@
 'use client'
 import Image from "next/image";
-import LangDropdownList from "./langDropdownList";
-import { navLinks } from "./navbar";
+import LangDropdownList from "@/_components/langDropdownList";
+import { navLinks } from "@/_components/navbar";
 import Link from "next/link";
-import SocialLinks from "./socialLinks";
+import SocialLinks from "@/_components/socialLinks";
 
 export function toggleModal() {
   const modal = document.getElementById('navbar-modal');

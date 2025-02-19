@@ -1,4 +1,4 @@
-import LinkIcon from "./linkIcon";
+import LinkIcon from "@/_components/linkIcon";
 
 export default function ResumeListCard() {
   const resumes = [

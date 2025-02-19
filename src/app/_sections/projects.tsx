@@ -1,4 +1,4 @@
-import ProjectCard from "../components/projectCard";
+import ProjectCard from "@/_components/projectCard";
 
 export default function ProjectsSection() {
   const projects = [
