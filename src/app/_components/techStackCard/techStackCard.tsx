@@ -18,7 +18,7 @@ export default function TechStackCard() {
   const slideshowBlock = () => (
     <div className="slideshow-block">
       {techStackLogos.map(logo => 
-        <div className="flex items-center py-0 px-6 sm:px-10 bg-cardPrimary border-cardBorder border-[0.35px] rounded-lg">
+        <div key={logo.label} className="flex items-center py-0 px-6 sm:px-10 bg-cardPrimary border-cardBorder border-[0.35px] rounded-lg">
           <div className="relative size-8 sm:size-12">
             <Image
               src={logo.url}
