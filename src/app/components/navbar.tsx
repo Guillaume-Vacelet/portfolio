@@ -17,7 +17,7 @@ export const navLinks: NavLink[] = [
   { label: 'Projects', anchor: 'projects' },
 ]
 
-export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean }) {
+export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOnScroll?: boolean, hideOnTop?: boolean }) {
   const [activeSection, setActiveSection] = useState<string>('');
   const lastScrollY = useRef<number>(0);
 
@@ -75,7 +75,7 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
   function handleHideOnScroll() {
     const navbar = document.getElementById('mobile-navbar');
     const isScrollingDown = window.scrollY > lastScrollY.current;
-    const isThresholdReached = window.scrollY <= 25;
+    const isThresholdReached = hideOnTop ? window.scrollY <= 25 : false;
 
     if (!navbar) return;
 
@@ -142,6 +142,19 @@ export default function Navbar({ hideOnScroll=false } : { hideOnScroll?: boolean
 
         {/* Desktop navbar */}
         <div className="w-[320px] md:w-[400px] hidden sm:flex">
+          <Link className={`z-50 absolute left-0 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
+            href="#home"
+            onClick={(e) => handleOnClick(e,"home")}>
+            <div className="relative size-12 svg-to-white">
+              <Image
+                src={`/static/images/logo-perso.svg`}
+                alt="menu icon"
+                fill
+                style={{objectFit: "cover"}}
+              />
+            </div>
+          </Link>
+
           <ul className="h-10 md:h-12 w-full flex flex-row items-center justify-between">
             {navLinks.map((navLink, index) =>
               <li className={`group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink.anchor}>
