@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from "react";
 import projects from "@/_data/projects";
+import IconChip from "@/_components/iconChip";
 
 export default function Projects() {
   const router = useRouter()
@@ -23,7 +24,10 @@ export default function Projects() {
     <div className="size-full min-h-screen  bg-black">
       <div className="size-full flex flex-col items-center justify-center px-6">
         <div className="relative w-full flex flex-row items-center justify-between h-16">
-          <Link href="/#projects" className="absolute p-0 left-0">
+          <Link href="/"
+            scroll={false}
+            onClick={() => router.back()}
+            className="absolute p-0 left-0">
             <div className="relative size-6 svg-to-white rotate-180">
               <Image
                 src={`/static/images/arrow.right.svg`}
@@ -35,11 +39,11 @@ export default function Projects() {
           </Link>
 
           <div className="w-full flex justify-center items-center">
-            <Link href="/" onClick={() => router.replace('/')}>
+            <Link href="/">
               <div className="relative size-12 svg-to-white">
                 <Image
                   src={`/static/images/logo-perso.svg`}
-                  alt="menu icon"
+                  alt="personal logo"
                   fill
                   style={{objectFit: "cover"}}
                 />
@@ -70,9 +74,7 @@ export default function Projects() {
                 <h3 className="text-lg sm:text-2xl font-medium text-white">Tech stack</h3>
                 <div className="flex flex-row gap-2">
                   {projects[projectIndex].techstack.map(tech => 
-                    <div key={tech} className="px-5 py-1 rounded-full bg-gray-900 text-sm font-normal text-white border-gray-700 border-[0.35px]">
-                      {tech}
-                    </div>
+                    <IconChip key={tech} label={tech} icon={`/static/images/${tech.toLowerCase()}.svg`} />
                   )}
                 </div>
               </div>
