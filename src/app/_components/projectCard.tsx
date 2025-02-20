@@ -1,14 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import {ProjectInfos} from "@/_data/projects";
 
-interface ProjectCardProps {
-  image: string;
-  title: string;
-  desc: string;
-  techstack: string[];
-}
-
-export default function ProjectCard({project} : {project: ProjectCardProps}) {
+export default function ProjectCard({project} : {project: ProjectInfos}) {
   return (
     <Link href={`/projects/${project.title.toLowerCase()}`} className="w-full flex flex-col group bg-white rounded-2xl border-cardBorder border-[0.35px] shadow-md">
       <Image
@@ -22,7 +16,7 @@ export default function ProjectCard({project} : {project: ProjectCardProps}) {
       <div className="size-full flex flex-col justify-between text-xs md:text-base font-medium p-4 gap-3">
         <div className="flex flex-col">
           <span className="text-xl font-medium text-black">{project.title}</span>
-          <p className="text-sm font-normal text-gray-600">{project.desc}</p>
+          <p className="text-sm font-normal text-gray-600">{project.subtitle}</p>
         </div>
 
         <div className="flex flex-row items-center gap-2 text-sm text-accent group-hover:gap-3">
