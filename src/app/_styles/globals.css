@@ -88,3 +88,12 @@ strong {
 .svg-to-white {
   filter: invert(86%) sepia(49%) saturate(77%) hue-rotate(271deg) brightness(113%) contrast(100%);
 }
+
+.svg-to-gray {
+  filter: invert(75%) sepia(6%) saturate(282%) hue-rotate(202deg) brightness(85%) contrast(94%);
+}
+
+.icon-chip-gradient {
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, #1d1d1d 0%, #111111 100%);
+}
