@@ -10,26 +10,33 @@ interface ProjectCardProps {
 
 export default function ProjectCard({project} : {project: ProjectCardProps}) {
   return (
-    <div className="w-full flex flex-col">
-      <div className="relative w-full aspect-w-16 aspect-h-8 rounded-lg">
-        <Image
-          src={project.image}
-          alt="Project card image"
-          fill
-          className="rounded-lg"
-          style={{objectFit:"cover"}}
-        />
-      </div>
+    <Link href={`/projects/${project.title.toLowerCase()}`} className="w-full flex flex-col group bg-white rounded-2xl border-cardBorder border-[0.35px] shadow-md">
+      <Image
+        src={project.image}
+        width={436}
+        height={245}
+        alt="Project card image"
+        className="rounded-t-2xl object-cover"
+      />
 
-      <div className="flex flex-col text-xs md:text-base font-medium p-3 gap-3">
+      <div className="size-full flex flex-col justify-between text-xs md:text-base font-medium p-4 gap-3">
         <div className="flex flex-col">
-          <span className="text-xl font-semibold text-black">{project.title}</span>
-          <p className="text-gray-500">{project.desc}</p>
+          <span className="text-xl font-medium text-black">{project.title}</span>
+          <p className="text-sm font-normal text-gray-600">{project.desc}</p>
         </div>
-        <Link className="text-base text-black" href={`/projects/${project.title.toLowerCase()}`}>
+
+        <div className="flex flex-row items-center gap-2 text-sm text-accent group-hover:gap-3">
           See more
-        </Link>
+          <div className="relative size-3 svg-to-accent">
+            <Image
+              src={"/static/images/arrow.right.svg"}
+              alt="arrow icon"
+              fill
+              style={{objectFit:"cover"}}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }
