@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--slideshow-gap);
-  padding: 8px 0;
 }
 
 .slideshow-row {

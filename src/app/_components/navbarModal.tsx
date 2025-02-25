@@ -3,7 +3,7 @@ import Image from "next/image";
 import LangDropdownList from "@/_components/langDropdownList";
 import { navLinks } from "@/_components/navbar";
 import Link from "next/link";
-import SocialLinks from "@/_components/socialLinks";
+import SocialLinkList from "@/_components/socialLinkList";
 
 export function toggleModal() {
   const modal = document.getElementById('navbar-modal');
@@ -67,7 +67,7 @@ export default function NavbarModal() {
       </ul>
 
       <div className="w-full flex justify-center">
-        <SocialLinks />
+        <SocialLinkList />
       </div>
     </div>
   )

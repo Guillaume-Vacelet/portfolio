@@ -10,9 +10,9 @@ export interface SchoolCard {
 
 export default function SchoolLinkCard({schoolCard} : {schoolCard: SchoolCard}) {
   return (
-    <div className="size-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-md">
+    <div className="h-full w-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-">
       <a href={schoolCard.url} target="_blank" className="flex flex-col bg-white p-1 rounded-[14px] border-cardBorder border-[0.35px]">
-        <div className="relative p-2 md:p-[14px] rounded-[10px] hover:bg-cardHover">
+        <div className="relative p-2 md:p-[14px] rounded-[10px] hover:bg-cardHover transition-colors duration-300">
           <div className="absolute top-2 right-2 flex flex-row justify-end">
             <LinkIcon />
           </div>

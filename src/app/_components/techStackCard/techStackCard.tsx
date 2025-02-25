@@ -18,8 +18,8 @@ export default function TechStackCard() {
   const slideshowBlock = () => (
     <div className="slideshow-block">
       {techStackLogos.map(logo => 
-        <div key={logo.label} className="flex items-center py-0 px-6 sm:px-10 bg-cardPrimary border-cardBorder border-[0.35px] rounded-lg">
-          <div className="relative size-8 sm:size-12">
+        <div key={logo.label} className="flex items-center py-3 px-10 bg-cardPrimary border-cardBorder border-[0.35px] rounded-lg">
+          <div className="relative size-8 sm:size-10">
             <Image
               src={logo.url}
               alt={`${logo.label} logo`}
@@ -34,7 +34,7 @@ export default function TechStackCard() {
   );
 
   return (
-    <div className="h-full w-full flex flex-col justify-between gap-4 p-4 bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-md">
+    <div className="size-full flex flex-col gap-5 p-4 bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-">
       <div className="slideshow-container">
         <div className="slideshow-row">
           {slideshowBlock()}
@@ -47,9 +47,9 @@ export default function TechStackCard() {
         </div>
       </div>
 
-      <div className="">
-        <h3 className="text-lg font-medium">Tech stacks I'm familiar with</h3>
-        <h3 className="text-sm font-normal text-gray-600">Mainly centered around the JavaScript environment, yet always keen to learn new technologies.</h3>
+      <div className="w-full">
+        <h3 className="text-lg font-medium pb-2">Tech stacks I'm familiar with</h3>
+        <h3 className="text-sm font-normal text-gray-600">Mainly using the JavaScript environment, yet always trying to learn new technologies.</h3>
       </div>
     </div>
   );

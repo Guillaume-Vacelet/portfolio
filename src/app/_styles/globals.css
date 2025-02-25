@@ -4,6 +4,7 @@
 
 :root {
   --background: #F9FAFA;
+  /* --background: #f5f1ee; */
   --primary: #e1e1e1;
   --accent: #ff5e2b;
   --header-h: 56px;
@@ -13,7 +14,7 @@
   --card-background: #EEEEEE;
   --card-primary: white;
   --card-accent: var(--accent);
-  --card-hover: #FFF4F0;
+  --card-hover: rgba(255, 55, 0, 0.05);
 }
 
 * {
@@ -96,4 +97,44 @@ strong {
 .icon-chip-gradient {
   background: rgb(0,0,0);
   background: linear-gradient(0deg, #1d1d1d 0%, #111111 100%);
+}
+
+.bg-accent-linear-fade {
+  background: var(--accent);
+  background: linear-gradient(0deg, #ff9372 0%, var(--accent) 30%);
+
+  /* background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 5%, var(--accent) 45%); */
+}
+
+.card-hover-style {
+  /* hover:scale-[1.02] hover:shadow-lg transition-all duration-500  */
+  transition: all;
+  transition-duration: 300ms;
+}
+.card-hover-style:hover {
+  transform: scale(1.02);
+}
+
+.inner-shadow {
+  box-shadow: inset 0 0 10px #00000010;
+}
+
+.dotted-grid {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient(#2a2a2a 1.3px, transparent 1.3px);
+  background-size: 24px 24px;
+  /* -webkit-mask-image: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    #000 60%,
+    transparent 100%
+  ); */
+  mask-image: radial-gradient(
+    ellipse 65% 65% at 50% 50%,
+    #000 60%,
+    transparent 100%
+  );
 }

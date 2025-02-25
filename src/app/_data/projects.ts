@@ -10,9 +10,9 @@ export interface ProjectInfos {
 
 const projects: ProjectInfos[] = [
   {
-    image: "/static/images/canal+.png",
+    image: "/static/images/canal-plus.svg",
     title: "Canal+",
-    subtitle: "An.",
+    subtitle: "A web application monitoring the internet connection of Canal+ customers.",
     year: "2024",
     techstack: ["react", "java", "docker"],
     context: "",
@@ -21,7 +21,7 @@ const projects: ProjectInfos[] = [
   {
     image: "/static/images/bento-thumbnail.png",
     title: "Bento",
-    subtitle: "A fullstack application centralizing resources and allowing widgets creation.",
+    subtitle: "A fullstack application dedicated to company tools and resources.",
     year: "2024",
     techstack: ["react", "java", "docker"],
     context: "",
@@ -30,7 +30,7 @@ const projects: ProjectInfos[] = [
   {
     image: "/static/images/blindspot-thumbnail.png",
     title: "Blindspot",
-    subtitle: "A belt prototype equiped with cameras to help visually impaired people.",
+    subtitle: "An IOT belt prototype to help visually impaired people.",
     year: "2024",
     techstack: ["react", "java", "docker"],
     context: "",
@@ -39,7 +39,7 @@ const projects: ProjectInfos[] = [
   {
     image: "/static/images/safecheck-thumbnail.png",
     title: "Safecheck",
-    subtitle: "A mobile application using artificial intelligence to detect counterfeit sneakers products from authentic ones.",
+    subtitle: "A mobile application using AI to authenticate sneakers.",
     year: "2024",
     techstack: ["react", "java", "docker"],
     context: "",

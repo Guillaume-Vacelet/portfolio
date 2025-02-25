@@ -1,14 +1,15 @@
 'use client'
 import React from "react";
 import LightIndicator from "@/_components/lightIndicator";
-import SocialLinks from "@/_components/socialLinks";
+import SocialLinkList from "@/_components/socialLinkList";
 import HoverableButtonLink from "@/_components/hoverableButtonLink";
 import Navbar from "@/_components/navbar";
 
 export default function HomeSection() {
   return (
-    <section id="home" className="section">
+    <section id="home" className="section !p-0">
       <div className="relative w-full gap-8 p-4 sm:p-5 shrink-animation bg-black">
+        {/* <div className="dotted-grid"></div> */}
         <Navbar />
 
         <div className="size-full flex flex-col items-center justify-center gap-10 fade-in-right">          
@@ -31,11 +32,11 @@ export default function HomeSection() {
           </div>
 
           <div className="flex flex-col justify-center items-center gap-6">
-            <div className="grid grid-cols-2 gap-4">
-              <HoverableButtonLink label="More about me" url="about" />
+            <div className="grid grid-cols-2 gap-3">
+              <HoverableButtonLink label="About me" url="about" />
               <HoverableButtonLink label="Contact me" url="mailto:guillaume.vacelet@gmail.com" primary />
             </div>
-            <SocialLinks />
+            <SocialLinkList />
           </div>
         </div>
       </div>

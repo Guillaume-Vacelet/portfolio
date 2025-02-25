@@ -17,6 +17,19 @@ export const navLinks: NavLink[] = [
   { label: 'Projects', anchor: 'projects' },
 ]
 
+export function handleScrollToAnchor(event: React.MouseEvent, sectionId: string) {
+  const element = document.getElementById(sectionId);
+
+  event.preventDefault();
+  if (element) {
+    element.scrollIntoView({behavior: 'smooth'})
+
+    // setTimeout(() => {
+    //   setActiveSection(sectionId);
+    // }, 500)
+  }
+}
+
 export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOnScroll?: boolean, hideOnTop?: boolean }) {
   const [activeSection, setActiveSection] = useState<string>('');
   const lastScrollY = useRef<number>(0);
@@ -108,20 +121,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
 
     newActiveSection = navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)].anchor;
     setActiveSection(newActiveSection);
-  }, 100)
-
-  function handleOnClick(event: React.MouseEvent, sectionId: string) {
-    const element = document.getElementById(sectionId);
-
-    event.preventDefault();
-    if (element) {
-      element.scrollIntoView({behavior: 'smooth'})
-  
-      setTimeout(() => {
-        setActiveSection(sectionId);
-      }, 500)
-    }
-  }
+  }, 100);
 
   return (
     <header
@@ -144,7 +144,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
         <div className="w-[320px] md:w-[400px] hidden sm:flex">
           <Link className={`z-50 absolute left-4 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
             href="#home"
-            onClick={(e) => handleOnClick(e,"home")}>
+            onClick={(e) => handleScrollToAnchor(e,"home")}>
             <div className="relative size-12 svg-to-white">
               <Image
                 src={`/static/images/logo-perso.svg`}
@@ -160,7 +160,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
               <li className={`group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink.anchor}>
                 <Link
                   href={`#${navLink.anchor}`}
-                  onClick={(e) => handleOnClick(e, navLink.anchor)}
+                  onClick={(e) => handleScrollToAnchor(e, navLink.anchor)}
                   className="text-stone-500 text-xs md:text-base group-hover:text-white"
                   style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
                   {navLink.label}

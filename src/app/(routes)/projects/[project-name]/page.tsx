@@ -54,7 +54,7 @@ export default function Projects() {
 
         {projectIndex === -1
           ? <div className="w-full h-screen flex items-center justify-center">Loading</div>
-          : <div className="w-full md:max-w-[800px] flex flex-col justify-start gap-8 sm:gap-12 mt-8 pb-20">
+          : <div className="bg-red-800 size-full md:max-w-[800px] flex flex-col justify-start gap-8 sm:gap-12 mt-8 pb-20">
               <div className="flex flex-col gap-2 sm:gap-3 pt-8 sm:pt-12">
                 <span className="text-base sm:text-lg font-medium text-gray-400">{projects[projectIndex].year}</span>
                 <h1 className="text-2xl sm:text-3xl font-semibold text-white">{projects[projectIndex].title}</h1>
