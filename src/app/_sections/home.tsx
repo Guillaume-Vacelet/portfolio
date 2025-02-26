@@ -27,7 +27,7 @@ export default function HomeSection() {
             </div>
 
             <span className="max-w-80 sm:max-w-none md:max-w-none text-center sm:text-start text-sm sm:text-base font-medium text-slate-400">
-              A software engineer building applications that matters.
+              Software engineer building meaningful applications.
             </span>
           </div>
 

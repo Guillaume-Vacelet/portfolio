@@ -3,13 +3,13 @@ import React from "react";
 
 export default function ResumeListCard() {
   const resumes = [
-    { label: "French", shortLabel: "Fr", url: "/static/documents/resume-english.pdf" },
+    { label: "French", shortLabel: "Fr", url: "/static/documents/resume-french.pdf" },
     { label: "English", shortLabel: "En", url: "/static/documents/resume-english.pdf" },
     { label: "Korean", shortLabel: "Kr", url: "/static/documents/resume-korean.pdf" },
   ];
 
   return (
-    <div className="size-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-">
+    <div className="size-full flex flex-col p-[2px] bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-sm">
       <h3 className="text-lg font-medium p-4">My resumes</h3>
       <div className="h-full flex flex-col gap-1 bg-white p-1 rounded-[14px] border-cardBorder border-[0.35px]">
         {resumes.map((resume, i) =>

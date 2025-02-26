@@ -21,7 +21,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-black">
+    <div className="w-full min-h-screen bg-zinc-950">
       <div className="size-full flex flex-col items-center justify-center px-4 sm:px-6">
         <div className="relative w-full flex flex-row items-center justify-between h-16">
           <Link href="/"
@@ -54,11 +54,11 @@ export default function Projects() {
 
         {projectIndex === -1
           ? <div className="w-full h-screen flex items-center justify-center">Loading</div>
-          : <div className="bg-red-800 size-full md:max-w-[800px] flex flex-col justify-start gap-8 sm:gap-12 mt-8 pb-20">
+          : <div className="size-full md:max-w-[800px] flex flex-col justify-start gap-8 sm:gap-12 mt-8 pb-20">
               <div className="flex flex-col gap-2 sm:gap-3 pt-8 sm:pt-12">
-                <span className="text-base sm:text-lg font-medium text-gray-400">{projects[projectIndex].year}</span>
+                <span className="text-base sm:text-md font-medium text-gray-500">{projects[projectIndex].year}</span>
                 <h1 className="text-2xl sm:text-3xl font-semibold text-white">{projects[projectIndex].title}</h1>
-                <h2 className="text-base sm:text-lg font-medium text-gray-400">{projects[projectIndex].subtitle}</h2>
+                <h2 className="text-base sm:text-md font-medium text-gray-500">{projects[projectIndex].subtitle}</h2>
               </div>
 
               <Image
@@ -66,11 +66,11 @@ export default function Projects() {
                 width={800}
                 height={450}
                 alt="project cover"
-                style={{borderRadius: "8px"}}
+                className="rounded-lg"
               />
 
               {/* Tech stack */}
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 <h3 className="text-lg sm:text-2xl font-medium text-white">Tech stack</h3>
                 <div className="w-full flex flex-row gap-2 flex-wrap">
                   {projects[projectIndex].techstack.map(tech => 
@@ -80,13 +80,13 @@ export default function Projects() {
               </div>
 
               {/* Context */}
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 <h3 className="text-lg sm:text-2xl font-medium text-white">Context</h3>
                 <p className="text-sm sm:text-base font-normal text-gray-400">{projects[projectIndex].context}</p>
               </div>
 
               {/* Concept */}
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 <h3 className="text-lg sm:text-2xl font-medium text-white">Concept</h3>
                 <p className="text-sm sm:text-base font-normal text-gray-400">{projects[projectIndex].concept}</p>
               </div>

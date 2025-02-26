@@ -4,7 +4,7 @@ import LinkIcon from "./linkIcon";
 
 export default function ScrollToProjectsCard() {
   return (
-    <Link className="group size-full flex p-1 bg-white border-cardBorder border-[0.35px] shadow- rounded-2xl"
+    <Link className="group size-full flex p-1 bg-white border-cardBorder border-[0.35px] shadow-sm rounded-2xl"
       href="#projects"
       onClick={(e) => handleScrollToAnchor(e, "projects")}>
       <div className="relative w-full flex flex-row justify-start items-center p-3 rounded-xl group-hover:bg-cardHover transition-colors duration-300">

@@ -2,7 +2,7 @@ import SocialLinkList from "@/_components/socialLinkList";
 
 export default function Footer() {
   return (
-    <section id="footer" className="w-full flex justify-center bg-black py-16 px-8 sm:px-12 md:px-20 xl:px-40">
+    <section id="footer" className="w-full flex justify-center bg-black py-16 px-8 sm:px-12 md:px-20 xl:px-40 border-t-[0.35px] border-zinc-800">
       <div className="w-full flex flex-col justify-between gap-4">
         <SocialLinkList />
         <span className="text-base font-medium">guillaume.vacelet@gmail.com</span>

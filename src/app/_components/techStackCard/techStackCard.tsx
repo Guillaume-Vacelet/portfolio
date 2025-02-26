@@ -34,7 +34,7 @@ export default function TechStackCard() {
   );
 
   return (
-    <div className="size-full flex flex-col gap-5 p-4 bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-">
+    <div className="size-full flex flex-col gap-5 p-4 bg-cardBackground rounded-2xl border-cardBorder border-[0.35px] shadow-sm">
       <div className="slideshow-container">
         <div className="slideshow-row">
           {slideshowBlock()}
