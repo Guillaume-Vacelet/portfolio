@@ -11,6 +11,6 @@ const SocialLinkList: SocialLink[] = [
   { label: "email", icon: "envelope.fill.svg", url: "mailto:guillaume.vacelet@gmail.com" },
 ];
 
-export let maltLink: SocialLink = SocialLinkList[2]; 
+export const maltLink: SocialLink = SocialLinkList[2]; 
 
 export default SocialLinkList;

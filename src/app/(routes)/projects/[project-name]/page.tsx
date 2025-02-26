@@ -18,6 +18,7 @@ export default function Projects() {
     setProjectIndex(projects.findIndex(project => {
       return project.title.toLowerCase() === urlSegment[urlSegment.length - 1].toLowerCase()
     }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -74,7 +75,7 @@ export default function Projects() {
                 <h3 className="text-lg sm:text-2xl font-medium text-white">Tech stack</h3>
                 <div className="w-full flex flex-row gap-2 flex-wrap">
                   {projects[projectIndex].techstack.map(tech => 
-                    <IconChip key={tech} label={tech} icon={`/static/images/${tech.toLowerCase()}.svg`} />
+                    <IconChip key={tech} label={tech} />
                   )}
                 </div>
               </div>

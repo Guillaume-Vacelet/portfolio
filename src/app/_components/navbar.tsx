@@ -43,6 +43,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getElementHeightPercentageInViewport(el: HTMLElement) {
@@ -61,12 +62,12 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
     return elVisibleHeight / elTotalHeight * 100;
   }
 
-  function debounce(func: (...args: any[]) => void, wait: number) {
+  function debounce(func: () => void, wait: number) {
     let timeout: NodeJS.Timeout;
-    return function executedFunction(...args: any[]) {
+    return function executedFunction() {
       const later = () => {
         clearTimeout(timeout);
-        func(...args);
+        func();
       };
       clearTimeout(timeout);
       timeout = setTimeout(later, wait);
@@ -75,7 +76,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
 
   function getIndexOfHighestNumber(arr: number[]) {
     let res = 0;
-    let diffMargin = 15;
+    const diffMargin = 15;
 
     arr.forEach((x, i) => {
       if (x > arr[res] + diffMargin) {
@@ -112,7 +113,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
   }
 
   const handleActiveSection = debounce(() => {
-    let sectionsInViewportPercentages: number[] = [];
+    const sectionsInViewportPercentages: number[] = [];
     let newActiveSection = "";
 
     document.querySelectorAll('.section').forEach(section => {

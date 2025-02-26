@@ -1,6 +1,5 @@
 import Navbar from "@/_components/navbar";
 import HomeSection from "@/_sections/home";
-import ExperiencesSection from "@/_sections/experiences";
 import ProjectsSection from "@/_sections/projects";
 import Footer from "@/_sections/footer";
 import React from "react";
@@ -17,7 +16,6 @@ export default function Home() {
       <NavbarModal />
       <HomeSection />
       <AboutSection />
-      {/* <ExperiencesSection /> */}
       <ProjectsSection />
       <Footer />
     </div>

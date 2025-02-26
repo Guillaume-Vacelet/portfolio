@@ -20,7 +20,7 @@ export default function HomeSection() {
             </div>
 
             <div className="flex flex-col items-start gap-1">
-              <span className="text-xs sm:text-base lg:text-lg font-bold">Hello, I'm</span>
+              <span className="text-xs sm:text-base lg:text-lg font-bold">Hello, I&apos;m</span>
               <h1 className="text-[29px] sm:text-5xl md:text-6xl lg:text-7xl leading-none font-bold text-start">
                 Guillaume Vacelet
               </h1>

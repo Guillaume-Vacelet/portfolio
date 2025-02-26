@@ -48,7 +48,7 @@ export default function TechStackCard() {
       </div>
 
       <div className="w-full">
-        <h3 className="text-lg font-medium pb-2">Tech stacks I'm familiar with</h3>
+        <h3 className="text-lg font-medium pb-2">Tech stacks I&apos;m familiar with</h3>
         <h3 className="text-sm font-normal text-gray-600">Mainly using the JavaScript environment, yet always trying to learn new technologies.</h3>
       </div>
     </div>
