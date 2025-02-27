@@ -4,8 +4,8 @@ import { maltLink } from "@/_data/socialLinks";
 
 export default function CallToActionCard() {
   return (
-    <Link href={maltLink.url} target="_blank" className="h-full w-full relative overflow-hidden flex flex-row items-center justify-between p-4 bg-black border-cardBorder border-[0.35px] rounded-2xl shadow-md card-hover-style hover:shadow-md">
-      <div className="w-full flex flex-col justify-center gap-4">
+    <Link href={maltLink.url} target="_blank" className="h-full w-full relative overflow-hidden flex p-8 bg-black border-cardBorder border-[0.35px] rounded-2xl shadow-md card-hover-style hover:shadow-md">
+      <div className="w-full flex flex-col justify-center gap-6">
         <span className="text-[32px] text-white font-medium">Let&apos;s get in touch.</span>
         <div className="w-fit flex items-center gap-2 rounded-md py-2 px-3 bg-accent text-sm sm:text-base text-black">
           Contact me on Malt

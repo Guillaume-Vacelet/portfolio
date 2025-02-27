@@ -14,9 +14,9 @@ const projects: ProjectInfos[] = [
     title: "Canal+",
     subtitle: "A web application monitoring the internet connection of Canal+ customers.",
     year: "2024",
-    techstack: ["react", "java", "docker"],
-    context: "",
-    concept: "",
+    techstack: ["angular16", "rxjs", "observables"],
+    context: "As a fullstack consultant at Ippon Technologies, I collaborated with Canal+ for a full-remote frontend position.",
+    concept: "Canal+ provides internet services in french overseas.\nThe mission consisted of supporting their frontend team to develop and maintain their monitoring application used by support and technical teams.\n\nI developed a new auto-diagnostic feature aimed at speeding up the support process for support teams. This module provides real-time analysis of a user's internet connection, using websockets directly retrieving data from equipments.",
   },
   {
     image: "/static/images/bento-thumbnail.png",
@@ -24,8 +24,8 @@ const projects: ProjectInfos[] = [
     subtitle: "A fullstack application dedicated to company tools and resources.",
     year: "2023",
     techstack: ["react", "spring", "java", "docker"],
-    context: "Master degree internship at Ippon Technologies.",
-    concept: "A web agency platform with the goal of creating an interactive application to centralize the company's resources and tools. The web app included features such as Google oAuth, mansory grid layout and plugin creation. The design was inspired by IOS home layout and made on Figma.",
+    context: "Master's degree internship project at Ippon Technologies.",
+    concept: "A web agency platform aimed at developing an interactive application to centralize the company's resources and tools. The web app features Google OAuth integration, a masonry grid layout, and plugin creation capabilities. The design, inspired by the iOS home layout, was made using Figma with a focus on making a pleasant user-experience.",
   },
   {
     image: "/static/images/blindspot-thumbnail.png",
@@ -33,8 +33,8 @@ const projects: ProjectInfos[] = [
     subtitle: "An IOT belt prototype to help visually impaired people.",
     year: "2021 - 2023",
     techstack: ["nextjs", "flutter", "python", "docker"],
-    context: "Master degree final project with a goal of creating a tech solution with a positive impact on society, such as environment or social concerns. The team consisted of 8 members from differents Epitech campus over France.",
-    concept: "An IOT help for visually impaired people : a connected belt equiped with a raspberry, cameras and vibrators. Using pattern recognition, the vibrators would indicate the direction and distance of obstacles around the user. A mobile application has been developed with Flutter to provide informations about the belt, such as battery level or emergency calls.",
+    context: "Master's degree final project aiming at developing a tech solution with a positive societal impact, addressing environmental or social concerns. The team comprised eight members from various EPITECH campuses across France.",
+    concept: "An IoT solution for visually impaired individuals: a connected belt equipped with a Raspberry Pi, cameras, and vibration motors. Using pattern recognition, the vibration motors indicate the direction and distance of obstacles around the user. Additionally, a mobile application developed with Flutter provides information about the belt, such as battery level and emergency call functionality.",
   },
   {
     image: "/static/images/safecheck-thumbnail.png",
@@ -42,8 +42,8 @@ const projects: ProjectInfos[] = [
     subtitle: "A mobile application to authenticate sneakers with AI.",
     year: "2021",
     techstack: ["react-native", "python", "scikit-learn"],
-    context: "Entrepreneurship in Artifical Intelligence training, in partnership with EPITECH IT school and EMLyon business school. Four months to identify a current issue and develop a viable entrepreneurial solution using artificial intelligence.",
-    concept: "Finding a solution to the growing issue of counterfeits product in the fashion industry. We built a mobile application to authenticate pairs of sneakers from picture",
+    context: "Entrepreneurship training in Artificial Intelligence, offered in partnership with EPITECH IT School and EMLyon Business School. Over four months, participants had to identify a current challenge and develop a viable entrepreneurial solution leveraging artificial intelligence.",
+    concept: "Addressing the growing issue of counterfeit products in the fashion industry, we developed a mobile application that authenticates sneakers using photographs.\n\nMy team and I created a dataset of counterfeit and authentic sneaker images, which we used to train an AI model using scikit-learn. I then developed a React Native mobile application that allows users to input pictures and output an authentication result.",
   },
 ]
 

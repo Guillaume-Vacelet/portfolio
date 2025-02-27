@@ -25,9 +25,12 @@ export default function AboutSection() {
     <section id="about" className="section flex-col items-center gap-5 text-black px-4 sm:px-12 md:px-20 xl:px-40 pt-8 pb-16">
       <div className="flex flex-col items-center gap-5"> 
         <div className="w-full grid max-[592px]:grid-cols-1 grid-cols-5 gap-5">
-          <div className="max-[592px]:col-span-1 col-span-3 flex bg-white rounded-2xl p-4 border-cardBorder border-[0.35px] shadow-sm">
-            <p className="text-base font-normal">
-              I am a web developer specializing in Frontend engineering. 
+          <div className="max-[592px]:col-span-1 col-span-3 bg-white rounded-2xl border-cardBorder border-[0.35px] shadow-sm">
+            <p className="text-base md:text-xl font-normal p-8">
+              I am a <strong>software engineer</strong> specializing in <strong>frontend</strong> development, passionate about crafting <strong>engaging user experiences</strong>.
+              <br/>
+              <br/>
+              I am open to work on new projects!
             </p>
           </div>
 

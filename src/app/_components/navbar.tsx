@@ -125,23 +125,36 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
       className={`w-full font-medium z-50 bg-black ${hideOnScroll ? 'hidden py-2 px-[26px]' : ''}`}>
       <div className="relative w-full flex items-center justify-end sm:justify-center">
         {/* Mobile navbar */}
-        <button onClick={() => toggleModal()} className={`sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50 ${hideOnScroll ? '' : 'fade-in-right'}`}>
-          <div className="relative size-full">
-            <Image
-              src={`/static/images/menu.svg`}
-              alt="menu icon"
-              fill
-              style={{objectFit: "cover"}}
-            />
-          </div>
-        </button>
+        <div className={`relative w-full sm:hidden flex flex-row justify-between ${hideOnScroll ? '' : 'fade-in-right'}`}>
+          <Link href="#home" onClick={(e) => handleScrollToAnchor(e,"home")}>
+            <div className="relative size-8 svg-to-white">
+              <Image
+                src={`/static/images/logo-perso.svg`}
+                alt="menu icon"
+                fill
+                style={{objectFit: "cover"}}
+              />
+            </div>
+          </Link>
+
+          <button onClick={() => toggleModal()} className="size-8 p-2 rounded-md bg-gray-900 z-50">
+            <div className="relative size-full">
+              <Image
+                src={`/static/images/menu.svg`}
+                alt="menu icon"
+                fill
+                style={{objectFit: "cover"}}
+              />
+            </div>
+          </button>
+        </div>
 
         {/* Desktop navbar */}
         <div className="w-[320px] md:w-[400px] hidden sm:flex">
           <Link className={`z-50 absolute left-4 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
             href="#home"
             onClick={(e) => handleScrollToAnchor(e,"home")}>
-            <div className="relative size-12 svg-to-white">
+            <div className="relative sm:size-10 md:size-12 svg-to-white">
               <Image
                 src={`/static/images/logo-perso.svg`}
                 alt="menu icon"
