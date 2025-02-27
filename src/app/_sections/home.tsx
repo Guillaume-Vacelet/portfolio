@@ -33,8 +33,8 @@ export default function HomeSection() {
 
           <div className="flex flex-col justify-center items-center gap-6">
             <div className="grid grid-cols-2 gap-3">
-              <HoverableButtonLink label="About me" url="about" />
               <HoverableButtonLink label="Contact me" url="mailto:guillaume.vacelet@gmail.com" primary />
+              <HoverableButtonLink label="About me" url="about" />
             </div>
             <SocialLinkList />
           </div>
