@@ -13,7 +13,6 @@ interface NavLink {
 export const navLinks: NavLink[] = [
   { label: 'Home', anchor: 'home' },
   { label: 'About', anchor: 'about' },
-  // { label: 'Experiences', anchor: 'experiences' },
   { label: 'Projects', anchor: 'projects' },
 ]
 
@@ -23,10 +22,6 @@ export function handleScrollToAnchor(event: React.MouseEvent, sectionId: string)
   event.preventDefault();
   if (element) {
     element.scrollIntoView({behavior: 'smooth'})
-
-    // setTimeout(() => {
-    //   setActiveSection(sectionId);
-    // }, 500)
   }
 }
 

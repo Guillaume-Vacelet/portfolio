@@ -8,11 +8,11 @@ import Navbar from "@/_components/navbar";
 export default function HomeSection() {
   return (
     <section id="home" className="section !p-0">
-      <div className="relative w-full gap-8 p-4 sm:p-5 shrink-animation bg-black">
+      <div className="relative w-full flex flex-col p-4 sm:p-5 shrink-animation bg-black">
         {/* <div className="dotted-grid"></div> */}
         <Navbar />
 
-        <div className="size-full flex flex-col items-center justify-center gap-10 fade-in-right">          
+        <div className="size-full flex flex-col items-center justify-center gap-10 fade-in-top">
           <div className="flex flex-col items-center gap-2">
             <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700">
               <LightIndicator />
@@ -32,8 +32,8 @@ export default function HomeSection() {
           </div>
 
           <div className="flex flex-col justify-center items-center gap-6">
-            <div className="grid grid-cols-2 gap-3">
-              <HoverableButtonLink label="Contact me" url="mailto:guillaume.vacelet@gmail.com" primary />
+            <div className="grid grid-cols-2 gap-3 sm:gap-5">
+              <HoverableButtonLink label="Let's connect" url="mailto:guillaume.vacelet@gmail.com" primary />
               <HoverableButtonLink label="About me" url="about" />
             </div>
             <SocialLinkList />

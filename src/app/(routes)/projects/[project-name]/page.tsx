@@ -23,7 +23,6 @@ export default function Projects() {
 
   return (
     <div className="w-full min-h-screen bg-zinc-950">
-      {/* px-4 sm:px-6 */}
       <div className="size-full flex flex-col items-center justify-center px-4 sm:px-12 md:px-20 xl:px-40">
         <div className="relative w-full flex flex-row items-center justify-between h-16">
           <Link href="/"
@@ -53,15 +52,13 @@ export default function Projects() {
             </Link>
           </div>
         </div>
-        {/* px-8 sm:px-12 md:px-20 xl:px-40 */}
-        {/* md:max-w-[800px] */}
         {projectIndex === -1
           ? <div className="w-full h-screen flex items-center justify-center">Loading</div>
           : <div className="size-full flex flex-col justify-start gap-8 sm:gap-12 mt-8 pb-20">
               <div className="flex flex-col gap-2 sm:gap-3 pt-8 sm:pt-24">
-                <span className="text-base sm:text-md font-medium text-gray-500">{projects[projectIndex].year}</span>
+                <span className="text-sm sm:text-base font-medium text-gray-500">{projects[projectIndex].year}</span>
                 <h1 className="text-2xl sm:text-3xl font-semibold text-white">{projects[projectIndex].title}</h1>
-                <h2 className="text-base sm:text-md font-medium text-gray-500">{projects[projectIndex].subtitle}</h2>
+                <h2 className="text-sm sm:text-base font-medium text-gray-500">{projects[projectIndex].subtitle}</h2>
               </div>
 
               <Image

@@ -26,18 +26,18 @@
   }
 }
 
-.fade-in-right {
+.fade-in-top {
   opacity: 0;
-  animation: 1s fade-in-right 1.25s ease forwards;
+  animation: 1.25s fade-in-top 1.25s ease forwards;
 }
-@keyframes fade-in-right {
+@keyframes fade-in-top {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
 }
 

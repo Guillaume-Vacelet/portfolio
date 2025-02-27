@@ -26,7 +26,7 @@ export default function AboutSection() {
       <div className="flex flex-col items-center gap-5"> 
         <div className="w-full grid max-[592px]:grid-cols-1 grid-cols-5 gap-5">
           <div className="max-[592px]:col-span-1 col-span-3 flex bg-white rounded-2xl p-4 border-cardBorder border-[0.35px] shadow-sm">
-            <p className="text-lg font-normal">
+            <p className="text-base font-normal">
               I am a web developer specializing in Frontend engineering. 
             </p>
           </div>
