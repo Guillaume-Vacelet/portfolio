@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode, useEffect } from 'react';
 
 interface LanguageContextType {
   languages: string[];
@@ -17,6 +17,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     languages,
     setLanguages,
   };
+
+  useEffect(() => {
+    console.log(languages);
+  }, [languages]);
 
   return (
     <LanguageContext.Provider value={value}>

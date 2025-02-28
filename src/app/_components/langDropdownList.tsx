@@ -30,10 +30,10 @@ export default function LangDropdownList() {
           className={`size-10 md:size-12 flex items-center justify-center rounded-md font-medium bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
           {languages[0]}
         </button>
-        <ul className={`w-full absolute top-8 md:top-12 h-16 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`} style={{transitionDuration: '100ms'}}>
+        <ul className={`w-full absolute top-10 md:top-12 h-20 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`} style={{transitionDuration: '100ms'}}>
           {languages.slice(1).map((lang, i) => 
             <li key={i}
-              className="size-8 md:size-12 flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer">
+              className="size-10 md:size-12 flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer">
               <button className="size-full" onClick={() => {handleSwitchLanguage(i)}}>{lang}</button>
             </li>
           )}
