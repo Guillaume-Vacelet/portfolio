@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import LangDropdownList from "./langDropdownList";
 import { toggleModal } from "./navbarModal";
+import debounce from "@/_utils/debounce";
 
 interface NavLink {
   label: string;
@@ -56,18 +57,6 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
 
     return elVisibleHeight / elTotalHeight * 100;
   }
-
-  function debounce(func: () => void, wait: number) {
-    let timeout: NodeJS.Timeout;
-    return function executedFunction() {
-      const later = () => {
-        clearTimeout(timeout);
-        func();
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
 
   function getIndexOfHighestNumber(arr: number[]) {
     let res = 0;
