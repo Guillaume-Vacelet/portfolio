@@ -20,22 +20,24 @@
         "english": "English", 
         "korean": "Korean"
       },
-      "scrollToProjectsCard": "See my works",
+      "scrollToProjectsCard": {
+        "title": "See my works"
+      },
       "callToActionCard": {
         "title": "Let's get in touch",
         "button": "Contact me on Malt"
       },
-      "techStacksCard": {
+      "techStackCard": {
         "title": "Tech stacks I'm familiar with",
-        "subtitle": "Mainly using the JavaScript environment, yet always trying to learn new technologies."
+        "desc": "Mainly using the JavaScript environment, yet always trying to learn new technologies."
       },
       "firstEducationCard": {
         "title": "Master degree in IT",
-        "subtitle": "From understanding Unix and low level coding principles, to learning the latest stacks & development frameworks."
+        "desc": "From understanding Unix and low level coding principles, to learning the latest stacks & development frameworks."
       },
       "secondEducationCard": {
         "title": "Exchange year in Seoul",
-        "subtitle": "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
+        "desc": "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
       }
     },
     "projectsSection": {

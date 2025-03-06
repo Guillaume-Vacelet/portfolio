@@ -4,20 +4,20 @@ import ResumeListCard from "@/app/_components/resumeListCard";
 import SchoolLinkCard, {SchoolCard} from "@/app/_components/schoolCard";
 import CallToActionCard from "@/app/_components/callToActionCard";
 import ScrollToProjectsCard from "@/app/_components/scrollToProjectsCard";
+import { useTranslations } from "next-intl";
 
 export default function AboutSection() {
+  const t = useTranslations("homePage.aboutSection");
   const schools: SchoolCard[] = [
     { 
       image: "/static/images/epitech-thumbnail.svg",
       url: "https://www.epitech.eu/",
-      title: "Master degree in IT",
-      desc: "From understanding Unix and low level coding principles, to learning the latest stacks & development frameworks."
+      i18nKey: "firstEducationCard"
     },
     { 
       image: "/static/images/cau-thumbnail.svg",
       url: "https://www.cau.ac.kr/index.do",
-      title: "Exchange year in Seoul",
-      desc: "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
+      i18nKey: "secondEducationCard"
     },
   ]
 
@@ -27,10 +27,7 @@ export default function AboutSection() {
         <div className="w-full grid max-[592px]:grid-cols-1 grid-cols-5 gap-5">
           <div className="max-[592px]:col-span-1 col-span-3 bg-white rounded-2xl border-cardBorder border-[0.35px] shadow-sm">
             <p className="text-base md:text-xl font-normal p-8">
-              I am a <strong>software engineer</strong> specializing in <strong>frontend</strong> development, passionate about crafting <strong>engaging user experiences</strong>.
-              <br/>
-              <br/>
-              I am open to work on new projects!
+              {t('selfIntro')}
             </p>
           </div>
 

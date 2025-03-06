@@ -1,7 +1,9 @@
 import Image from "next/image";
 import "./techStackCard.css";
+import { useTranslations } from "next-intl";
 
 export default function TechStackCard() {
+  const t = useTranslations("homePage.aboutSection.techStackCard");
   const techStackLogos = [
     { label: "Docker", url: "/static/images/docker.svg" },
     { label: "Karma", url: "/static/images/karma.svg" },
@@ -48,8 +50,8 @@ export default function TechStackCard() {
       </div>
 
       <div className="w-full">
-        <h3 className="text-lg font-medium pb-2">Tech stacks I&apos;m familiar with</h3>
-        <h3 className="text-sm font-normal text-gray-600">Mainly using the JavaScript environment, yet always trying to learn new technologies.</h3>
+        <h3 className="text-lg font-medium pb-2">{t('title')}</h3>
+        <h3 className="text-sm font-normal text-gray-600">{t('desc')}</h3>
       </div>
     </div>
   );

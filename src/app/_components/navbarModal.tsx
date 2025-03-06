@@ -36,7 +36,7 @@ function fadeModalOut(modal: HTMLElement) {
 }
 
 export default function NavbarModal() {
-  const t = useTranslations();
+  const t = useTranslations("navbar");
 
   useEffect(() => {
     window.addEventListener('resize', debounce(
@@ -72,7 +72,7 @@ export default function NavbarModal() {
         {navLinks.map((navLink) =>
           <li className="flex flex-col justify-center items-center gap-2 cursor-pointer" key={navLink}>
             <Link
-              href={`#${navLink.anchor}`}
+              href={`#${navLink}`}
               onClick={(e) => {
                 toggleModal();
                 handleScrollToAnchor(e, navLink);
