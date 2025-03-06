@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LinkIcon from "@/_components/linkIcon";
+import LinkIcon from "@/app/_components/linkIcon";
 
 export interface SchoolCard {
   image: string;

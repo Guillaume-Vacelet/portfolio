@@ -1,15 +1,27 @@
-'use client'
-import React, { useState } from "react";
-import { locales, defaultLocale } from "@/i18n/config";
-import { getUserLocale, setUserLocale } from "../_services/locale";
+'use client';
 
-export default async function LangDropdownList() {
-  const [language, setLanguage] = useState<string>(defaultLocale);
+import {useState, useTransition} from 'react';
+import {Locale} from '@/i18n/config';
+import {setUserLocale} from '@/app/_services/locale';
+
+type Props = {
+  defaultValue: string;
+  items: string[];
+};
+
+export default function LocaleSwitcherSelect({
+  defaultValue,
+  items,
+}: Props) {
   const [listDown, setListDown] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
 
-  function handleSwitchLanguage(selectedLang: string) {
-    setLanguage(selectedLang);
+  function onChange(value: string) {
+    const locale = value as Locale;
     setListDown(false);
+    startTransition(() => {
+      setUserLocale(locale);
+    });
   }
 
   return (
@@ -22,16 +34,16 @@ export default async function LangDropdownList() {
       }>
       <button onClick={() => setListDown(!listDown)}
         className={`size-10 md:size-12 flex items-center justify-center rounded-md font-medium bg-gray-900 hover:bg-white hover:text-black ${listDown ? 'text-black bg-white rounded-b-none' : ''}`}>
-        {language}
+        {defaultValue}
       </button>
       <ul className={`w-full absolute top-10 md:top-12 h-20 md:h-24 origin-top scale-y-0 flex flex-col items-center justify-center overflow-hidden text-black last:rounded-b-md transition-transform ${listDown ? 'scale-y-100' : ''}`} style={{transitionDuration: '100ms'}}>
-        {locales.filter(lang => lang !== language).map(lang => 
+        {items.filter(lang => lang !== defaultValue).map(lang => 
           <li key={lang}
             className="size-10 md:size-12 flex items-center justify-center bg-gray-200 hover:bg-gray-300 cursor-pointer">
-            <button className="size-full" onClick={() => {handleSwitchLanguage(lang)}}>{lang}</button>
+            <button className="size-full" onClick={() => {onChange(lang)}}>{lang}</button>
           </li>
         )}
       </ul>
     </div>
-  )
+  );
 }

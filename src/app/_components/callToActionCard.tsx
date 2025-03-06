@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { maltLink } from "@/_data/socialLinks";
+import { maltLink } from "@/app/_data/socialLinks";
 
 export default function CallToActionCard() {
   return (

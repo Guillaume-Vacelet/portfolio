@@ -1,4 +1,4 @@
-import LinkIcon from "@/_components/linkIcon";
+import LinkIcon from "@/app/_components/linkIcon";
 import React from "react";
 
 export default function ResumeListCard() {

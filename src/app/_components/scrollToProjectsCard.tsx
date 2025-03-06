@@ -1,4 +1,4 @@
-import { handleScrollToAnchor } from "@/_components/navbar";
+import { handleScrollToAnchor } from "@/app/_components/navbar";
 import Link from "next/link";
 import LinkIcon from "./linkIcon";
 

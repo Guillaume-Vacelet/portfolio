@@ -1,4 +1,4 @@
-import SocialLinkList from "@/_components/socialLinkList";
+import SocialLinkList from "@/app/_components/socialLinkList";
 
 export default function Footer() {
   return (

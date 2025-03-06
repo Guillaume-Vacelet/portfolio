@@ -2,20 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import LangDropdownList from "./langDropdownList";
 import { toggleModal } from "./navbarModal";
-import debounce from "@/_utils/debounce";
+import debounce from "@/app/_utils/debounce";
+import LocaleSwitcher from "./localeSwitcher/localeSwitcher";
+import { useTranslations } from "next-intl";
 
-interface NavLink {
-  label: string;
-  anchor: string;
-}
-
-export const navLinks: NavLink[] = [
-  { label: 'Home', anchor: 'home' },
-  { label: 'About', anchor: 'about' },
-  { label: 'Projects', anchor: 'projects' },
-]
+export const navLinks = ['home', 'about', 'projects']
 
 export function handleScrollToAnchor(event: React.MouseEvent, sectionId: string) {
   const element = document.getElementById(sectionId);
@@ -29,6 +21,7 @@ export function handleScrollToAnchor(event: React.MouseEvent, sectionId: string)
 export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOnScroll?: boolean, hideOnTop?: boolean }) {
   const [activeSection, setActiveSection] = useState<string>('');
   const lastScrollY = useRef<number>(0);
+  const t = useTranslations('navbar');
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -104,7 +97,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
       sectionsInViewportPercentages.push(getElementHeightPercentageInViewport(section as HTMLElement));
     })
 
-    newActiveSection = navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)].anchor;
+    newActiveSection = navLinks[getIndexOfHighestNumber(sectionsInViewportPercentages)];
     setActiveSection(newActiveSection);
   }, 100);
 
@@ -155,15 +148,15 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
 
           <ul className="h-10 md:h-12 w-full flex flex-row items-center justify-between">
             {navLinks.map((navLink, index) =>
-              <li className={`group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink.anchor}>
+              <li className={`group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
                 <Link
-                  href={`#${navLink.anchor}`}
-                  onClick={(e) => handleScrollToAnchor(e, navLink.anchor)}
+                  href={`#${navLink}`}
+                  onClick={(e) => handleScrollToAnchor(e, navLink)}
                   className="text-stone-500 text-xs md:text-base group-hover:text-white"
-                  style={{ color: activeSection === navLink.label.toLowerCase() ? 'white' : ''}}>
-                  {navLink.label}
+                  style={{ color: activeSection === navLink ? 'white' : ''}}>
+                  {t(navLink)}
                 </Link>
-                {navLink.anchor === activeSection
+                {navLink === activeSection
                   ? <div className="w-1 h-1 bg-white rounded-full"></div>
                   : null
                 }
@@ -172,7 +165,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
           </ul>
           
           <div className={`self-center z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
-            <LangDropdownList />
+            <LocaleSwitcher />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import socialLinks from "@/_data/socialLinks";
+import socialLinks from "@/app/_data/socialLinks";
 
 export default function SocialLinkList() {
   return (

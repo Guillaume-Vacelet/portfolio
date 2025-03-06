@@ -1,9 +1,9 @@
 'use client'
-import TechStackCard from "@/_components/techStackCard/techStackCard";
-import ResumeListCard from "@/_components/resumeListCard";
-import SchoolLinkCard, {SchoolCard} from "@/_components/schoolCard";
-import CallToActionCard from "@/_components/callToActionCard";
-import ScrollToProjectsCard from "@/_components/scrollToProjectsCard";
+import TechStackCard from "@/app/_components/techStackCard/techStackCard";
+import ResumeListCard from "@/app/_components/resumeListCard";
+import SchoolLinkCard, {SchoolCard} from "@/app/_components/schoolCard";
+import CallToActionCard from "@/app/_components/callToActionCard";
+import ScrollToProjectsCard from "@/app/_components/scrollToProjectsCard";
 
 export default function AboutSection() {
   const schools: SchoolCard[] = [

@@ -1,11 +1,11 @@
 'use client'
-import Footer from "@/_sections/footer";
+import Footer from "@/app/_sections/footer";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from "react";
-import projects from "@/_data/projects";
-import IconChip from "@/_components/iconChip";
+import projects from "@/app/_data/projects";
+import IconChip from "@/app/_components/iconChip";
 
 export default function Projects() {
   const router = useRouter()
