@@ -32,8 +32,8 @@ export default function SchoolLinkCard({schoolCard} : {schoolCard: SchoolCard}) 
       </a>
 
       <div className="p-3 md:p-4">
-        <h3 className="text-lg font-medium pb-2">t({'title'})</h3>
-        <h3 className="text-sm font-normal text-gray-600">t({'desc'})</h3>
+        <h3 className="text-lg font-medium pb-2">{t('title')}</h3>
+        <h3 className="text-sm font-normal text-gray-600">{t('desc')}</h3>
       </div>
     </div>
   )
