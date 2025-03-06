@@ -44,19 +44,19 @@
       "title": "Key projects",
       "canalPlus": {
         "title": "Canal+",
-        "subtitle": "A web application monitoring the internet connection of Canal+ customers."
+        "desc": "A web application monitoring the internet connection of Canal+ customers."
       },
       "bento": {
         "title": "Bento",
-        "subtitle": "A fullstack application dedicated to company tools and resources."
+        "desc": "A fullstack application dedicated to company tools and resources."
       },
       "blindspot": {
         "title": "Blindspot",
-        "subtitle": "An IOT belt prototype to help visually impaired people."
+        "desc": "An IOT belt prototype to help visually impaired people."
       },
       "safecheck": {
         "title": "Safecheck",
-        "subtitle": "A mobile application to authenticate sneakers with AI."
+        "desc": "A mobile application to authenticate sneakers with AI."
       }
     }
   },

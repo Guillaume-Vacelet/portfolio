@@ -1,7 +1,64 @@
 {
-  "HomeSection": {
-    "available": "일할 수 있습니다",
-    "pre-title": "",
-    "subtitle": "매력적인 애플리케이션을 개발하는 웹 개발자."
-  }
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects"
+  },
+  "homePage": {
+    "homeSection": {
+      "status": "Available to work",
+      "preTitle": "Hello, I'm",
+      "subtitle": "Software engineer building meaningful applications.",
+      "contactButton": "Let's connect",
+      "aboutButton": "About me"
+    },
+    "aboutSection": {
+      "selfIntro": "I am a software engineer specializing in frontend development, passionate about crafting engaging user experiences. I am open to work on new projects!",
+      "resumeCard": {
+        "title": "My resumes",
+        "french": "French", 
+        "english": "English", 
+        "korean": "Korean"
+      },
+      "scrollToProjectsCard": {
+        "title": "See my works"
+      },
+      "callToActionCard": {
+        "title": "Let's get in touch",
+        "button": "Contact me on Malt"
+      },
+      "techStackCard": {
+        "title": "Tech stacks I'm familiar with",
+        "desc": "Mainly using the JavaScript environment, yet always trying to learn new technologies."
+      },
+      "firstEducationCard": {
+        "title": "Master degree in IT",
+        "desc": "From understanding Unix and low level coding principles, to learning the latest stacks & development frameworks."
+      },
+      "secondEducationCard": {
+        "title": "Exchange year in Seoul",
+        "desc": "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
+      }
+    },
+    "projectsSection": {
+      "title": "Key projects",
+      "canalPlus": {
+        "title": "Canal+",
+        "desc": "A web application monitoring the internet connection of Canal+ customers."
+      },
+      "bento": {
+        "title": "Bento",
+        "desc": "A fullstack application dedicated to company tools and resources."
+      },
+      "blindspot": {
+        "title": "Blindspot",
+        "desc": "An IOT belt prototype to help visually impaired people."
+      },
+      "safecheck": {
+        "title": "Safecheck",
+        "desc": "A mobile application to authenticate sneakers with AI."
+      }
+    }
+  },
+  "projectsPage": {}
 }
