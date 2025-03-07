@@ -14,6 +14,7 @@ export default function LocaleSwitcherSelect({
   items,
 }: Props) {
   const [listDown, setListDown] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
 
   function onChange(value: string) {
