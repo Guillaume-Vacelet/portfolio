@@ -8,7 +8,7 @@
     "homeSection": {
       "status": "Available to work",
       "preTitle": "Hello, I'm",
-      "subtitle": "Software engineer building meaningful applications.",
+      "subtitle": "Frontend developper bringing your design to the web.",
       "contactButton": "Let's connect",
       "aboutButton": "About me"
     },
@@ -21,7 +21,7 @@
         "korean": "Korean"
       },
       "scrollToProjectsCard": {
-        "title": "See my works"
+        "title": "Explore my projects"
       },
       "callToActionCard": {
         "title": "Let's get in touch",
@@ -41,8 +41,8 @@
       }
     },
     "projectsSection": {
-      "title": "Key projects",
-      "canalPlus": {
+      "title": "My notable works",
+      "canal+": {
         "title": "Canal+",
         "desc": "A web application monitoring the internet connection of Canal+ customers."
       },

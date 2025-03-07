@@ -1,62 +1,62 @@
 {
   "navbar": {
     "home": "Home",
-    "about": "About",
-    "projects": "Projects"
+    "about": "A propos",
+    "projects": "Projets"
   },
   "homePage": {
     "homeSection": {
-      "status": "Available to work",
-      "preTitle": "Hello, I'm",
-      "subtitle": "Software engineer building meaningful applications.",
-      "contactButton": "Let's connect",
-      "aboutButton": "About me"
+      "status": "Disponible pour vos projets",
+      "preTitle": "Salut, je suis",
+      "subtitle": "Développeur frontend, je donne vie à vos designs sur le web.",
+      "contactButton": "Discutons",
+      "aboutButton": "Explorer"
     },
     "aboutSection": {
-      "selfIntro": "I am a software engineer specializing in frontend development, passionate about crafting engaging user experiences. I am open to work on new projects!",
+      "selfIntro": "Je suis un développeur web spécialisé dans le frontend et passionné par la création d'expériences utilisateur engageantes.",
       "resumeCard": {
-        "title": "My resumes",
-        "french": "French", 
-        "english": "English", 
-        "korean": "Korean"
+        "title": "Mes CV",
+        "french": "Français", 
+        "english": "Englais", 
+        "korean": "Coréen"
       },
       "scrollToProjectsCard": {
-        "title": "See my works"
+        "title": "Découvrir mes projets"
       },
       "callToActionCard": {
-        "title": "Let's get in touch",
-        "button": "Contact me on Malt"
+        "title": "Discutons de votre projet",
+        "button": "Contactez moi sur Malt"
       },
       "techStackCard": {
-        "title": "Tech stacks I'm familiar with",
-        "desc": "Mainly using the JavaScript environment, yet always trying to learn new technologies."
+        "title": "Technologies familières",
+        "desc": "Je travaille principalement avec l'environnement Javascript, en restant ouvert aux nouvelles technologies."
       },
       "firstEducationCard": {
-        "title": "Master degree in IT",
-        "desc": "From understanding Unix and low level coding principles, to learning the latest stacks & development frameworks."
+        "title": "Master en Informatique",
+        "desc": "De la compréhension d'Unix et des principes de code bas-niveau, à l'apprentissage des derniers frameworks et technologies. "
       },
       "secondEducationCard": {
-        "title": "Exchange year in Seoul",
-        "desc": "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
+        "title": "Année d'echange à Seoul",
+        "desc": "Immersion dans la culture coréenne à l'université Chung-Ang pour explorer l'Entreprenariat, la Big Data ou l'IA."
       }
     },
     "projectsSection": {
-      "title": "Key projects",
-      "canalPlus": {
+      "title": "Mes travaux marquants",
+      "canal+": {
         "title": "Canal+",
-        "desc": "A web application monitoring the internet connection of Canal+ customers."
+        "desc": "Une application web pour piloter les connections internet des clients Canal+."
       },
       "bento": {
         "title": "Bento",
-        "desc": "A fullstack application dedicated to company tools and resources."
+        "desc": "Une application web dédiée aux ressources & outils d'agence."
       },
       "blindspot": {
         "title": "Blindspot",
-        "desc": "An IOT belt prototype to help visually impaired people."
+        "desc": "Un prototype de ceinture connectée pour aider les personnes malvoyantes."
       },
       "safecheck": {
         "title": "Safecheck",
-        "desc": "A mobile application to authenticate sneakers with AI."
+        "desc": "Une application mobile pour authentifier des sneakers grâce à l'IA."
       }
     }
   },

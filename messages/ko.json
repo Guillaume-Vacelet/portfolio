@@ -1,62 +1,62 @@
 {
   "navbar": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects"
+    "home": "홈",
+    "about": "소개",
+    "projects": "프로젝트"
   },
   "homePage": {
     "homeSection": {
-      "status": "Available to work",
-      "preTitle": "Hello, I'm",
-      "subtitle": "Software engineer building meaningful applications.",
-      "contactButton": "Let's connect",
-      "aboutButton": "About me"
+      "status": "일할 수 있습니다",
+      "preTitle": "안녕하세요, 저는",
+      "subtitle": "웹에 귀하의 디자인을 구현하는 프론트엔드 개발자입니다.",
+      "contactButton": "연결하기",
+      "aboutButton": "저에 대해"
     },
     "aboutSection": {
-      "selfIntro": "I am a software engineer specializing in frontend development, passionate about crafting engaging user experiences. I am open to work on new projects!",
+      "selfIntro": "프론트엔드 개발에 전문화된 소프트웨어 엔지니어로, 매력적인 사용자 경험을 만드는 데 열정을 가지고 있습니다. 새로운 프로젝트에 참여할 준비가 되어 있습니다!",
       "resumeCard": {
-        "title": "My resumes",
-        "french": "French", 
-        "english": "English", 
-        "korean": "Korean"
+        "title": "제 이력서",
+        "french": "프랑스어",
+        "english": "영어",
+        "korean": "한국어"
       },
       "scrollToProjectsCard": {
-        "title": "See my works"
+        "title": "제 프로젝트 탐색"
       },
       "callToActionCard": {
-        "title": "Let's get in touch",
-        "button": "Contact me on Malt"
+        "title": "연락 주세요",
+        "button": "Malt에서 저에게 연락하기"
       },
       "techStackCard": {
-        "title": "Tech stacks I'm familiar with",
-        "desc": "Mainly using the JavaScript environment, yet always trying to learn new technologies."
+        "title": "익숙한 기술 스택",
+        "desc": "주로 JavaScript 환경을 사용하지만, 항상 새로운 기술을 배우려고 노력합니다."
       },
       "firstEducationCard": {
-        "title": "Master degree in IT",
-        "desc": "From understanding Unix and low level coding principles, to learning the latest stacks & development frameworks."
+        "title": "IT 석사 학위",
+        "desc": "유닉스와 저수준 코딩 원칙을 이해하고, 최신 스택 및 개발 프레임워크를 배우는 것."
       },
       "secondEducationCard": {
-        "title": "Exchange year in Seoul",
-        "desc": "Immersion in Korean culture at Chung-Ang University to explore fields such as Entrepreneurhsip, Big Data or AI."
+        "title": "서울에서의 교환 학년",
+        "desc": "창안대학교에서 한국 문화에 몰입하여 창업, 빅데이터 또는 AI와 같은 분야를 탐구."
       }
     },
     "projectsSection": {
-      "title": "Key projects",
-      "canalPlus": {
+      "title": "주요 작업",
+      "canal+": {
         "title": "Canal+",
-        "desc": "A web application monitoring the internet connection of Canal+ customers."
+        "desc": "Canal+ 고객의 인터넷 연결을 모니터링하는 웹 애플리케이션."
       },
       "bento": {
         "title": "Bento",
-        "desc": "A fullstack application dedicated to company tools and resources."
+        "desc": "회사 도구 및 리소스에 전념하는 풀스택 애플리케이션."
       },
       "blindspot": {
         "title": "Blindspot",
-        "desc": "An IOT belt prototype to help visually impaired people."
+        "desc": "시각 장애인을 돕기 위한 IOT 벨트 프로토타입."
       },
       "safecheck": {
         "title": "Safecheck",
-        "desc": "A mobile application to authenticate sneakers with AI."
+        "desc": "AI로 스니커즈를 인증하는 모바일 애플리케이션."
       }
     }
   },
