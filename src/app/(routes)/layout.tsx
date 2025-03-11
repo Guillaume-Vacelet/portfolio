@@ -4,6 +4,7 @@ import "@/app/_styles/globals.css";
 import "@/app/_styles/animations.css";
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const nuckle = localFont({
   src: [
@@ -63,6 +64,7 @@ export default async function RootLayout({
           {children}
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics gaId="G-4YPXB920Q6" />
     </html>
   );
 }
