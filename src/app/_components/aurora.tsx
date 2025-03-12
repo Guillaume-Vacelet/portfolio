@@ -141,8 +141,6 @@ export default function Aurora(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = "transparent";
 
-    let program: Program | undefined;
-
     function resize() {
       if (!ctn) return;
       const width = ctn.offsetWidth;
@@ -157,7 +155,7 @@ export default function Aurora(props: AuroraProps) {
     const geometry = new Triangle(gl);
     if (geometry.attributes.uv) {
       // TypeScript may require a type assertion here.
-      delete (geometry.attributes as any).uv;
+      delete (geometry.attributes).uv;
     }
 
     const colorStopsArray = colorStops.map((hex) => {
@@ -165,7 +163,7 @@ export default function Aurora(props: AuroraProps) {
       return [c.r, c.g, c.b];
     });
 
-    program = new Program(gl, {
+    const program: Program | undefined = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
@@ -208,6 +206,7 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amplitude]);
 
   return <div ref={ctnDom} className="w-full h-full" />;
