@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HoverableButtonLink({ label, url, primary=false, onclick } : { label: string, url: string, primary?: boolean, onclick?: (...args: any[]) => any }) {
+export default function HoverableButtonLink({ label, url, primary=false, onclick } : { label: string, url: string, primary?: boolean, onclick?: (event: React.MouseEvent, sectionId: string) => void }) {
   function handleOnClick(event: React.MouseEvent, sectionId: string) {
     if (onclick) {
       return onclick(event, sectionId);
