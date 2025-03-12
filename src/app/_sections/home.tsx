@@ -6,6 +6,7 @@ import HoverableButtonLink from "@/app/_components/hoverableButtonLink";
 import Navbar from "@/app/_components/navbar";
 import { useTranslations } from "next-intl";
 import Aurora from "../_components/aurora";
+import { handleScrollToAnchor } from "@/app/_components/navbar";
 
 export default function HomeSection() {
   const t = useTranslations('homePage.homeSection');
@@ -28,14 +29,13 @@ export default function HomeSection() {
 
         <div className="size-full flex flex-col items-center justify-center gap-10 fade-in-top">
           <div className="flex flex-col items-center gap-2">
-            {/* <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700"> */}
             <LightIndicator />
 
             <h1 className="text-[29px] sm:text-5xl md:text-6xl lg:text-6xl leading-none font-medium text-start mb-2">
               Guillaume Vacelet
             </h1>
 
-            <h2 className="text-3xl leading-none font-normal text-start text-slate-400">
+            <h2 className="text-2xl leading-none font-normal text-start text-slate-400">
               {t('subtitle')}
             </h2>
           </div>
@@ -43,7 +43,7 @@ export default function HomeSection() {
           <div className="flex flex-col justify-center items-center gap-6">
             <div className="grid grid-cols-2 gap-3 sm:gap-5">
               <HoverableButtonLink label={t('contactButton')} url="mailto:guillaume.vacelet@gmail.com" primary />
-              <HoverableButtonLink label={t('aboutButton')} url="about" />
+              <HoverableButtonLink label={t('aboutButton')} url="about" onclick={handleScrollToAnchor} />
             </div>
             <SocialLinkList />
           </div>

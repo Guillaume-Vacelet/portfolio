@@ -2,16 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HoverableButtonLink({ label, url, primary=false } : { label: string, url: string, primary?: boolean }) {
+export default function HoverableButtonLink({ label, url, primary=false, onclick } : { label: string, url: string, primary?: boolean, onclick?: (...args: any[]) => any }) {
   function handleOnClick(event: React.MouseEvent, sectionId: string) {
-    if (primary) {
-      return;
-    }
-    const element = document.getElementById(sectionId);
-
-    event.preventDefault();
-    if (element) {
-      element.scrollIntoView({behavior: 'smooth'})
+    if (onclick) {
+      return onclick(event, sectionId);
     }
   }
 
