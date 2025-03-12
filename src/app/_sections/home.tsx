@@ -5,6 +5,7 @@ import SocialLinkList from "@/app/_components/socialLinkList";
 import HoverableButtonLink from "@/app/_components/hoverableButtonLink";
 import Navbar from "@/app/_components/navbar";
 import { useTranslations } from "next-intl";
+import Aurora from "../_components/aurora";
 
 export default function HomeSection() {
   const t = useTranslations('homePage.homeSection');
@@ -13,25 +14,30 @@ export default function HomeSection() {
     <section id="home" className="section !p-0">
       <div className="relative w-full flex flex-col p-4 sm:p-5 shrink-animation bg-black">
         {/* <div className="dotted-grid"></div> */}
+        
+        <div className="absolute top-0 left-0 size-full overflow-hidden rounded-lg">
+          <Aurora
+            colorStops={["#CE4229", "#F2BA1F", "#D53124"]}
+            blend={0.5}
+            amplitude={1.0}
+            speed={0.5}
+          />
+        </div>
+
         <Navbar />
 
         <div className="size-full flex flex-col items-center justify-center gap-10 fade-in-top">
           <div className="flex flex-col items-center gap-2">
-            <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700">
-              <LightIndicator />
-              <span className="text-xs sm:text-sm leading-none mt-[2px]">{t('status')}</span>
-            </div>
+            {/* <div className="mb-8 w-fit flex flex-row items-center gap-2 py-1 px-2 md:px-3 rounded-full border bg-black border-gray-700"> */}
+            <LightIndicator />
 
-            <div className="flex flex-col items-start gap-1">
-              <span className="text-xs sm:text-base lg:text-lg font-medium">{t('preTitle')}</span>
-              <h1 className="text-[29px] sm:text-5xl md:text-6xl lg:text-7xl leading-none font-bold text-start">
-                Guillaume Vacelet
-              </h1>
-            </div>
+            <h1 className="text-[29px] sm:text-5xl md:text-6xl lg:text-6xl leading-none font-medium text-start mb-2">
+              Guillaume Vacelet
+            </h1>
 
-            <span className="max-w-60 sm:max-w-none md:max-w-none text-center sm:text-start text-sm sm:text-base font-medium text-slate-400">
+            <h2 className="text-3xl leading-none font-normal text-start text-slate-400">
               {t('subtitle')}
-            </span>
+            </h2>
           </div>
 
           <div className="flex flex-col justify-center items-center gap-6">

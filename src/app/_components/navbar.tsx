@@ -104,7 +104,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
   return (
     <header
       id={`${hideOnScroll ? 'mobile-navbar' : 'navbar'}`}
-      className={`w-full font-medium z-50 bg-black ${hideOnScroll ? 'hidden py-2 px-[26px]' : ''}`}>
+      className={`w-full font-medium z-50 ${hideOnScroll ? 'hidden py-2 px-[26px] bg-black' : ''}`}>
       <div className="relative w-full flex items-center justify-end sm:justify-center">
         {/* Mobile navbar */}
         <div className={`relative w-full sm:hidden flex flex-row justify-between ${hideOnScroll ? '' : 'fade-in-right'}`}>
@@ -148,18 +148,15 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
 
           <ul className="h-10 md:h-12 w-full flex flex-row items-center justify-between">
             {navLinks.map((navLink, index) =>
-              <li className={`group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
+              <li className={`relative group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
                 <Link
                   href={`#${navLink}`}
                   onClick={(e) => handleScrollToAnchor(e, navLink)}
-                  className="text-stone-500 text-xs md:text-base group-hover:text-white"
+                  className="text-white text-xs md:text-base group-hover:text-white"
                   style={{ color: activeSection === navLink ? 'white' : ''}}>
                   {t(navLink)}
                 </Link>
-                {navLink === activeSection
-                  ? <div className="w-1 h-1 bg-white rounded-full"></div>
-                  : null
-                }
+                <div className={`${navLink === activeSection ? 'bg-white' : 'bg-none'} absolute top-full w-1 h-1 rounded-full`}></div>
               </li>
             )}
           </ul>

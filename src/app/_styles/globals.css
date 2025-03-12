@@ -124,16 +124,16 @@ strong {
   inset: 0;
   height: 100%;
   width: 100%;
-  background-image: radial-gradient(#2a2a2a 1.3px, transparent 1.3px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(#606060 0.5px, transparent 0.5px);
+  background-size: 6px 6px;
   /* -webkit-mask-image: radial-gradient(
     ellipse 50% 50% at 50% 50%,
     #000 60%,
     transparent 100%
   ); */
-  mask-image: radial-gradient(
+  /* mask-image: radial-gradient(
     ellipse 65% 65% at 50% 50%,
     #000 60%,
     transparent 100%
-  );
+  ); */
 }
