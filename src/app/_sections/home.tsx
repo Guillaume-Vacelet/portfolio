@@ -31,11 +31,11 @@ export default function HomeSection() {
           <div className="flex flex-col items-center gap-2">
             <LightIndicator />
 
-            <h1 className="text-[29px] sm:text-5xl md:text-6xl lg:text-6xl leading-none font-medium text-start mb-2">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl leading-none font-medium text-start mb-1">
               Guillaume Vacelet
             </h1>
 
-            <h2 className="text-2xl leading-none font-normal text-start text-slate-400">
+            <h2 className="text-xl sm:text-2xl md:text-3xl leading-none font-normal text-slate-400">
               {t('subtitle')}
             </h2>
           </div>

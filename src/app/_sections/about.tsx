@@ -26,7 +26,7 @@ export default function AboutSection() {
       <div className="flex flex-col items-center gap-5"> 
         <div className="w-full grid max-[592px]:grid-cols-1 grid-cols-5 gap-5">
           <div className="max-[592px]:col-span-1 col-span-3 bg-white rounded-2xl border-cardBorder border-[0.35px] shadow-sm">
-            <p className="text-base md:text-xl font-normal p-8">
+            <p className="text-base md:text-xl font-normal p-4">
               {t('selfIntro')}
             </p>
           </div>
