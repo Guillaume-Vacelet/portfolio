@@ -8,12 +8,12 @@
     "homeSection": {
       "status": "Available to work",
       "preTitle": "Hello, I'm",
-      "subtitle": "Frontend developper bringing your design to the web.",
+      "subtitle": "Frontend developer",
       "contactButton": "Let's connect",
       "aboutButton": "About me"
     },
     "aboutSection": {
-      "selfIntro": "I am a software engineer specializing in frontend development, passionate about crafting engaging user experiences. I am open to work on new projects!",
+      "selfIntro": "I am a software engineer specializing in frontend development, passionate about crafting engaging user experiences.",
       "resumeCard": {
         "title": "My resumes",
         "french": "French", 
