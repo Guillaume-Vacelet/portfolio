@@ -43,7 +43,7 @@ export default function HomeSection() {
           <div className="flex flex-col justify-center items-center gap-6">
             <div className="grid grid-cols-2 gap-3 sm:gap-5">
               <HoverableButtonLink label={t('contactButton')} url="mailto:guillaume.vacelet@gmail.com" primary />
-              <HoverableButtonLink label={t('aboutButton')} url="about" onclick={handleScrollToAnchor} />
+              <HoverableButtonLink label={t('aboutButton')} url="#about" onclick={handleScrollToAnchor} />
             </div>
             <SocialLinkList />
           </div>

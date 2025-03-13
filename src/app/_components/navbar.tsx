@@ -9,7 +9,8 @@ import { useTranslations } from "next-intl";
 
 export const navLinks = ['home', 'about', 'projects']
 
-export function handleScrollToAnchor(event: React.MouseEvent, sectionId: string) {
+export function handleScrollToAnchor(event: React.MouseEvent, anchor: string) {
+  const sectionId = anchor.replace('#', '');
   const element = document.getElementById(sectionId);
 
   event.preventDefault();
