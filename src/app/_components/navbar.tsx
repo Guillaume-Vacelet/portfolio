@@ -65,7 +65,7 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
   }
 
   function handleHideOnScroll() {
-    const navbar = document.getElementById('mobile-navbar');
+    const navbar = document.getElementById('dynamic-navbar');
     const isScrollingDown = window.scrollY > lastScrollY.current;
     const isThresholdReached = hideOnTop ? window.scrollY <= 25 : false;
 
@@ -102,10 +102,11 @@ export default function Navbar({ hideOnScroll=false, hideOnTop=true } : { hideOn
     setActiveSection(newActiveSection);
   }, 100);
 
+  // the 'hidden' class is getting overrided by js style injection. It is still necessary to hide it initially. 
   return (
     <header
-      id={`${hideOnScroll ? 'mobile-navbar' : 'navbar'}`}
-      className={`w-full font-medium z-50 ${hideOnScroll ? 'hidden py-2 px-[26px] bg-black' : ''}`}>
+      id={`${hideOnScroll ? 'dynamic-navbar' : 'navbar'}`}
+      className={`w-full font-medium z-50 ${hideOnScroll ? 'hidden py-2 px-[26px] bg-black fixed top-0 left-0 w-full z-50' : ''}`}>
       <div className="relative w-full flex items-center justify-end sm:justify-center">
         {/* Mobile navbar */}
         <div className={`relative w-full sm:hidden flex flex-row justify-between ${hideOnScroll ? '' : 'fade-in-right'}`}>

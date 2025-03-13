@@ -10,9 +10,7 @@ export default function Home() {
 
   return (
     <div className="font-nuckle w-full h-full flex flex-col items-center relative">
-      <div className="fixed top-0 left-0 w-full z-50">
-        <Navbar hideOnScroll />
-      </div>
+      <Navbar hideOnScroll />
       <NavbarModal />
       <HomeSection />
       <AboutSection />
