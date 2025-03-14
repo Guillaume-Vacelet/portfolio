@@ -5,6 +5,7 @@ import "@/app/_styles/animations.css";
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const nuckle = localFont({
   src: [
@@ -64,6 +65,7 @@ export default async function RootLayout({
           {children}
         </NextIntlClientProvider>
       </body>
+      <SpeedInsights />
       <Analytics />
     </html>
   );
