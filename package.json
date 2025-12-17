@@ -13,7 +13,7 @@
     "@react-three/postprocessing": "^3.0.4",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "next": "15.2.2",
+    "next": "15.2.8",
     "next-intl": "^3.26.5",
     "ogl": "^1.0.11",
     "postprocessing": "^6.37.1",
