@@ -2,15 +2,17 @@
   "navbar": {
     "home": "Accueil",
     "about": "A propos",
-    "projects": "Projets"
+    "projects": "Projets",
+    "works": "Portfolio",
+    "contact": "Contact"
   },
   "homePage": {
     "homeSection": {
-      "status": "Disponible pour vos projets",
-      "preTitle": "Salut, je suis",
-      "subtitle": "Développeur frontend",
-      "contactButton": "Contactez moi",
-      "aboutButton": "En savoir plus"
+      "title": "Je réalise des applications\nweb et mobile avec un accent\nsur l'expérience utilisateur",
+      "bookACall": "Planifier un appel",
+      "hireMeOnMalt": "Embauchez moi sur Malt",
+      "jobTitle": "Développeur frontend",
+      "openToWork": "Disponible"
     },
     "aboutSection": {
       "selfIntro": "Je suis un développeur web spécialisé dans le frontend et passionné par la création d'expériences utilisateur engageantes.",
@@ -40,25 +42,50 @@
         "desc": "Immersion dans la culture coréenne à l'université Chung-Ang pour explorer l'Entreprenariat, la Big Data ou l'IA."
       }
     },
-    "projectsSection": {
-      "title": "Mes travaux marquants",
-      "canal+": {
-        "title": "Canal+",
-        "desc": "Une application web pour piloter les connections internet des clients Canal+."
-      },
-      "bento": {
-        "title": "Bento",
-        "desc": "Une application web dédiée aux ressources & outils d'agence."
-      },
-      "blindspot": {
-        "title": "Blindspot",
-        "desc": "Un prototype de ceinture connectée pour aider les personnes malvoyantes."
-      },
-      "safecheck": {
-        "title": "Safecheck",
-        "desc": "Une application mobile pour authentifier des sneakers grâce à l'IA."
-      }
+    "worksSection": {
+      "title": "Portfolio"
+    },
+    "contactSection": {
+      "bookACall": "Planifier un appel",
+      "hireMeOnMalt": "Embauchez moi sur Malt",
+      "allRightReserved": "© 2025 Guillaume Vacelet. Tous droits réservés."
     }
   },
-  "projectsPage": {}
+  "projectsPage": {
+    "techstackLabel": "Tech stack",
+    "contextLabel": "Context",
+    "conceptLabel": "Concept",
+    "canal+": {
+      "title": "Canal+",
+      "desc": "Une application web de supervision de la connexion internet des clients Canal+.",
+      "year": "2024",
+      "techstack": ["angular16", "rxjs", "observables"],
+      "context": "En tant que consultant full-stack chez Ippon Technologies, j'ai collaboré avec Canal+ sur un poste frontend en full remote.",
+      "concept": "Canal+ fournit des services internet dans les territoires français d'outre-mer.\nLa mission consistait à accompagner l'équipe frontend dans le développement et la maintenance de leur application de supervision utilisée par les équipes support et techniques.\n\nJ'ai développé une nouvelle fonctionnalité d'auto-diagnostic visant à accélérer le traitement des demandes par le support. Ce module fournit une analyse en temps réel de la connexion internet de l'utilisateur, via des websockets récupérant directement les données des équipements."
+    },
+    "bento": {
+      "title": "Bento",
+      "desc": "Une application full-stack dédiée aux outils et ressources internes de l'entreprise.",
+      "year": "2023",
+      "techstack": ["react", "spring", "java", "docker"],
+      "context": "Projet de stage de master chez Ippon Technologies.",
+      "concept": "Plateforme d'agence web visant à développer une application interactive centralisant les ressources et outils de l'entreprise. L'application intègre l'authentification Google OAuth, une grille de type masonry et des fonctionnalités de création de plugins. Le design, inspiré de l'écran d'accueil iOS, a été réalisé sur Figma avec une attention particulière portée à l'expérience utilisateur."
+    },
+    "blindspot": {
+      "title": "Blindspot",
+      "desc": "Un prototype de ceinture IoT pour aider les personnes malvoyantes.",
+      "year": "2021 - 2023",
+      "techstack": ["nextjs", "flutter", "python", "docker"],
+      "context": "Projet de fin de master visant à développer une solution technologique à impact sociétal positif, répondant à des enjeux environnementaux ou sociaux. L'équipe était composée de huit membres issus de différents campus EPITECH en France.",
+      "concept": "Une solution IoT destinée aux personnes malvoyantes : une ceinture connectée équipée d'un Raspberry Pi, de caméras et de moteurs vibrants. Grâce à la reconnaissance de formes, les moteurs vibrants indiquent la direction et la distance des obstacles autour de l'utilisateur. Une application mobile développée avec Flutter permet également de consulter des informations sur la ceinture, comme le niveau de batterie, et d'accéder à une fonctionnalité d'appel d'urgence."
+    },
+    "safecheck": {
+      "title": "Safecheck",
+      "desc": "Une application mobile utilisant l'IA pour authentifier des sneakers.",
+      "year": "2021",
+      "techstack": ["react-native", "python", "scikit-learn"],
+      "context": "Programme de formation à l'entrepreneuriat en intelligence artificielle, proposé en partenariat avec EPITECH IT School et EMLyon Business School. Sur quatre mois, les participants devaient identifier une problématique actuelle et développer une solution entrepreneuriale viable reposant sur l'IA.",
+      "concept": "Face à la problématique croissante de la contrefaçon dans l'industrie de la mode, nous avons développé une application mobile capable d'authentifier des sneakers à partir de photographies.\n\nAvec mon équipe, nous avons constitué un jeu de données d'images de sneakers authentiques et contrefaites, utilisé pour entraîner un modèle d'IA avec scikit-learn. J'ai ensuite développé l'application mobile en React Native permettant aux utilisateurs de soumettre des photos et d'obtenir un résultat d'authentification."
+    }
+  }
 }

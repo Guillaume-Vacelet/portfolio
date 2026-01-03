@@ -2,15 +2,17 @@
   "navbar": {
     "home": "홈",
     "about": "소개",
-    "projects": "프로젝트"
+    "projects": "프로젝트",
+    "works": "프로젝트",
+    "contact": "연락처"
   },
   "homePage": {
     "homeSection": {
-      "status": "일할 수 있습니다",
-      "preTitle": "안녕하세요, 저는",
-      "subtitle": "프론트엔드 개발자",
-      "contactButton": "연결하기",
-      "aboutButton": "저에 대해"
+      "title": "사용자 경험에 중점을 두고 훌륭한 웹 및 모바일 애플리케이션을 개발합니다",
+      "bookACall": "미팅 예약하기",
+      "hireMeOnMalt": "Malt에서 고용하기",
+      "jobTitle": "프론트엔드 엔지니어",
+      "openToWork": "일에 열려 있음"
     },
     "aboutSection": {
       "selfIntro": "프론트엔드 개발에 전문화된 소프트웨어 엔지니어로, 매력적인 사용자 경험을 만드는 데 열정을 가지고 있습니다.",
@@ -40,25 +42,50 @@
         "desc": "창안대학교에서 한국 문화에 몰입하여 창업, 빅데이터 또는 AI와 같은 분야를 탐구."
       }
     },
-    "projectsSection": {
-      "title": "주요 작업",
-      "canal+": {
-        "title": "Canal+",
-        "desc": "Canal+ 고객의 인터넷 연결을 모니터링하는 웹 애플리케이션."
-      },
-      "bento": {
-        "title": "Bento",
-        "desc": "회사 도구 및 리소스에 전념하는 풀스택 애플리케이션."
-      },
-      "blindspot": {
-        "title": "Blindspot",
-        "desc": "시각 장애인을 돕기 위한 IOT 벨트 프로토타입."
-      },
-      "safecheck": {
-        "title": "Safecheck",
-        "desc": "AI로 스니커즈를 인증하는 모바일 애플리케이션."
-      }
+    "worksSection": {
+      "title": "주요 작업"
+    },
+    "contactSection": {
+      "bookACall": "미팅 예약하기",
+      "hireMeOnMalt": "Malt에서 고용하기",
+      "allRightReserved": "© 2025 Guillaume Vacelet. All rights reserved."
     }
   },
-  "projectsPage": {}
+  "projectsPage": {
+    "techstackLabel": "기술 스택",
+    "contextLabel": "배경",
+    "conceptLabel": "컨셉",
+    "canal+": {
+      "title": "Canal+",
+      "desc": "Canal+ 고객의 인터넷 연결을 모니터링하는 웹 애플리케이션입니다.",
+      "year": "2024",
+      "techstack": ["angular16", "rxjs", "observables"],
+      "context": "Ippon Technologies에서 풀스택 컨설턴트로 근무하며, 풀 리모트 프론트엔드 포지션으로 Canal+와 협업했습니다.",
+      "concept": "Canal+는 프랑스 해외 영토에서 인터넷 서비스를 제공합니다.\n본 미션은 지원팀과 기술팀이 사용하는 모니터링 애플리케이션을 개발·유지보수하는 프론트엔드 팀을 지원하는 것이었습니다.\n\n저는 지원 프로세스를 가속화하기 위한 새로운 자동 진단 기능을 개발했습니다. 이 모듈은 웹소켓을 통해 장비에서 직접 데이터를 수집하여 사용자의 인터넷 연결 상태를 실시간으로 분석합니다."
+    },
+    "bento": {
+      "title": "Bento",
+      "desc": "기업의 내부 도구와 리소스를 위한 풀스택 애플리케이션입니다.",
+      "year": "2023",
+      "techstack": ["react", "spring", "java", "docker"],
+      "context": "Ippon Technologies에서 진행한 석사 과정 인턴십 프로젝트입니다.",
+      "concept": "기업의 리소스와 도구를 중앙화하기 위한 인터랙티브 애플리케이션을 개발하는 웹 에이전시 플랫폼입니다. Google OAuth 인증, masonry 그리드 레이아웃, 플러그인 생성 기능을 포함하고 있습니다. iOS 홈 화면에서 영감을 받은 디자인은 Figma로 제작되었으며, 쾌적한 사용자 경험에 중점을 두었습니다."
+    },
+    "blindspot": {
+      "title": "Blindspot",
+      "desc": "시각장애인을 돕기 위한 IoT 벨트 프로토타입입니다.",
+      "year": "2021 - 2023",
+      "techstack": ["nextjs", "flutter", "python", "docker"],
+      "context": "환경적·사회적 이슈를 해결하는 긍정적인 사회적 영향을 목표로 한 기술 솔루션 개발을 위한 석사 과정 최종 프로젝트입니다. 프랑스 전역의 EPITECH 캠퍼스에서 모인 8명의 팀원으로 구성되었습니다.",
+      "concept": "시각장애인을 위한 IoT 솔루션으로, Raspberry Pi, 카메라, 진동 모터가 장착된 스마트 벨트입니다. 패턴 인식을 통해 진동 모터가 사용자 주변 장애물의 방향과 거리를 알려줍니다. 또한 Flutter로 개발된 모바일 애플리케이션을 통해 배터리 잔량 확인 및 긴급 호출 기능을 제공합니다."
+    },
+    "safecheck": {
+      "title": "Safecheck",
+      "desc": "AI를 활용해 스니커즈를 정품 인증하는 모바일 애플리케이션입니다.",
+      "year": "2021",
+      "techstack": ["react-native", "python", "scikit-learn"],
+      "context": "EPITECH IT School과 EMLyon Business School이 협력하여 제공한 인공지능 기반 창업 교육 프로그램입니다. 4개월 동안 참가자들은 현재의 문제를 정의하고 AI를 활용한 실현 가능한 창업 솔루션을 개발했습니다.",
+      "concept": "패션 산업에서 증가하는 위조 상품 문제를 해결하기 위해, 사진을 기반으로 스니커즈의 정품 여부를 판별하는 모바일 애플리케이션을 개발했습니다.\n\n팀과 함께 정품 및 가품 스니커즈 이미지 데이터셋을 구축하고, scikit-learn을 사용해 AI 모델을 학습시켰습니다. 이후 사용자가 사진을 업로드하면 인증 결과를 제공하는 React Native 모바일 애플리케이션을 개발했습니다."
+    }
+  }
 }

@@ -5,7 +5,7 @@ export default function LinkIcon() {
     <div className="size-fit p-2 bg-cardBackground rounded-full">
       <div className="relative size-[6px]">
         <Image
-          src={'/static/images/arrow.up.right.svg'}
+          src={'/static/icons/arrow.up.right.svg'}
           alt="Up right arrow icon"
           fill
           style={{objectFit: "cover"}}

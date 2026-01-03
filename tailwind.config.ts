@@ -12,6 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         accent: "var(--accent)",
+        appBlack: "var(--app-black)",
         cardBorder: 'var(--card-border)',
         cardBackground: 'var(--card-background)',
         cardPrimary: 'var(--card-primary)',

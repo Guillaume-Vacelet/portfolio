@@ -10,12 +10,12 @@ export default function AboutSection() {
   const t = useTranslations("homePage.aboutSection");
   const schools: SchoolCard[] = [
     { 
-      image: "/static/images/epitech-thumbnail.svg",
+      image: "/static/icons/epitech-thumbnail.svg",
       url: "https://www.epitech.eu/",
       i18nKey: "firstEducationCard"
     },
     { 
-      image: "/static/images/cau-thumbnail.svg",
+      image: "/static/icons/cau-thumbnail.svg",
       url: "https://www.cau.ac.kr/index.do",
       i18nKey: "secondEducationCard"
     },

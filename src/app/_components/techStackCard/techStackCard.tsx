@@ -5,16 +5,16 @@ import { useTranslations } from "next-intl";
 export default function TechStackCard() {
   const t = useTranslations("homePage.aboutSection.techStackCard");
   const techStackLogos = [
-    { label: "Docker", url: "/static/images/docker.svg" },
-    { label: "Karma", url: "/static/images/karma.svg" },
-    { label: "Jasmine", url: "/static/images/jasmine.svg" },
-    { label: "Jest", url: "/static/images/jest.svg" },
-    { label: "Java", url: "/static/images/java.svg" },
-    { label: "Typescript", url: "/static/images/typescript.svg" },
-    { label: "TailwindCSS", url: "/static/images/tailwindcss.svg" },
-    { label: "React", url: "/static/images/react.svg" },
-    { label: "NextJS", url: "/static/images/nextjs.svg" },
-    { label: "Angular", url: "/static/images/angular.svg" },
+    { label: "Docker", url: "/static/icons/docker.svg" },
+    { label: "Karma", url: "/static/icons/karma.svg" },
+    { label: "Jasmine", url: "/static/icons/jasmine.svg" },
+    { label: "Jest", url: "/static/icons/jest.svg" },
+    { label: "Java", url: "/static/icons/java.svg" },
+    { label: "Typescript", url: "/static/icons/typescript.svg" },
+    { label: "TailwindCSS", url: "/static/icons/tailwindcss.svg" },
+    { label: "React", url: "/static/icons/react.svg" },
+    { label: "NextJS", url: "/static/icons/nextjs.svg" },
+    { label: "Angular", url: "/static/icons/angular.svg" },
   ];
 
   const slideshowBlock = () => (

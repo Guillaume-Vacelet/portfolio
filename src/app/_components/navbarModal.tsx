@@ -59,7 +59,7 @@ export default function NavbarModal() {
         <button onClick={() => toggleModal()} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
           <div className="relative size-full">
             <Image
-              src={`/static/images/close.svg`}
+              src={`/static/icons/close.svg`}
               alt="close icon"
               fill
               style={{objectFit: "cover"}}
@@ -84,9 +84,9 @@ export default function NavbarModal() {
         )}
       </ul>
 
-      <div className="w-full flex justify-center">
+      {/* <div className="w-full flex justify-center">
         <SocialLinkList />
-      </div>
+      </div> */}
     </div>
   )
 }

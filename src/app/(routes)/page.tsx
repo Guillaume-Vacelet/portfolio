@@ -1,21 +1,18 @@
 import React from "react";
+import Navbar from "@/app/_components/navbar";
+import HomeSection from "@/app/_sections/home";
+import WorksSection from "@/app/_sections/works";
+import ContactSection from "@/app/_sections/contact";
+import NavbarModal from "@/app/_components/navbarModal";
 
 export default function Home() {
-
   return (
-    <div className="w-full h-screen flex items-center justify-center">
-      <div className="px-8 py-8 border-2 border-black flex flex-col items-center gap-4">
-        <h1 className="text-black text-2xl font-semibold">🚧 Website under development</h1>
-        <h2 className="text-black text-sm">📩 You can contact me at guillaume.vacelet@gmail.com</h2>
-      </div>
+    <div className="font-nuckle w-full h-full flex flex-col bg-[#FAFAFC]">
+      <Navbar />
+      <NavbarModal />
+      <HomeSection />
+      <WorksSection />
+      <ContactSection />
     </div>
-    // <div className="font-nuckle w-full h-full flex flex-col items-center relative">
-    //   <Navbar hideOnScroll />
-    //   <NavbarModal />
-    //   <HomeSection />
-    //   <AboutSection />
-    //   <ProjectsSection />
-    //   <Footer />
-    // </div>
   );
 }

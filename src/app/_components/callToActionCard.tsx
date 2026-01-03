@@ -14,7 +14,7 @@ export default function CallToActionCard() {
           {t('button')}
           <div className="relative size-2">
             <Image
-              src="/static/images/arrow.up.right.svg"
+              src="/static/icons/arrow.up.right.svg"
               alt="Up right arrow icon"
               fill
               style={{objectFit: "cover"}}
