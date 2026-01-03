@@ -1,6 +1,4 @@
 'use client';
-
-import {useState, useTransition} from 'react';
 import {Locale} from '@/i18n/config';
 import {setUserLocale} from '@/app/_services/locale';
 
@@ -13,17 +11,11 @@ export default function LocaleSwitcherSelect({
   items: string[];
   dark?: boolean
 }) {
-  const [listDown, setListDown] = useState<boolean>(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isPending, startTransition] = useTransition();
   const defaultColor = dark ? '' : 'text-appBlack'
 
   function onChange(value: string) {
     const locale = value as Locale;
-    setListDown(false);
-    startTransition(() => {
-      setUserLocale(locale);
-    });
+    setUserLocale(locale);
   }
 
   return (

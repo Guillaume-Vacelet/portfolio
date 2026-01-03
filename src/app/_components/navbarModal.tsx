@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { navLinks, handleScrollToAnchor } from "@/app/_components/navbar";
 import Link from "next/link";
-import SocialLinkList from "@/app/_components/socialLinkList";
 import React, { useEffect } from "react";
 import debounce from "@/app/_utils/debounce";
 import LocaleSwitcher from "./localeSwitcher/localeSwitcher";
@@ -83,10 +82,6 @@ export default function NavbarModal() {
           </li>
         )}
       </ul>
-
-      {/* <div className="w-full flex justify-center">
-        <SocialLinkList />
-      </div> */}
     </div>
   )
 }
