@@ -22,12 +22,10 @@ export function handleScrollToAnchor(event: React.MouseEvent, anchor: string) {
 
 export default function Navbar({
   hideOnScroll=true,
-  hideOnTop=true,
   homePage=true,
   dark=false
 } : { 
   hideOnScroll?: boolean, 
-  hideOnTop?: boolean 
   homePage?: boolean 
   dark?: boolean 
 }) {
@@ -79,8 +77,6 @@ export default function Navbar({
   function handleHideOnScroll() {
     const navbar = document.getElementById('dynamic-navbar');
     const isScrollingDown = window.scrollY > lastScrollY.current;
-    const headerHeight = 88;
-    // const isThresholdReached = hideOnTop ? window.scrollY <= (headerHeight*2) : false;
 
     if (!navbar) return;
 
