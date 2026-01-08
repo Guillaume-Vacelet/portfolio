@@ -10,7 +10,7 @@ export default function Projects() {
   const pathName = usePathname()
   const projectName = pathName.split('/').reverse()[0];
   const t = useTranslations('projectsPage');
-  const techstack = t.raw(`canal+.techstack`) as string[];
+  const techstack = t.raw(`${projectName}.techstack`) as string[];
 
   return (
     <div className="w-full min-h-screen pt-[var(--sm-header-h)] sm:pt-[var(--header-h)] bg-zinc-900">
