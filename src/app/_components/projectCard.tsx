@@ -7,7 +7,8 @@ export default function ProjectCard({project} : {project: string}) {
   
   return (
     <Link
-      href={`/projects/${project}`}
+      href={t('url').length != 0 ? t('url') : `/projects/${project}`}
+      target={t('url').length != 0 ? "_blank" : ""}
       className="w-full flex flex-col group bg-white rounded-2xl border border-cardBorder">
       <div className="relative rounded-t-2xl overflow-hidden">
         <Image

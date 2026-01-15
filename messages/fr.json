@@ -55,13 +55,41 @@
     "techstackLabel": "Tech stack",
     "contextLabel": "Context",
     "conceptLabel": "Concept",
+    "doozis": {
+      "title": "Doozis",
+      "desc": "Livraison d'une nouvelle version de l'application mobile",
+      "year": "2025",
+      "techstack": [],
+      "context": "",
+      "concept": "",
+      "url": "https://www.doozis.fr/"
+    },
+    "ilie-nastase": {
+      "title": "Ilie Nastase",
+      "desc": "Création de site web",
+      "year": "2025",
+      "techstack": [],
+      "context": "",
+      "concept": "",
+      "url": "https://hypnose-ilie.fr/"
+    },
+    "insho-atelier": {
+      "title": "Insho Atelier",
+      "desc": "Refonte de site web",
+      "year": "2025",
+      "techstack": [],
+      "context": "",
+      "concept": "",
+      "url": "https://www.insho-atelier.com/"
+    },
     "canal+": {
       "title": "Canal+",
       "desc": "Une application web de supervision de la connexion internet des clients Canal+.",
       "year": "2024",
       "techstack": ["angular16", "rxjs", "observables"],
       "context": "En tant que consultant full-stack chez Ippon Technologies, j'ai collaboré avec Canal+ sur un poste frontend en full remote.",
-      "concept": "Canal+ fournit des services internet dans les territoires français d'outre-mer.\nLa mission consistait à accompagner l'équipe frontend dans le développement et la maintenance de leur application de supervision utilisée par les équipes support et techniques.\n\nJ'ai développé une nouvelle fonctionnalité d'auto-diagnostic visant à accélérer le traitement des demandes par le support. Ce module fournit une analyse en temps réel de la connexion internet de l'utilisateur, via des websockets récupérant directement les données des équipements."
+      "concept": "Canal+ fournit des services internet dans les territoires français d'outre-mer.\nLa mission consistait à accompagner l'équipe frontend dans le développement et la maintenance de leur application de supervision utilisée par les équipes support et techniques.\n\nJ'ai développé une nouvelle fonctionnalité d'auto-diagnostic visant à accélérer le traitement des demandes par le support. Ce module fournit une analyse en temps réel de la connexion internet de l'utilisateur, via des websockets récupérant directement les données des équipements.",
+      "url": ""
     },
     "bento": {
       "title": "Bento",
@@ -69,7 +97,8 @@
       "year": "2023",
       "techstack": ["react", "spring", "java", "docker"],
       "context": "Projet de stage de master chez Ippon Technologies.",
-      "concept": "Plateforme d'agence web visant à développer une application interactive centralisant les ressources et outils de l'entreprise. L'application intègre l'authentification Google OAuth, une grille de type masonry et des fonctionnalités de création de plugins. Le design, inspiré de l'écran d'accueil iOS, a été réalisé sur Figma avec une attention particulière portée à l'expérience utilisateur."
+      "concept": "Plateforme d'agence web visant à développer une application interactive centralisant les ressources et outils de l'entreprise. L'application intègre l'authentification Google OAuth, une grille de type masonry et des fonctionnalités de création de plugins. Le design, inspiré de l'écran d'accueil iOS, a été réalisé sur Figma avec une attention particulière portée à l'expérience utilisateur.",
+      "url": ""
     },
     "blindspot": {
       "title": "Blindspot",
@@ -77,7 +106,8 @@
       "year": "2021 - 2023",
       "techstack": ["nextjs", "flutter", "python", "docker"],
       "context": "Projet de fin de master visant à développer une solution technologique à impact sociétal positif, répondant à des enjeux environnementaux ou sociaux. L'équipe était composée de huit membres issus de différents campus EPITECH en France.",
-      "concept": "Une solution IoT destinée aux personnes malvoyantes : une ceinture connectée équipée d'un Raspberry Pi, de caméras et de moteurs vibrants. Grâce à la reconnaissance de formes, les moteurs vibrants indiquent la direction et la distance des obstacles autour de l'utilisateur. Une application mobile développée avec Flutter permet également de consulter des informations sur la ceinture, comme le niveau de batterie, et d'accéder à une fonctionnalité d'appel d'urgence."
+      "concept": "Une solution IoT destinée aux personnes malvoyantes : une ceinture connectée équipée d'un Raspberry Pi, de caméras et de moteurs vibrants. Grâce à la reconnaissance de formes, les moteurs vibrants indiquent la direction et la distance des obstacles autour de l'utilisateur. Une application mobile développée avec Flutter permet également de consulter des informations sur la ceinture, comme le niveau de batterie, et d'accéder à une fonctionnalité d'appel d'urgence.",
+      "url": ""
     },
     "safecheck": {
       "title": "Safecheck",
@@ -85,7 +115,8 @@
       "year": "2021",
       "techstack": ["react-native", "python", "scikit-learn"],
       "context": "Programme de formation à l'entrepreneuriat en intelligence artificielle, proposé en partenariat avec EPITECH IT School et EMLyon Business School. Sur quatre mois, les participants devaient identifier une problématique actuelle et développer une solution entrepreneuriale viable reposant sur l'IA.",
-      "concept": "Face à la problématique croissante de la contrefaçon dans l'industrie de la mode, nous avons développé une application mobile capable d'authentifier des sneakers à partir de photographies.\n\nAvec mon équipe, nous avons constitué un jeu de données d'images de sneakers authentiques et contrefaites, utilisé pour entraîner un modèle d'IA avec scikit-learn. J'ai ensuite développé l'application mobile en React Native permettant aux utilisateurs de soumettre des photos et d'obtenir un résultat d'authentification."
+      "concept": "Face à la problématique croissante de la contrefaçon dans l'industrie de la mode, nous avons développé une application mobile capable d'authentifier des sneakers à partir de photographies.\n\nAvec mon équipe, nous avons constitué un jeu de données d'images de sneakers authentiques et contrefaites, utilisé pour entraîner un modèle d'IA avec scikit-learn. J'ai ensuite développé l'application mobile en React Native permettant aux utilisateurs de soumettre des photos et d'obtenir un résultat d'authentification.",
+      "url": ""
     }
   }
 }

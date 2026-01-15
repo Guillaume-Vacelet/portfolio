@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 export default function WorksSection() {
   const t = useTranslations('homePage.worksSection');
-  const projects = ['canal+', 'bento', 'blindspot', 'safecheck']
+  const projects = ['doozis', 'ilie-nastase', 'insho-atelier', 'canal+', 'bento', 'blindspot', 'safecheck']
 
   return (
     <section id="works" className="section flex-col items-center py-16">
