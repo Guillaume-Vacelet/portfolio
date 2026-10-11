@@ -1,9 +1,9 @@
 import ProjectCard from "@/app/_components/projectCard";
 import { useTranslations } from "next-intl";
+import { projects } from "@/app/_data/projects";
 
 export default function WorksSection() {
   const t = useTranslations('homePage.worksSection');
-  const projects = ['doozis', 'ilie-nastase', 'insho-atelier', 'canal-plus', 'bento', 'blindspot', 'safecheck']
 
   return (
     <section id="works" className="section flex-col items-center py-16">

@@ -3,14 +3,23 @@ import { notFound } from "next/navigation";
 import IconChip from "@/app/_components/iconChip";
 import Navbar from "@/app/_components/navbar";
 import ContactSection from "@/app/_sections/contact";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { projects } from "@/app/_data/projects";
+
+// Pre-render every project (per locale, see the layout); other slugs return a 404
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return projects.map(project => ({ 'project-name': project }));
+}
 
 export default async function Projects({
   params,
 }: {
-  params: Promise<{ 'project-name': string }>
+  params: Promise<{ locale: string, 'project-name': string }>
 }) {
-  const projectName = decodeURIComponent((await params)['project-name']);
+  const { locale, 'project-name': slug } = await params;
+  setRequestLocale(locale);
+  const projectName = decodeURIComponent(slug);
   const t = await getTranslations('projectsPage');
 
   if (!t.has(`${projectName}.title`)) {

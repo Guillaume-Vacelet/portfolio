@@ -3,7 +3,9 @@ import localFont from "next/font/local";
 import "@/app/_styles/globals.css";
 import "@/app/_styles/animations.css";
 import {NextIntlClientProvider} from 'next-intl';
-import {getLocale, getMessages} from 'next-intl/server';
+import {getMessages, setRequestLocale} from 'next-intl/server';
+import {notFound} from "next/navigation";
+import {isLocale, routing} from "@/i18n/routing";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -47,12 +49,25 @@ export const metadata: Metadata = {
   title: "Guillaume Vacelet",
 };
 
+// Pre-render every page once per locale at build time
+export function generateStaticParams() {
+  return routing.locales.map(locale => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
-  const locale = await getLocale();
+  const { locale } = await params;
+  if (!isLocale(locale)) {
+    notFound();
+  }
+  // Lets next-intl read the locale without headers/cookies, which keeps rendering static
+  setRequestLocale(locale);
+
   const messages = await getMessages();
   // Only client components need messages in the browser. Add the namespace here
   // when a client component starts using a new one (e.g. the About section).

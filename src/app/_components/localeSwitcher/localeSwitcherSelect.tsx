@@ -1,6 +1,6 @@
 'use client';
-import {Locale} from '@/i18n/config';
-import {setUserLocale} from '@/app/_services/locale';
+import {Locale} from '@/i18n/routing';
+import {Link, usePathname} from '@/i18n/navigation';
 
 export default function LocaleSwitcherSelect({
   defaultValue,
@@ -12,10 +12,8 @@ export default function LocaleSwitcherSelect({
   dark?: boolean
 }) {
   const defaultColor = dark ? '' : 'text-appBlack'
-
-  function onChange(locale: Locale) {
-    setUserLocale(locale);
-  }
+  // Current path without the locale prefix, e.g. "/projects/bento"
+  const pathname = usePathname();
 
   return (
     <ul className="flex flex-row items-center gap-4">
@@ -23,7 +21,13 @@ export default function LocaleSwitcherSelect({
         <li
           key={lang}
           className={`relative flex flex-col items-center ${defaultColor} cursor-pointer`}>
-          <button className={`${lang === defaultValue ? 'text-accent' : defaultColor} transition-colors`} onClick={() => {onChange(lang)}}>{lang}</button>
+          <Link
+            href={pathname}
+            locale={lang}
+            scroll={false}
+            className={`${lang === defaultValue ? 'text-accent' : defaultColor} transition-colors`}>
+            {lang}
+          </Link>
           <div className={`${lang === defaultValue ? 'bg-accent' : 'bg-transparent'} absolute top-full w-1 h-1 rounded-full`}></div>
         </li>
       )}

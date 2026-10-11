@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
+import { Link } from "@/i18n/navigation";
 import React, { useEffect, useState } from "react";
 import { toggleModal } from "./navbarModal";
 import LocaleSwitcher from "./localeSwitcher/localeSwitcher";
@@ -135,7 +136,7 @@ export default function Navbar({
           <ul className="w-full flex flex-row items-center justify-between">
             {links.map((navLink, index) =>
               <li className={`relative group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
-                <Link
+                <NextLink
                   href={`#${navLink}`}
                   onClick={(e) => handleScrollToAnchor(e, navLink)}
                   className={`
@@ -147,7 +148,7 @@ export default function Navbar({
                   `}
                 >
                   {t(navLink)}
-                </Link>
+                </NextLink>
                 <div className={`${navLink === activeSection ? 'bg-accent' : 'bg-transparent'} absolute top-full w-1 h-1 rounded-full`}></div>
               </li>
             )}

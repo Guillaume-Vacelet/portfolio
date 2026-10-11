@@ -1,14 +1,18 @@
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export default function ProjectCard({project} : {project: string}) {
   const t = useTranslations(`projectsPage.${project}`);
-  
+  const externalUrl = t('url');
+  // External projects open their website, the others their page on this site
+  const CardLink = externalUrl ? NextLink : Link;
+
   return (
-    <Link
-      href={t('url').length != 0 ? t('url') : `/projects/${project}`}
-      target={t('url').length != 0 ? "_blank" : ""}
+    <CardLink
+      href={externalUrl || `/projects/${project}`}
+      target={externalUrl ? "_blank" : undefined}
       className="w-full flex flex-col group bg-white rounded-2xl border border-cardBorder">
       <div className="relative rounded-t-2xl overflow-hidden">
         <Image
@@ -34,6 +38,6 @@ export default function ProjectCard({project} : {project: string}) {
         </div>
         <p className="text-sm font-normal text-gray-600">{t('desc')}</p>
       </div>
-    </Link>
+    </CardLink>
   )
 }
