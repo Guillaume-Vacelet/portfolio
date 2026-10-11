@@ -28,7 +28,7 @@ function fadeModalIn(modal: HTMLElement) {
 }
 
 function fadeModalOut(modal: HTMLElement) {
-  document.body.style.overflow = 'scroll';
+  document.body.style.overflow = '';
   modal.classList.add('fade-out');
   modal.classList.remove('fade-in');
   modal.style.zIndex = '0';
@@ -38,17 +38,18 @@ export default function NavbarModal() {
   const t = useTranslations("navbar");
 
   useEffect(() => {
-    window.addEventListener('resize', debounce(
-      (event: Event) => {
-        const win = event.target as Window;
-        const mobileScreenThreshold = 640;
-        const modal = document.getElementById('navbar-modal');
+    const handleResize = debounce(() => {
+      const mobileScreenThreshold = 640;
+      const modal = document.getElementById('navbar-modal');
 
-        if (win.innerWidth < mobileScreenThreshold) return;
-        if (!modal) return;
+      if (window.innerWidth < mobileScreenThreshold) return;
+      if (!modal?.classList.contains('fade-in')) return;
 
-        fadeModalOut(modal);
-      }, 200), true);
+      fadeModalOut(modal);
+    }, 200);
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [])
 
   return (

@@ -9,21 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.1.0",
-    "@react-three/postprocessing": "^3.0.4",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "next": "15.2.8",
     "next-intl": "^3.26.5",
     "ogl": "^1.0.11",
-    "postprocessing": "^6.37.1",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "tailwindcss-fluid-type": "^2.0.6",
-    "three": "^0.174.0"
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/node": "^20",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",

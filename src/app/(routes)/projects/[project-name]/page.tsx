@@ -1,15 +1,21 @@
-'use client'
 import Image from "next/image";
-import { usePathname } from 'next/navigation'
+import { notFound } from "next/navigation";
 import IconChip from "@/app/_components/iconChip";
 import Navbar from "@/app/_components/navbar";
 import ContactSection from "@/app/_sections/contact";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function Projects() {
-  const pathName = usePathname()
-  const projectName = pathName.split('/').reverse()[0];
-  const t = useTranslations('projectsPage');
+export default async function Projects({
+  params,
+}: {
+  params: Promise<{ 'project-name': string }>
+}) {
+  const projectName = decodeURIComponent((await params)['project-name']);
+  const t = await getTranslations('projectsPage');
+
+  if (!t.has(`${projectName}.title`)) {
+    notFound();
+  }
   const techstack = t.raw(`${projectName}.techstack`) as string[];
 
   return (
@@ -43,7 +49,7 @@ export default function Projects() {
               {t('techstackLabel')}
             </h3>
             <div className="w-full flex flex-row gap-2 flex-wrap">
-              {techstack.map(tech => 
+              {techstack.map(tech =>
                 <IconChip key={tech} label={tech} />
               )}
             </div>

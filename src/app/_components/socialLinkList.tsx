@@ -12,7 +12,7 @@ export default function SocialLinkList() {
           href={link.url}
           target="_blank"
           onClick={(e) => e.stopPropagation()}>
-          <div className="border bg-cardBorder group-hover:bg-accent p-2 rounded-md">
+          <div className="border bg-cardBorder group-hover:bg-accent p-2 rounded-md transition-colors">
             <Image
               src={`/static/icons/${link.icon}`}
               alt={`${link.label} icon`}
@@ -21,7 +21,7 @@ export default function SocialLinkList() {
               title={link.label}
             />
           </div>
-          <span className="leading-none text-xs sm:text-sm font-medium group-hover:underline group-hover:text-accent">
+          <span className="leading-none text-xs sm:text-sm font-medium group-hover:underline group-hover:text-accent transition-colors">
             {link.shortUrl}
           </span>
         </Link>

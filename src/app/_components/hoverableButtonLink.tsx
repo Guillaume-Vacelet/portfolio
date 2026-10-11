@@ -10,7 +10,7 @@ export default function HoverableButtonLink({ label, url, primary=false, onclick
   }
 
   return (
-    <Link className={`w-full px-3 py-2 rounded-md border ${primary ? 'bg-accent border-accent' : 'bg-white border-cardBorder'} whitespace-nowra`}
+    <Link className={`w-full px-3 py-2 rounded-md border ${primary ? 'bg-accent border-accent' : 'bg-white border-cardBorder'} whitespace-nowrap`}
       href={url}
       onClick={(e) => handleOnClick(e, url)}
       target="_blank"

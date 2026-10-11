@@ -60,13 +60,14 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${nuckle.className} antialiased`}>
+      {/* Browser extensions inject attributes on <body> before hydration */}
+      <body className={`${nuckle.className} antialiased`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
-      <SpeedInsights />
-      <Analytics />
     </html>
   );
 }

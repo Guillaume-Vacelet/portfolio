@@ -118,7 +118,7 @@ export default function Navbar({
       className={`h-[var(--sm-header-h)] sm:h-[var(--header-h)] w-full place-content-center px-4 sm:p-6 font-medium border-b ${dark ? 'bg-zinc-950 border-zinc-600' : 'bg-white border-cardBorder'} ${hideOnScroll ? 'hidden fixed top-0 left-0 z-50' : ''}`}>
       <div className="relative w-full flex items-center justify-end sm:justify-center">
         {/* Mobile navbar */}
-        <div className={`w-full sm:hidden flex flex-row items-center justify-between ${hideOnScroll ? '' : 'fade-in-right'}`}>
+        <div className={`w-full sm:hidden flex flex-row items-center justify-between`}>
           <Link href="/">
             <Image
               src={`/static/icons/logo-perso-2.svg`}
@@ -166,12 +166,12 @@ export default function Navbar({
                       ? 'text-accent'
                       : 'text-appBlack'
                     }
-                    text-base group-hover:text-accent
+                    text-base group-hover:text-accent transition-colors
                   `}
                 >
                   {t(navLink)}
                 </Link>
-                <div className={`${navLink === activeSection ? 'bg-accent' : 'bg-none'} absolute top-full w-1 h-1 rounded-full`}></div>
+                <div className={`${navLink === activeSection ? 'bg-accent' : 'bg-transparent'} absolute top-full w-1 h-1 rounded-full`}></div>
               </li>
             )}
           </ul>

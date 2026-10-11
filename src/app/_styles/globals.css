@@ -4,25 +4,17 @@
 
 :root {
   --background: #F9FAFA;
-  /* --background: #f5f1ee; */
   --primary: #e1e1e1;
   --accent: #ff5e2b;
-  --accent-15: #F0D9D0;
-  /* --accent: #0091D3; */
   --app-black: #212427;
   --header-h: 96px;
   --sm-header-h: 64px;
-  --app-px: 1.5rem;
 
   --card-border: #D2D2D2;
   --card-background: #EEEEEE;
   --card-primary: white;
   --card-accent: var(--accent);
   --card-hover: rgba(255, 55, 0, 0.05);
-}
-
-* {
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -33,7 +25,6 @@ html {
 body {
   color: var(--primary);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -41,7 +32,6 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  /* min-height: 100vh; */
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   z-index: 30;
@@ -68,12 +58,6 @@ body {
   }
 }
 
-@media screen and (max-width: 851px) {
-  h1 {
-    font-size: 3.75rem;
-  }
-}
-
 strong {
   font-weight: 600;
 }
@@ -87,36 +71,8 @@ strong {
   background: var(--accent);
 }
 
-.radial-bg {
-  position: absolute;
-  top: 15%;
-  left: 5%;
-  width: 85%;
-  height: 65%;
-  background: radial-gradient(
-          ellipse 50% 30% at 50% 50%, 
-          #241212 50%,
-          #000 100%);
-  transform: rotate(5deg);
-}
-
-.sunrise-gradient {
-  background: radial-gradient(
-          ellipse 75vw 30% at bottom, 
-          #481515 0%,
-          #000 100%);
-}
-
-.svg-to-accent {
-  filter: invert(48%) sepia(20%) saturate(6322%) hue-rotate(342deg) brightness(101%) contrast(103%);
-}
-
 .svg-to-white {
   filter: invert(86%) sepia(49%) saturate(77%) hue-rotate(271deg) brightness(113%) contrast(100%);
-}
-
-.svg-to-gray {
-  filter: invert(75%) sepia(6%) saturate(282%) hue-rotate(202deg) brightness(85%) contrast(94%);
 }
 
 .icon-chip-gradient {
@@ -124,27 +80,10 @@ strong {
   background: linear-gradient(0deg, #1d1d1d 0%, #111111 100%);
 }
 
-.bg-accent-linear-fade {
-  background: var(--accent);
-  background: linear-gradient(0deg, #ff9372 0%, var(--accent) 30%);
-
-  /* background: rgb(255,255,255);
-  background: linear-gradient(180deg, rgba(255,255,255,1) 5%, var(--accent) 45%); */
-}
-
 .card-hover-style {
-  /* hover:scale-[1.02] hover:shadow-lg transition-all duration-500  */
   transition: all;
   transition-duration: 300ms;
 }
 .card-hover-style:hover {
   transform: scale(1.02);
-}
-
-.inner-shadow {
-  box-shadow: inset 0 0 10px #00000010;
-}
-
-.ellipse {
-  clip-path: ellipse(20px 50px);
 }

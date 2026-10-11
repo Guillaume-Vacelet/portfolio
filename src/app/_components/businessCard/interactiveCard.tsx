@@ -8,38 +8,10 @@ export default function InteractiveCard({
     front?: React.ReactNode;
     back?: React.ReactNode;
 }) {
-    const [rotation, setRotation] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
     const [flipRotation, setFlipRotation] = useState(0);
 
-    const updateRotation = (clientX: number, clientY: number, rect: DOMRect) => {
-        // Calculer la position relative (de -1 à 1)
-        const x = (clientX - rect.left) / rect.width;
-        const y = (clientY - rect.top) / rect.height;
-
-        const mouseHoverCardRotation = 0;
-        // Convertir en degrés de rotation (max ±16 degrés)
-        const rotateY = (x - 0.5) * mouseHoverCardRotation;
-        const rotateX = (0.5 - y) * mouseHoverCardRotation;
-
-        setRotation({ x: rotateX, y: rotateY });
-    };
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
-        updateRotation(e.clientX, e.clientY, rect);
-    };
-
-    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
-        const touch = e.touches[0];
-        updateRotation(touch.clientX, touch.clientY, rect);
-    };
-
     const handleMouseLeave = () => {
-        setRotation({ x: 0, y: 0 });
         setIsHovered(false);
     };
 
@@ -52,13 +24,11 @@ export default function InteractiveCard({
     };
 
     const handleTouchEnd = () => {
-        setRotation({ x: 0, y: 0 });
         setIsHovered(false);
     };
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const target = e.target as HTMLElement;
-        console.log(e.target)
 
         if (target.closest('a') || target.closest('button')) {
             return;
@@ -71,18 +41,16 @@ export default function InteractiveCard({
     }
 
     return (
-        <div className="relative perspective-1000 cursor-pointer" style={{ perspective: '1000px' }}>
+        <div className="relative cursor-pointer" style={{ perspective: '1000px' }}>
             <div
                 className="relative w-[319px] h-[201px] sm:w-[425px] sm:h-[268px] xl:w-[450px] xl:h-[284px] transition-all duration-700 ease-out pointer-events-none"
                 style={{
-                    transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y + flipRotation}deg) ${isHovered ? 'translateZ(50px)' : 'translateZ(0px)'}`,
+                    transform: `rotateY(${flipRotation}deg) ${isHovered ? 'translateZ(50px)' : 'translateZ(0px)'}`,
                     transformStyle: 'preserve-3d',
                 }}
-                onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}
                 onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 onClick={handleClick}
             >

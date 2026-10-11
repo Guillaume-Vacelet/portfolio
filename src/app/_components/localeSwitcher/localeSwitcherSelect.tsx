@@ -8,13 +8,12 @@ export default function LocaleSwitcherSelect({
   dark
 }: {
   defaultValue: string;
-  items: string[];
+  items: readonly Locale[];
   dark?: boolean
 }) {
   const defaultColor = dark ? '' : 'text-appBlack'
 
-  function onChange(value: string) {
-    const locale = value as Locale;
+  function onChange(locale: Locale) {
     setUserLocale(locale);
   }
 
@@ -24,8 +23,8 @@ export default function LocaleSwitcherSelect({
         <li
           key={lang}
           className={`relative flex flex-col items-center ${defaultColor} cursor-pointer`}>
-          <button className={`${lang === defaultValue ? 'text-accent' : defaultColor}`} onClick={() => {onChange(lang)}}>{lang}</button>
-          <div className={`${lang === defaultValue ? 'bg-accent' : 'bg-none'} absolute top-full w-1 h-1 rounded-full`}></div>
+          <button className={`${lang === defaultValue ? 'text-accent' : defaultColor} transition-colors`} onClick={() => {onChange(lang)}}>{lang}</button>
+          <div className={`${lang === defaultValue ? 'bg-accent' : 'bg-transparent'} absolute top-full w-1 h-1 rounded-full`}></div>
         </li>
       )}
     </ul>

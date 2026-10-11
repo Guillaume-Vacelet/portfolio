@@ -10,7 +10,7 @@ export default function ContactSection() {
     <section id="contact" className="section h-[50vh] py-16 bg-black">
       <div className="w-full flex flex-col justify-between">
 
-        <div className="flex flex-col gap-">
+        <div className="flex flex-col">
           <span className="text-xl lg:text-3xl">Guillaume Vacelet</span>
 
           <div className="flex flex-row items-center gap-4 mt-4">

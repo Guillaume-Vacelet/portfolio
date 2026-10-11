@@ -18,7 +18,6 @@ export default function ProjectCard({project} : {project: string}) {
           alt="Project card image"
           className="rounded-t-2xl object-cover"
         />
-        <div className="image-bottom-fade"></div>
       </div>
 
       <div className="flex flex-col justify-between text-xs md:text-base font-medium p-4 sm:p-6 gap-2">
