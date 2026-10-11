@@ -53,16 +53,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
- 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
+  // Only client components need messages in the browser. Add the namespace here
+  // when a client component starts using a new one (e.g. the About section).
+  const clientMessages = { navbar: messages.navbar };
 
   return (
     <html lang={locale}>
       {/* Browser extensions inject attributes on <body> before hydration */}
       <body className={`${nuckle.className} antialiased`} suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
         <SpeedInsights />

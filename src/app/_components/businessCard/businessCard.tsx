@@ -1,4 +1,3 @@
-'use client';
 import InteractiveCard from "@/app/_components/businessCard/interactiveCard";
 import Image from "next/image";
 import SocialLinkList from '@/app/_components/socialLinkList';

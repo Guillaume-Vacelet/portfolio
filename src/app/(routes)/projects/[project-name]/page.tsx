@@ -39,6 +39,8 @@ export default async function Projects({
             src={`/static/images/${projectName}-thumbnail.png`}
             width={800}
             height={450}
+            sizes="100vw"
+            priority
             alt="project cover"
             className="w-full rounded-lg"
           />

@@ -1,9 +1,8 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toggleModal } from "./navbarModal";
-import debounce from "@/app/_utils/debounce";
 import LocaleSwitcher from "./localeSwitcher/localeSwitcher";
 import { useTranslations } from "next-intl";
 
@@ -16,7 +15,8 @@ export function handleScrollToAnchor(event: React.MouseEvent, anchor: string) {
 
   event.preventDefault();
   if (element) {
-    element.scrollIntoView({behavior: 'smooth'})
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    element.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'})
   }
 }
 
@@ -30,86 +30,63 @@ export default function Navbar({
   dark?: boolean 
 }) {
   const [activeSection, setActiveSection] = useState<string>('');
-  const lastScrollY = useRef<number>(0);
   const t = useTranslations('navbar');
   const links = homePage ? navLinks : projectsNavLinks;
 
   useEffect(() => {
-    lastScrollY.current = window.scrollY;
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function getElementHeightPercentageInViewport(el: HTMLElement) {
-    const rect = el.getBoundingClientRect();
-    const elTotalHeight = rect.bottom - rect.top;
-    let elVisibleHeight = window.innerHeight - rect.top;
-
-    if (rect.top <= 0) {
-      if (rect.bottom > window.innerHeight) {
-        elVisibleHeight = window.innerHeight;
-      } else {
-        elVisibleHeight = rect.bottom;
-      }
-    }
-
-    return elVisibleHeight / elTotalHeight * 100;
-  }
-
-  function getIndexOfHighestNumber(arr: number[]) {
-    let res = 0;
-    const diffMargin = 15;
-
-    arr.forEach((x, i) => {
-      if (x > arr[res] + diffMargin) {
-        res = i;
-      }
-    })
-    return res;
-  }
-
-  function handleHideOnScroll() {
+    if (!hideOnScroll) return;
     const navbar = document.getElementById('dynamic-navbar');
-    const isScrollingDown = window.scrollY > lastScrollY.current;
-
     if (!navbar) return;
 
-    lastScrollY.current = window.scrollY;
+    let lastScrollY = window.scrollY;
+    let isFolded: boolean | null = null;
 
-    if (isScrollingDown) {
-      navbar.classList.remove('unfolding');
-      navbar.classList.add('folding');
-    } else {
-      navbar.style.display = "block";
-      navbar.classList.remove('folding');
-      navbar.classList.add('unfolding');
+    function handleScroll() {
+      const isScrollingDown = window.scrollY > lastScrollY;
+      lastScrollY = window.scrollY;
+
+      // Only touch the DOM when the scroll direction changes
+      if (!navbar || isScrollingDown === isFolded) return;
+      isFolded = isScrollingDown;
+
+      if (isScrollingDown) {
+        navbar.classList.remove('unfolding');
+        navbar.classList.add('folding');
+      } else {
+        navbar.style.display = "block";
+        navbar.classList.remove('folding');
+        navbar.classList.add('unfolding');
+      }
     }
-  }
 
-  function handleScroll() {
-    if (hideOnScroll) {
-      handleHideOnScroll();
-    }
-    handleActiveSection();
-  }
+    // Initial call reveals the navbar on page load
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hideOnScroll]);
 
-  const handleActiveSection = debounce(() => {
-    const sectionsInViewportPercentages: number[] = [];
-    let newActiveSection = "";
+  // Highlights the section taking up the largest share of its own height in the viewport.
+  // A later section must beat the earlier ones by `diffMargin` to win, to avoid flickering.
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('.section'));
+    const visibleRatios = new Map<Element, number>();
+    const diffMargin = 0.15;
 
-    document.querySelectorAll('.section').forEach(section => {
-      sectionsInViewportPercentages.push(getElementHeightPercentageInViewport(section as HTMLElement));
-    })
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => visibleRatios.set(entry.target, entry.intersectionRatio));
 
-    newActiveSection = links[getIndexOfHighestNumber(sectionsInViewportPercentages)];
-    setActiveSection(newActiveSection);
-  }, 100);
+      let best = sections[0];
+      sections.forEach(section => {
+        if ((visibleRatios.get(section) ?? 0) > (visibleRatios.get(best) ?? 0) + diffMargin) {
+          best = section;
+        }
+      });
+      if (best) setActiveSection(best.id);
+    }, { threshold: Array.from({ length: 21 }, (_, i) => i / 20) });
+
+    sections.forEach(section => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   // the 'hidden' class is getting overrided by js style injection. It is still necessary to hide it initially. 
   return (

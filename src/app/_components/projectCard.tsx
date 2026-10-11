@@ -15,6 +15,7 @@ export default function ProjectCard({project} : {project: string}) {
           src={`/static/images/${project}-thumbnail.png`}
           width={1067}
           height={600}
+          sizes="(min-width: 1024px) 50vw, 100vw"
           alt="Project card image"
           className="rounded-t-2xl object-cover"
         />

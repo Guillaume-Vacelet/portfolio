@@ -9,6 +9,7 @@ export default function Avatar() {
           alt="memoji"
           width={124}
           height={124}
+          priority
           className="size-20 sm:size-28 select-none"
         />
       </div>
