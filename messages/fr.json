@@ -4,7 +4,11 @@
     "about": "A propos",
     "projects": "Projets",
     "works": "Portfolio",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "mainNav": "Navigation principale",
+    "languages": "Langues"
   },
   "homePage": {
     "homeSection": {
@@ -12,6 +16,7 @@
       "bookACall": "Planifier un appel",
       "hireMeOnMalt": "Embauchez moi sur Malt",
       "jobTitle": "Développeur frontend",
+      "flipCard": "Retourner la carte de visite",
       "openToWork": "Disponible"
     },
     "aboutSection": {
@@ -118,5 +123,9 @@
       "concept": "Face à la problématique croissante de la contrefaçon dans l'industrie de la mode, nous avons développé une application mobile capable d'authentifier des sneakers à partir de photographies.\n\nAvec mon équipe, nous avons constitué un jeu de données d'images de sneakers authentiques et contrefaites, utilisé pour entraîner un modèle d'IA avec scikit-learn. J'ai ensuite développé l'application mobile en React Native permettant aux utilisateurs de soumettre des photos et d'obtenir un résultat d'authentification.",
       "url": ""
     }
+  },
+  "metadata": {
+    "title": "Guillaume Vacelet · Développeur frontend freelance",
+    "description": "Développeur frontend freelance basé en France. Je conçois des applications web et mobile soignées, centrées sur l'expérience utilisateur. Disponible pour de nouvelles missions."
   }
 }

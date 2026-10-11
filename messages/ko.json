@@ -4,7 +4,11 @@
     "about": "소개",
     "projects": "프로젝트",
     "works": "프로젝트",
-    "contact": "연락처"
+    "contact": "연락처",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "mainNav": "주요 탐색",
+    "languages": "언어"
   },
   "homePage": {
     "homeSection": {
@@ -12,6 +16,7 @@
       "bookACall": "미팅 예약하기",
       "hireMeOnMalt": "Malt에서 고용하기",
       "jobTitle": "프론트엔드 엔지니어",
+      "flipCard": "명함 뒤집기",
       "openToWork": "일에 열려 있음"
     },
     "aboutSection": {
@@ -118,5 +123,9 @@
       "concept": "패션 산업에서 증가하는 위조 상품 문제를 해결하기 위해, 사진을 기반으로 스니커즈의 정품 여부를 판별하는 모바일 애플리케이션을 개발했습니다.\n\n팀과 함께 정품 및 가품 스니커즈 이미지 데이터셋을 구축하고, scikit-learn을 사용해 AI 모델을 학습시켰습니다. 이후 사용자가 사진을 업로드하면 인증 결과를 제공하는 React Native 모바일 애플리케이션을 개발했습니다.",
       "url": ""
     }
+  },
+  "metadata": {
+    "title": "Guillaume Vacelet · 프리랜서 프론트엔드 엔지니어",
+    "description": "프랑스에 기반을 둔 프리랜서 프론트엔드 엔지니어입니다. 사용자 경험에 중점을 둔 완성도 높은 웹 및 모바일 애플리케이션을 개발합니다. 새로운 프로젝트에 참여할 수 있습니다."
   }
 }

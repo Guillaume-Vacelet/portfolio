@@ -3,9 +3,10 @@ import localFont from "next/font/local";
 import "@/app/_styles/globals.css";
 import "@/app/_styles/animations.css";
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {notFound} from "next/navigation";
 import {isLocale, routing} from "@/i18n/routing";
+import {openGraphLocales, siteUrl} from "@/i18n/metadata";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -45,9 +46,34 @@ const nuckle = localFont({
   variable: '--font-nuckle'
 }) 
 
-export const metadata: Metadata = {
-  title: "Guillaume Vacelet",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  return {
+    metadataBase: siteUrl,
+    title: {
+      default: t('title'),
+      template: '%s · Guillaume Vacelet',
+    },
+    description: t('description'),
+    openGraph: {
+      type: 'website',
+      siteName: 'Guillaume Vacelet',
+      locale: openGraphLocales[locale],
+      title: t('title'),
+      description: t('description'),
+    },
+    twitter: {
+      card: 'summary',
+    },
+  };
+}
 
 // Pre-render every page once per locale at build time
 export function generateStaticParams() {

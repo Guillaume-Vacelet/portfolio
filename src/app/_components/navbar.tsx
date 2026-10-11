@@ -100,18 +100,24 @@ export default function Navbar({
           <Link href="/">
             <Image
               src={`/static/icons/logo-perso-2.svg`}
-              alt="logo"
+              alt="Guillaume Vacelet"
               width={60}
               height={24}
               className={`size-12 ${dark ? 'svg-to-white': ''}`}
             />
           </Link>
 
-          <button onClick={() => toggleModal()} className="size-8 p-2 rounded-md bg-gray-900 z-50">
+          <button
+            type="button"
+            onClick={() => toggleModal()}
+            aria-label={t('openMenu')}
+            aria-controls="navbar-modal"
+            aria-expanded={false}
+            className="size-8 p-2 rounded-md bg-gray-900 z-50">
             <div className="relative size-full">
               <Image
                 src={`/static/icons/menu.svg`}
-                alt="menu icon"
+                alt=""
                 fill
                 style={{objectFit: "cover"}}
               />
@@ -126,19 +132,21 @@ export default function Navbar({
             href="/">
             <Image
               src={`/static/icons/logo-perso-2.svg`}
-              alt="logo"
+              alt="Guillaume Vacelet"
               width={60}
               height={24}
               className={`${dark ? 'svg-to-white': ''}`}
             />
           </Link>
 
+          <nav aria-label={t('mainNav')} className="w-full">
           <ul className="w-full flex flex-row items-center justify-between">
             {links.map((navLink, index) =>
               <li className={`relative group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
                 <NextLink
                   href={`#${navLink}`}
                   onClick={(e) => handleScrollToAnchor(e, navLink)}
+                  aria-current={navLink === activeSection ? 'location' : undefined}
                   className={`
                     ${navLink === activeSection
                       ? 'text-accent'
@@ -153,6 +161,7 @@ export default function Navbar({
               </li>
             )}
           </ul>
+          </nav>
           
           <div className={`self-center z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
             <LocaleSwitcher dark />

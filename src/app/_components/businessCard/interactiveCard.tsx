@@ -1,5 +1,22 @@
 'use client';
-import { useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
+
+const FlipContext = createContext<() => void>(() => {});
+
+// Keyboard-accessible flip control, to place on each face of an InteractiveCard
+export function FlipCardButton({ label, className, children }: {
+    label: string;
+    className?: string;
+    children: React.ReactNode;
+}) {
+    const flip = useContext(FlipContext);
+
+    return (
+        <button type="button" aria-label={label} onClick={flip} className={`flex ${className ?? ''}`} data-flip-button>
+            {children}
+        </button>
+    );
+}
 
 export default function InteractiveCard({
     front, 
@@ -10,6 +27,23 @@ export default function InteractiveCard({
 }) {
     const [isHovered, setIsHovered] = useState(false);
     const [flipRotation, setFlipRotation] = useState(0);
+    const frontRef = useRef<HTMLDivElement>(null);
+    const backRef = useRef<HTMLDivElement>(null);
+    const moveFocusAfterFlip = useRef(false);
+
+    const flipFromButton = () => {
+        moveFocusAfterFlip.current = true;
+        setFlipRotation(prev => prev + 180);
+    };
+
+    // The face that was just hidden becomes inert, which drops the focus:
+    // give it to the flip button of the face now visible
+    useEffect(() => {
+        if (!moveFocusAfterFlip.current) return;
+        moveFocusAfterFlip.current = false;
+        const visibleFace = (flipRotation % 360) == 0 ? frontRef.current : backRef.current;
+        visibleFace?.querySelector<HTMLElement>('[data-flip-button]')?.focus();
+    }, [flipRotation]);
 
     const handleMouseLeave = () => {
         setIsHovered(false);
@@ -41,6 +75,7 @@ export default function InteractiveCard({
     }
 
     return (
+        <FlipContext.Provider value={flipFromButton}>
         <div className="relative cursor-pointer" style={{ perspective: '1000px' }}>
             <div
                 className="relative w-[319px] h-[201px] sm:w-[425px] sm:h-[268px] xl:w-[450px] xl:h-[284px] transition-all duration-700 ease-out pointer-events-none"
@@ -64,6 +99,8 @@ export default function InteractiveCard({
                 >
                     {/* Recto */}
                     <div 
+                        ref={frontRef}
+                        inert={!isFrontSide()}
                         className={`absolute inset-0 w-full h-full rounded-2xl overflow-hidden ${isFrontSide() ? 'pointer-events-auto' : 'pointer-events-none'}`}
                         style={{
                             backfaceVisibility: 'hidden',
@@ -75,6 +112,8 @@ export default function InteractiveCard({
                     
                     {/* Verso */}
                     <div 
+                        ref={backRef}
+                        inert={isFrontSide()}
                         className={`absolute inset-0 w-full h-full rounded-2xl overflow-hidden ${!isFrontSide() ? 'pointer-events-auto' : 'pointer-events-none'}`}
                         style={{
                             backfaceVisibility: 'hidden',
@@ -103,5 +142,6 @@ export default function InteractiveCard({
 
             {/* <div className="ellipse absolute border-2 border-blue-500 rounded-full"></div> */}
         </div>
+        </FlipContext.Provider>
   );
 }

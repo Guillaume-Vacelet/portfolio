@@ -5,6 +5,22 @@ import WorksSection from "@/app/_sections/works";
 import ContactSection from "@/app/_sections/contact";
 import NavbarModal from "@/app/_components/navbarModal";
 import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { isLocale } from "@/i18n/routing";
+import { localizedAlternates } from "@/i18n/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+
+  return {
+    alternates: localizedAlternates(locale),
+  };
+}
 
 export default async function Home({
   params,

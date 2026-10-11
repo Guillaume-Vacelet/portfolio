@@ -4,7 +4,11 @@
     "about": "About",
     "projects": "Projects",
     "works": "Works",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "languages": "Languages"
   },
   "homePage": {
     "homeSection": {
@@ -12,6 +16,7 @@
       "bookACall": "Book a call",
       "hireMeOnMalt": "Hire me on Malt",
       "jobTitle": "Frontend engineer",
+      "flipCard": "Flip the business card",
       "openToWork": "Open to work"
     },
     "aboutSection": {
@@ -118,5 +123,9 @@
       "concept": "Addressing the growing issue of counterfeit products in the fashion industry, we developed a mobile application that authenticates sneakers using photographs.\n\nMy team and I created a dataset of counterfeit and authentic sneaker images, which we used to train an AI model using scikit-learn. I then developed a React Native mobile application that allows users to input pictures and output an authentication result.",
       "url": ""
     }
+  },
+  "metadata": {
+    "title": "Guillaume Vacelet · Freelance frontend engineer",
+    "description": "France-based freelance frontend engineer. I build polished web and mobile applications with a focus on user experience. Available for new projects."
   }
 }

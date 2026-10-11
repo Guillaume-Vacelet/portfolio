@@ -6,7 +6,7 @@ export default function Avatar() {
       <div className="flex flex-shrink-0 p-6 rounded-full bg-orange-600/15">
         <Image
           src={`/static/images/memoji-thumb-up-cropped.png`}
-          alt="memoji"
+          alt=""
           width={124}
           height={124}
           priority

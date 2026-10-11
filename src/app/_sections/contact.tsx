@@ -18,13 +18,14 @@ export default function ContactSection() {
               <a
                 key={social.label}
                 href={social.url}
-                target="_blank">
+                target="_blank"
+                rel="noopener noreferrer">
                 <Image
                   src={`/static/icons/${social.icon}`}
-                  alt={`${social.label} icon`}
+                  alt={social.name}
                   width={20}
                   height={20}
-                  title={social.label}
+                  title={social.name}
                   className="size-6 sm:size-8 svg-to-white"
                 />
               </a>

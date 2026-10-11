@@ -12,7 +12,7 @@ export default function HoverableButtonLink({ label, url, primary=false } : { la
         <div className="relative size-2">
           <Image
             src={`/static/icons/arrow.up.right.svg`}
-            alt="Up right arrow icon"
+            alt=""
             fill
             style={{objectFit: "cover"}}
           />

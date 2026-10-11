@@ -13,6 +13,7 @@ export default function ProjectCard({project} : {project: string}) {
     <CardLink
       href={externalUrl || `/projects/${project}`}
       target={externalUrl ? "_blank" : undefined}
+      rel={externalUrl ? "noopener noreferrer" : undefined}
       className="w-full flex flex-col group bg-white rounded-2xl border border-cardBorder">
       <div className="relative rounded-t-2xl overflow-hidden">
         <Image
@@ -20,17 +21,17 @@ export default function ProjectCard({project} : {project: string}) {
           width={1067}
           height={600}
           sizes="(min-width: 1024px) 50vw, 100vw"
-          alt="Project card image"
+          alt=""
           className="rounded-t-2xl object-cover"
         />
       </div>
 
       <div className="flex flex-col justify-between text-xs md:text-base font-medium p-4 sm:p-6 gap-2">
         <div className="flex flex-row items-center gap-3">
-          <span className="text-xl font-medium text-black">{t('title')}</span>
+          <h3 className="text-xl font-medium text-black">{t('title')}</h3>
           <Image
             src={"/static/icons/arrow.up.right.svg"}
-            alt="arrow icon"
+            alt=""
             width={10}
             height={10}
             className="hidden group-hover:block"

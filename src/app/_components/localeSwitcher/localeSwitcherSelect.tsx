@@ -1,6 +1,14 @@
 'use client';
 import {Locale} from '@/i18n/routing';
 import {Link, usePathname} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
+
+// Each language is named in itself, as people look for their own language
+const languageNames: Record<Locale, string> = {
+  fr: 'Français',
+  en: 'English',
+  ko: '한국어',
+};
 
 export default function LocaleSwitcherSelect({
   defaultValue,
@@ -14,9 +22,10 @@ export default function LocaleSwitcherSelect({
   const defaultColor = dark ? '' : 'text-appBlack'
   // Current path without the locale prefix, e.g. "/projects/bento"
   const pathname = usePathname();
+  const t = useTranslations('navbar');
 
   return (
-    <ul className="flex flex-row items-center gap-4">
+    <ul aria-label={t('languages')} className="flex flex-row items-center gap-4">
       {items.map(lang => 
         <li
           key={lang}
@@ -25,6 +34,10 @@ export default function LocaleSwitcherSelect({
             href={pathname}
             locale={lang}
             scroll={false}
+            hrefLang={lang}
+            lang={lang}
+            aria-label={languageNames[lang]}
+            aria-current={lang === defaultValue ? 'true' : undefined}
             className={`${lang === defaultValue ? 'text-accent' : defaultColor} transition-colors`}>
             {lang}
           </Link>

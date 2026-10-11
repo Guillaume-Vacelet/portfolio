@@ -1,4 +1,4 @@
-import InteractiveCard from "@/app/_components/businessCard/interactiveCard";
+import InteractiveCard, { FlipCardButton } from "@/app/_components/businessCard/interactiveCard";
 import Image from "next/image";
 import SocialLinkList from '@/app/_components/socialLinkList';
 import { useTranslations } from "next-intl";
@@ -13,7 +13,7 @@ export default function BusinessCard() {
                     <div className="w-full flex flex-row items-center justify-between">
                         <Image
                             src={`/static/icons/logo-perso-2.svg`}
-                            alt="personal logo"
+                            alt=""
                             width={60}
                             height={24}
                             className="w-auto h-3.5 sm:h-4 xl:h-5"
@@ -28,17 +28,19 @@ export default function BusinessCard() {
                     </div>
 
                     <div className="h-full flex flex-col justify-center">
-                        <h1 className="text-lg sm:text-xl xl:text-2xl font-semibold">Guillaume Vacelet</h1>
-                        <h2 className="text-xs sm:text-sm xl:text-base">{t('jobTitle')}</h2>
+                        <p className="text-lg sm:text-xl xl:text-2xl font-semibold">Guillaume Vacelet</p>
+                        <p className="text-xs sm:text-sm xl:text-base">{t('jobTitle')}</p>
                     </div>
 
-                    <Image
-                        src={`/static/icons/360.svg`}
-                        alt="360 icon"
-                        width={24}
-                        height={24}
-                        className="select-none self-end"
-                    />
+                    <FlipCardButton label={t('flipCard')} className="self-end">
+                        <Image
+                            src={`/static/icons/360.svg`}
+                            alt=""
+                            width={24}
+                            height={24}
+                            className="select-none"
+                        />
+                    </FlipCardButton>
                 </div>
             }
             back={
@@ -48,13 +50,15 @@ export default function BusinessCard() {
                     </div>
                     
                     <div className="flex items-end">
-                        <Image
-                            src={`/static/icons/360.svg`}
-                            alt="360 icon"
-                            width={24}
-                            height={24}
-                            className="select-none"
-                        />
+                        <FlipCardButton label={t('flipCard')}>
+                            <Image
+                                src={`/static/icons/360.svg`}
+                                alt=""
+                                width={24}
+                                height={24}
+                                className="select-none"
+                            />
+                        </FlipCardButton>
                     </div>
                 </div>
             }

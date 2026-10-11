@@ -20,7 +20,15 @@ export function toggleModal() {
   }
 }
 
+function setMenuButtonsExpanded(expanded: boolean) {
+  document.querySelectorAll('[aria-controls="navbar-modal"]')
+    .forEach(button => button.setAttribute('aria-expanded', String(expanded)));
+}
+
 function fadeModalIn(modal: HTMLElement) {
+  modal.inert = false;
+  setMenuButtonsExpanded(true);
+  modal.querySelector<HTMLElement>('button')?.focus();
   document.body.style.overflow = 'hidden';
   modal.classList.add('fade-in');
   modal.classList.remove('fade-out');
@@ -28,6 +36,13 @@ function fadeModalIn(modal: HTMLElement) {
 }
 
 function fadeModalOut(modal: HTMLElement) {
+  // Give the focus back to the menu button before the modal becomes inert
+  if (modal.contains(document.activeElement)) {
+    document.querySelector<HTMLElement>('[aria-controls="navbar-modal"]')?.focus({ preventScroll: true });
+  }
+  // The faded-out modal stays in the page: keep its links out of reach
+  modal.inert = true;
+  setMenuButtonsExpanded(false);
   document.body.style.overflow = '';
   modal.classList.add('fade-out');
   modal.classList.remove('fade-in');
@@ -48,19 +63,30 @@ export default function NavbarModal() {
       fadeModalOut(modal);
     }, 200);
 
+    function handleKeyDown(event: KeyboardEvent) {
+      const modal = document.getElementById('navbar-modal');
+      if (event.key === 'Escape' && modal?.classList.contains('fade-in')) {
+        fadeModalOut(modal);
+      }
+    }
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [])
 
   return (
-    <div id="navbar-modal" className="fixed top-0 left-0 w-full h-[100vh] hidden flex-col bg-black p-[26px] z-50">
+    <div id="navbar-modal" role="dialog" aria-modal="true" aria-label={t('mainNav')} className="fixed top-0 left-0 w-full h-[100vh] hidden flex-col bg-black p-[26px] z-50">
       <div className="w-full flex flex-row justify-between">
         <LocaleSwitcher />
-        <button onClick={() => toggleModal()} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
+        <button type="button" onClick={() => toggleModal()} aria-label={t('closeMenu')} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
           <div className="relative size-full">
             <Image
               src={`/static/icons/close.svg`}
-              alt="close icon"
+              alt=""
               fill
               style={{objectFit: "cover"}}
             />

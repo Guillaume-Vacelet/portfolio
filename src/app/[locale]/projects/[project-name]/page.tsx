@@ -5,11 +5,44 @@ import Navbar from "@/app/_components/navbar";
 import ContactSection from "@/app/_sections/contact";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { projects } from "@/app/_data/projects";
+import type { Metadata } from "next";
+import { isLocale } from "@/i18n/routing";
+import { localizedAlternates, openGraphLocales } from "@/i18n/metadata";
 
 // Pre-render every project (per locale, see the layout); other slugs return a 404
 export const dynamicParams = false;
 export function generateStaticParams() {
   return projects.map(project => ({ 'project-name': project }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string, 'project-name': string }>
+}): Promise<Metadata> {
+  const { locale, 'project-name': slug } = await params;
+  const projectName = decodeURIComponent(slug);
+  if (!isLocale(locale)) return {};
+  const t = await getTranslations({ locale, namespace: 'projectsPage' });
+  if (!t.has(`${projectName}.title`)) return {};
+
+  const path = `/projects/${projectName}`;
+  return {
+    title: t(`${projectName}.title`),
+    description: t(`${projectName}.desc`),
+    alternates: localizedAlternates(locale, path),
+    openGraph: {
+      type: 'article',
+      siteName: 'Guillaume Vacelet',
+      locale: openGraphLocales[locale],
+      url: `/${locale}${path}`,
+      title: t(`${projectName}.title`),
+      description: t(`${projectName}.desc`),
+      images: `/static/images/${projectName}-thumbnail.png`,
+    },
+    // Projects with an external website have no content of their own here
+    robots: t(`${projectName}.url`) ? { index: false } : undefined,
+  };
 }
 
 export default async function Projects({
@@ -39,9 +72,9 @@ export default async function Projects({
             <h1 className="text-2xl sm:text-3xl font-semibold text-white">
               {t(`${projectName}.title`)}
             </h1>
-            <h2 className="text-sm sm:text-base font-medium text-gray-500">
+            <p className="text-sm sm:text-base font-medium text-gray-500">
               {t(`${projectName}.desc`)}
-            </h2>
+            </p>
           </div>
 
           <Image
@@ -50,15 +83,15 @@ export default async function Projects({
             height={450}
             sizes="100vw"
             priority
-            alt="project cover"
+            alt={t(`${projectName}.title`)}
             className="w-full rounded-lg"
           />
 
           {/* Tech stack */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-lg sm:text-2xl font-medium text-white">
+            <h2 className="text-lg sm:text-2xl font-medium text-white">
               {t('techstackLabel')}
-            </h3>
+            </h2>
             <div className="w-full flex flex-row gap-2 flex-wrap">
               {techstack.map(tech =>
                 <IconChip key={tech} label={tech} />
@@ -68,9 +101,9 @@ export default async function Projects({
 
           {/* Context */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-lg sm:text-2xl font-medium text-white">
+            <h2 className="text-lg sm:text-2xl font-medium text-white">
               {t('contextLabel')}
-            </h3>
+            </h2>
             <p className="text-sm sm:text-base font-normal text-gray-400 whitespace-pre-wrap">
               {t(`${projectName}.context`)}
             </p>
@@ -78,9 +111,9 @@ export default async function Projects({
 
           {/* Concept */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-lg sm:text-2xl font-medium text-white">
+            <h2 className="text-lg sm:text-2xl font-medium text-white">
               {t('conceptLabel')}
-            </h3>
+            </h2>
             <p className="text-sm sm:text-base font-normal text-gray-400 whitespace-pre-wrap">
               {t(`${projectName}.concept`)}
             </p>
