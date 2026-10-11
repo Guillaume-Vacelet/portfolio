@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { socialLinkList, calendlyLink, maltLink } from "@/app/_data/socialLinks";
-import HoverableButtonLink from "../_components/hoverableButtonLink";
+import { socialLinkList } from "@/app/_data/socialLinks";
+import ContactButtons from "@/app/_components/contactButtons";
 
 export default function ContactSection() {
   const t = useTranslations("homePage.contactSection");
@@ -34,11 +34,10 @@ export default function ContactSection() {
         </div>
 
         <div className="w-full flex flex-col lg:flex-row gap-2 lg:gap-4 mt-8">
-          <HoverableButtonLink label={t('bookACall')} url={calendlyLink.url} />
-          <HoverableButtonLink label={t('hireMeOnMalt')} url={maltLink.url} primary />
+          <ContactButtons />
         </div>
         <span className="mt-8 text-xs">
-          {t('allRightReserved')}
+          {t('allRightReserved', { year: new Date().getFullYear() })}
         </span>
       </div>
     </section>

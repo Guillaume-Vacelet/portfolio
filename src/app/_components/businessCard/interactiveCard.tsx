@@ -89,7 +89,7 @@ export default function InteractiveCard({
                 onTouchEnd={handleTouchEnd}
                 onClick={handleClick}
             >
-                {/* Carte principale */}
+                {/* Card body */}
                 <div 
                     className="relative w-full h-full shadow-sm rounded-2xl pointer-events-auto"
                     style={{
@@ -97,7 +97,7 @@ export default function InteractiveCard({
                         transformStyle: 'preserve-3d',
                     }}
                 >
-                    {/* Recto */}
+                    {/* Front */}
                     <div 
                         ref={frontRef}
                         inert={!isFrontSide()}
@@ -110,7 +110,7 @@ export default function InteractiveCard({
                         {front}
                     </div>
                     
-                    {/* Verso */}
+                    {/* Back */}
                     <div 
                         ref={backRef}
                         inert={isFrontSide()}
@@ -124,7 +124,7 @@ export default function InteractiveCard({
                         {back}
                     </div>
 
-                    {/* Bordure métallique brillante */}
+                    {/* Shiny metallic border */}
                     <div 
                         className="absolute inset-0 rounded-2xl pointer-events-none"
                         style={{

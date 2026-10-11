@@ -1,88 +1,72 @@
 'use client'
 import Image from "next/image";
-import { navLinks, handleScrollToAnchor } from "@/app/_components/navbar";
-import Link from "next/link";
-import React, { useEffect } from "react";
-import debounce from "@/app/_utils/debounce";
+import React, { useCallback, useEffect, useRef } from "react";
 import LocaleSwitcher from "./localeSwitcher/localeSwitcher";
 import { useTranslations } from "next-intl";
 
-export function toggleModal() {
-  const modal = document.getElementById('navbar-modal');
+// Same breakpoint as Tailwind's `sm`, above which the desktop navbar is shown
+const desktopQuery = '(min-width: 640px)';
 
-  if (!modal) return;
-
-  modal.style.display = "flex";
-  if (modal.classList.contains('fade-in')) {
-    fadeModalOut(modal);
-  } else {
-    fadeModalIn(modal);
-  }
-}
-
-function setMenuButtonsExpanded(expanded: boolean) {
-  document.querySelectorAll('[aria-controls="navbar-modal"]')
-    .forEach(button => button.setAttribute('aria-expanded', String(expanded)));
-}
-
-function fadeModalIn(modal: HTMLElement) {
-  modal.inert = false;
-  setMenuButtonsExpanded(true);
-  modal.querySelector<HTMLElement>('button')?.focus();
-  document.body.style.overflow = 'hidden';
-  modal.classList.add('fade-in');
-  modal.classList.remove('fade-out');
-  modal.style.zIndex = '50';
-}
-
-function fadeModalOut(modal: HTMLElement) {
-  // Give the focus back to the menu button before the modal becomes inert
-  if (modal.contains(document.activeElement)) {
-    document.querySelector<HTMLElement>('[aria-controls="navbar-modal"]')?.focus({ preventScroll: true });
-  }
-  // The faded-out modal stays in the page: keep its links out of reach
-  modal.inert = true;
-  setMenuButtonsExpanded(false);
-  document.body.style.overflow = '';
-  modal.classList.add('fade-out');
-  modal.classList.remove('fade-in');
-  modal.style.zIndex = '0';
-}
-
-export default function NavbarModal() {
+export default function NavbarModal({
+  links,
+  isOpen,
+  onClose,
+  menuButtonRef,
+} : {
+  links: string[],
+  isOpen: boolean,
+  onClose: () => void,
+  // Gets the focus back when the menu closes
+  menuButtonRef: React.RefObject<HTMLButtonElement | null>,
+}) {
   const t = useTranslations("navbar");
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const close = useCallback(() => {
+    // Give the focus back to the menu button before the menu becomes inert
+    if (modalRef.current?.contains(document.activeElement)) {
+      menuButtonRef.current?.focus({ preventScroll: true });
+    }
+    onClose();
+  }, [onClose, menuButtonRef]);
 
   useEffect(() => {
-    const handleResize = debounce(() => {
-      const mobileScreenThreshold = 640;
-      const modal = document.getElementById('navbar-modal');
+    if (!isOpen) return;
+    const desktop = window.matchMedia(desktopQuery);
 
-      if (window.innerWidth < mobileScreenThreshold) return;
-      if (!modal?.classList.contains('fade-in')) return;
-
-      fadeModalOut(modal);
-    }, 200);
+    closeButtonRef.current?.focus();
+    document.body.style.overflow = 'hidden';
 
     function handleKeyDown(event: KeyboardEvent) {
-      const modal = document.getElementById('navbar-modal');
-      if (event.key === 'Escape' && modal?.classList.contains('fade-in')) {
-        fadeModalOut(modal);
-      }
+      if (event.key === 'Escape') close();
+    }
+    // The menu only exists on mobile: close it when the screen gets wider
+    function handleScreenChange() {
+      if (desktop.matches) onClose();
     }
 
-    window.addEventListener('resize', handleResize);
     window.addEventListener('keydown', handleKeyDown);
+    desktop.addEventListener('change', handleScreenChange);
     return () => {
-      window.removeEventListener('resize', handleResize);
       window.removeEventListener('keydown', handleKeyDown);
+      desktop.removeEventListener('change', handleScreenChange);
+      document.body.style.overflow = '';
     };
-  }, [])
+  }, [isOpen, close, onClose]);
 
   return (
-    <div id="navbar-modal" role="dialog" aria-modal="true" aria-label={t('mainNav')} className="fixed top-0 left-0 w-full h-[100vh] hidden flex-col bg-black p-[26px] z-50">
+    <div
+      ref={modalRef}
+      id="navbar-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('mainNav')}
+      inert={!isOpen}
+      className={`fixed top-0 left-0 w-full h-[100vh] flex flex-col bg-black p-[26px] z-50 transition-[opacity,visibility] duration-300 ease-out ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}>
       <div className="w-full flex flex-row justify-between">
         <LocaleSwitcher />
-        <button type="button" onClick={() => toggleModal()} aria-label={t('closeMenu')} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
+        <button ref={closeButtonRef} type="button" onClick={close} aria-label={t('closeMenu')} className="sm:hidden size-8 p-2 rounded-md bg-gray-900 z-50">
           <div className="relative size-full">
             <Image
               src={`/static/icons/close.svg`}
@@ -95,17 +79,14 @@ export default function NavbarModal() {
       </div>
 
       <ul className="size-full flex flex-col justify-center gap-6">
-        {navLinks.map((navLink) =>
+        {links.map((navLink) =>
           <li className="flex flex-col justify-center items-center gap-2 cursor-pointer" key={navLink}>
-            <Link
+            <a
               href={`#${navLink}`}
-              onClick={(e) => {
-                toggleModal();
-                handleScrollToAnchor(e, navLink);
-              }}
+              onClick={close}
               className="text-white text-2xl">
               {t(navLink)}
-            </Link>
+            </a>
           </li>
         )}
       </ul>

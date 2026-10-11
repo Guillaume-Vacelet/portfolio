@@ -1,8 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import BusinessCard from '@/app/_components/businessCard/businessCard';
-import HoverableButtonLink from "@/app/_components/hoverableButtonLink";
-import { calendlyLink, maltLink } from "@/app/_data/socialLinks";
+import ContactButtons from "@/app/_components/contactButtons";
 import Avatar from "@/app/_components/avatar";
 
 export default function HomeSection() {
@@ -26,8 +25,7 @@ export default function HomeSection() {
 
           <div className="col-start-1 md:col-start-2 lg:col-start-1 w-full max-w-[400px] md:max-w-[500px]">
             <div className="w-full flex flex-col self-center md:self-end lg:self-start md:flex-row gap-4">
-              <HoverableButtonLink label={t('bookACall')} url={calendlyLink.url} />
-              <HoverableButtonLink label={t('hireMeOnMalt')} url={maltLink.url} primary />
+              <ContactButtons />
             </div>
           </div>
         </div>

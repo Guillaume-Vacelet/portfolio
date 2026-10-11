@@ -12,7 +12,7 @@ export default function WorksSection() {
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map(project =>
-            <ProjectCard key={project} project={project} />
+            <ProjectCard key={project.slug} project={project} />
           )}
         </div>
       </div>

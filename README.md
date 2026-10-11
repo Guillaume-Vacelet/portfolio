@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Guillaume Vacelet — portfolio
 
-## Getting Started
+Personal portfolio served at [www.guillaumevacelet.com](https://www.guillaumevacelet.com).
+Built with Next.js (App Router), next-intl and Tailwind CSS, deployed on Vercel.
 
-First, run the development server:
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build   # production build, every page is pre-rendered
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app/[locale]/` — pages: home, and `projects/[project-name]` for each project
+- `src/app/_sections/` — sections of the home page
+- `src/app/_components/` — shared components
+- `src/app/_data/` — projects and social links
+- `src/i18n/` — locale routing, message loading and SEO helpers
+- `messages/{fr,en,ko}.json` — translated texts
+- `public/static/` — images, icons and fonts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Languages
 
-## Learn More
+Every URL starts with its locale: `/fr`, `/en` or `/ko`. A visit to `/` is redirected
+to the last language visited, otherwise the browser's language, otherwise French.
 
-To learn more about Next.js, take a look at the following resources:
+To add a language:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Add it to `locales` in `src/i18n/routing.ts`.
+2. Add `messages/<locale>.json` with the same keys as `messages/fr.json`.
+3. Add its Open Graph locale in `src/i18n/metadata.ts` and its name in
+   `src/app/_components/localeSwitcher/localeSwitcherSelect.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a project
 
-## Deploy on Vercel
+1. Add it to `projects` in `src/app/_data/projects.ts`: slug, title, year, tech stack,
+   and `url` if it has its own website.
+2. Add `projectsPage.<slug>` with `desc`, `context` and `concept` to every messages file.
+3. Add the image `public/static/images/<slug>-thumbnail.png`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Projects with a `url` link to that website. The others get a page at
+`/<locale>/projects/<slug>` and are listed in the sitemap.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuration
+
+`NEXT_PUBLIC_SITE_URL` sets the domain used in canonical URLs, Open Graph tags and the
+sitemap. It defaults to `https://www.guillaumevacelet.com`, so it only needs to be set to
+serve the site from another domain.

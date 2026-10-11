@@ -1,25 +1,13 @@
 'use client'
 import Image from "next/image";
-import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
-import React, { useEffect, useState } from "react";
-import { toggleModal } from "./navbarModal";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import NavbarModal from "./navbarModal";
 import LocaleSwitcher from "./localeSwitcher/localeSwitcher";
 import { useTranslations } from "next-intl";
 
-export const navLinks = ['home', 'works', 'contact'];
-export const projectsNavLinks = [];
-
-export function handleScrollToAnchor(event: React.MouseEvent, anchor: string) {
-  const sectionId = anchor.replace('#', '');
-  const element = document.getElementById(sectionId);
-
-  event.preventDefault();
-  if (element) {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    element.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'})
-  }
-}
+// Ids of the home page sections. Smooth scrolling to them is handled in CSS.
+const navLinks = ['home', 'works', 'contact'];
 
 export default function Navbar({
   hideOnScroll=true,
@@ -31,33 +19,24 @@ export default function Navbar({
   dark?: boolean 
 }) {
   const [activeSection, setActiveSection] = useState<string>('');
+  // null until the first scroll check: the navbar stays hidden until then
+  const [isFolded, setIsFolded] = useState<boolean | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  // Stable, so the menu's effects don't re-run on every navbar render
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
   const t = useTranslations('navbar');
-  const links = homePage ? navLinks : projectsNavLinks;
+  const links = homePage ? navLinks : [];
 
+  // Folds the navbar when scrolling down, unfolds it when scrolling up
   useEffect(() => {
     if (!hideOnScroll) return;
-    const navbar = document.getElementById('dynamic-navbar');
-    if (!navbar) return;
-
     let lastScrollY = window.scrollY;
-    let isFolded: boolean | null = null;
 
     function handleScroll() {
-      const isScrollingDown = window.scrollY > lastScrollY;
+      // React skips the render when the direction has not changed
+      setIsFolded(window.scrollY > lastScrollY);
       lastScrollY = window.scrollY;
-
-      // Only touch the DOM when the scroll direction changes
-      if (!navbar || isScrollingDown === isFolded) return;
-      isFolded = isScrollingDown;
-
-      if (isScrollingDown) {
-        navbar.classList.remove('unfolding');
-        navbar.classList.add('folding');
-      } else {
-        navbar.style.display = "block";
-        navbar.classList.remove('folding');
-        navbar.classList.add('unfolding');
-      }
     }
 
     // Initial call reveals the navbar on page load
@@ -89,86 +68,94 @@ export default function Navbar({
     return () => observer.disconnect();
   }, []);
 
-  // the 'hidden' class is getting overrided by js style injection. It is still necessary to hide it initially. 
+  const foldClass = isFolded === null ? 'hidden' : isFolded ? 'folding' : 'unfolding';
+
   return (
-    <header
-      id={`${hideOnScroll ? 'dynamic-navbar' : 'navbar'}`}
-      className={`h-[var(--sm-header-h)] sm:h-[var(--header-h)] w-full place-content-center px-4 sm:p-6 font-medium border-b ${dark ? 'bg-zinc-950 border-zinc-600' : 'bg-white border-cardBorder'} ${hideOnScroll ? 'hidden fixed top-0 left-0 z-50' : ''}`}>
-      <div className="relative w-full flex items-center justify-end sm:justify-center">
-        {/* Mobile navbar */}
-        <div className={`w-full sm:hidden flex flex-row items-center justify-between`}>
-          <Link href="/">
-            <Image
-              src={`/static/icons/logo-perso-2.svg`}
-              alt="Guillaume Vacelet"
-              width={60}
-              height={24}
-              className={`size-12 ${dark ? 'svg-to-white': ''}`}
-            />
-          </Link>
-
-          <button
-            type="button"
-            onClick={() => toggleModal()}
-            aria-label={t('openMenu')}
-            aria-controls="navbar-modal"
-            aria-expanded={false}
-            className="size-8 p-2 rounded-md bg-gray-900 z-50">
-            <div className="relative size-full">
+    <>
+      <header
+        className={`h-[var(--sm-header-h)] sm:h-[var(--header-h)] w-full place-content-center px-4 sm:p-6 font-medium border-b ${dark ? 'bg-zinc-950 border-zinc-600' : 'bg-white border-cardBorder'} ${hideOnScroll ? `${foldClass} fixed top-0 left-0 z-50` : ''}`}>
+        <div className="relative w-full flex items-center justify-end sm:justify-center">
+          {/* Mobile navbar */}
+          <div className={`w-full sm:hidden flex flex-row items-center justify-between`}>
+            <Link href="/">
               <Image
-                src={`/static/icons/menu.svg`}
-                alt=""
-                fill
-                style={{objectFit: "cover"}}
+                src={`/static/icons/logo-perso-2.svg`}
+                alt="Guillaume Vacelet"
+                width={60}
+                height={24}
+                className={`size-12 ${dark ? 'svg-to-white': ''}`}
               />
-            </div>
-          </button>
-        </div>
+            </Link>
 
-        {/* Desktop navbar */}
-        <div className="w-[300px] lg:w-[400px] hidden sm:flex">
-          <Link
-            className={`z-50 absolute left-0 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
-            href="/">
-            <Image
-              src={`/static/icons/logo-perso-2.svg`}
-              alt="Guillaume Vacelet"
-              width={60}
-              height={24}
-              className={`${dark ? 'svg-to-white': ''}`}
-            />
-          </Link>
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setIsMenuOpen(true)}
+              aria-label={t('openMenu')}
+              aria-controls="navbar-modal"
+              aria-expanded={isMenuOpen}
+              className="size-8 p-2 rounded-md bg-gray-900 z-50">
+              <div className="relative size-full">
+                <Image
+                  src={`/static/icons/menu.svg`}
+                  alt=""
+                  fill
+                  style={{objectFit: "cover"}}
+                />
+              </div>
+            </button>
+          </div>
 
-          <nav aria-label={t('mainNav')} className="w-full">
-          <ul className="w-full flex flex-row items-center justify-between">
-            {links.map((navLink, index) =>
-              <li className={`relative group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
-                <NextLink
-                  href={`#${navLink}`}
-                  onClick={(e) => handleScrollToAnchor(e, navLink)}
-                  aria-current={navLink === activeSection ? 'location' : undefined}
-                  className={`
-                    ${navLink === activeSection
-                      ? 'text-accent'
-                      : 'text-appBlack'
-                    }
-                    text-base group-hover:text-accent transition-colors
-                  `}
-                >
-                  {t(navLink)}
-                </NextLink>
-                <div className={`${navLink === activeSection ? 'bg-accent' : 'bg-transparent'} absolute top-full w-1 h-1 rounded-full`}></div>
-              </li>
-            )}
-          </ul>
-          </nav>
+          {/* Desktop navbar */}
+          <div className="w-[300px] lg:w-[400px] hidden sm:flex">
+            <Link
+              className={`z-50 absolute left-0 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
+              href="/">
+              <Image
+                src={`/static/icons/logo-perso-2.svg`}
+                alt="Guillaume Vacelet"
+                width={60}
+                height={24}
+                className={`${dark ? 'svg-to-white': ''}`}
+              />
+            </Link>
+
+            <nav aria-label={t('mainNav')} className="w-full">
+            <ul className="w-full flex flex-row items-center justify-between">
+              {links.map((navLink, index) =>
+                <li className={`relative group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
+                  <a
+                    href={`#${navLink}`}
+                    aria-current={navLink === activeSection ? 'location' : undefined}
+                    className={`
+                      ${navLink === activeSection
+                        ? 'text-accent'
+                        : 'text-appBlack'
+                      }
+                      text-base group-hover:text-accent transition-colors
+                    `}
+                  >
+                    {t(navLink)}
+                  </a>
+                  <div className={`${navLink === activeSection ? 'bg-accent' : 'bg-transparent'} absolute top-full w-1 h-1 rounded-full`}></div>
+                </li>
+              )}
+            </ul>
+            </nav>
           
-          <div className={`self-center z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
-            <LocaleSwitcher dark />
+            <div className={`self-center z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
+              <LocaleSwitcher dark />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <NavbarModal
+        links={links}
+        isOpen={isMenuOpen}
+        onClose={closeMenu}
+        menuButtonRef={menuButtonRef}
+      />
+    </>
   );
 }
-
