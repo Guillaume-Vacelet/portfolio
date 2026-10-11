@@ -1,12 +1,9 @@
 import { Locale, routing } from './routing';
 
-// Absolute base for canonical, Open Graph and sitemap URLs. Set NEXT_PUBLIC_SITE_URL
-// to your domain; on Vercel the production domain is used automatically otherwise.
+// Absolute base for canonical, Open Graph and sitemap URLs. Must be the domain that
+// serves the site: guillaumevacelet.com redirects to www. NEXT_PUBLIC_SITE_URL overrides it.
 export const siteUrl = new URL(
-  process.env.NEXT_PUBLIC_SITE_URL
-    ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'http://localhost:3000')
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.guillaumevacelet.com'
 );
 
 export const openGraphLocales: Record<Locale, string> = {
