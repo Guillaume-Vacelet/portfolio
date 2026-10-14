@@ -10,12 +10,10 @@ import { useTranslations } from "next-intl";
 const navLinks = ['home', 'works', 'contact'];
 
 export default function Navbar({
-  hideOnScroll=true,
   homePage=true,
   dark=false
 } : { 
-  hideOnScroll?: boolean, 
-  homePage?: boolean 
+  homePage?: boolean,
   dark?: boolean 
 }) {
   const [activeSection, setActiveSection] = useState<string>('');
@@ -30,7 +28,6 @@ export default function Navbar({
 
   // Folds the navbar when scrolling down, unfolds it when scrolling up
   useEffect(() => {
-    if (!hideOnScroll) return;
     let lastScrollY = window.scrollY;
 
     function handleScroll() {
@@ -43,7 +40,7 @@ export default function Navbar({
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hideOnScroll]);
+  }, []);
 
   // Highlights the section taking up the largest share of its own height in the viewport.
   // A later section must beat the earlier ones by `diffMargin` to win, to avoid flickering.
@@ -73,7 +70,7 @@ export default function Navbar({
   return (
     <>
       <header
-        className={`h-[var(--sm-header-h)] sm:h-[var(--header-h)] w-full place-content-center px-4 sm:p-6 font-medium border-b ${dark ? 'bg-zinc-950 border-zinc-600' : 'bg-white border-cardBorder'} ${hideOnScroll ? `${foldClass} fixed top-0 left-0 z-50` : ''}`}>
+        className={`h-[var(--sm-header-h)] sm:h-[var(--header-h)] w-full place-content-center px-4 sm:p-6 font-medium border-b ${dark ? 'bg-zinc-950 border-zinc-600' : 'bg-white border-cardBorder'} ${foldClass} fixed top-0 left-0 z-50`}>
         <div className="relative w-full flex items-center justify-end sm:justify-center">
           {/* Mobile navbar */}
           <div className={`w-full sm:hidden flex flex-row items-center justify-between`}>
@@ -109,7 +106,7 @@ export default function Navbar({
           {/* Desktop navbar */}
           <div className="w-[300px] lg:w-[400px] hidden sm:flex">
             <Link
-              className={`z-50 absolute left-0 self-center ${hideOnScroll ? '' : 'fade-drop-2'}`}
+              className="z-50 absolute left-0 self-center"
               href="/">
               <Image
                 src={`/static/icons/logo-perso-2.svg`}
@@ -122,8 +119,8 @@ export default function Navbar({
 
             <nav aria-label={t('mainNav')} className="w-full">
             <ul className="w-full flex flex-row items-center justify-between">
-              {links.map((navLink, index) =>
-                <li className={`relative group flex flex-col items-center cursor-pointer ${hideOnScroll ? '' : 'fade-drop-' + index}`} key={navLink}>
+              {links.map(navLink =>
+                <li className="relative group flex flex-col items-center cursor-pointer" key={navLink}>
                   <a
                     href={`#${navLink}`}
                     aria-current={navLink === activeSection ? 'location' : undefined}
@@ -143,7 +140,7 @@ export default function Navbar({
             </ul>
             </nav>
           
-            <div className={`self-center z-50 absolute right-0 ${hideOnScroll ? '' : 'fade-drop-2'}`}>
+            <div className="self-center z-50 absolute right-0">
               <LocaleSwitcher dark />
             </div>
           </div>

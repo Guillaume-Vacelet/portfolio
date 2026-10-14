@@ -1,8 +1,6 @@
 {
   "navbar": {
     "home": "Accueil",
-    "about": "A propos",
-    "projects": "Projets",
     "works": "Portfolio",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
@@ -16,34 +14,6 @@
       "jobTitle": "Développeur frontend",
       "flipCard": "Retourner la carte de visite",
       "openToWork": "Disponible"
-    },
-    "aboutSection": {
-      "selfIntro": "Je suis un développeur web spécialisé dans le frontend et passionné par la création d'expériences utilisateur engageantes.",
-      "resumeCard": {
-        "title": "Mes CV",
-        "french": "Français",
-        "english": "Englais",
-        "korean": "Coréen"
-      },
-      "scrollToProjectsCard": {
-        "title": "Découvrir mes projets"
-      },
-      "callToActionCard": {
-        "title": "Discutons de votre projet",
-        "button": "Contactez moi sur Malt"
-      },
-      "techStackCard": {
-        "title": "Technologies familières",
-        "desc": "Je travaille principalement avec l'environnement Javascript, en restant ouvert aux nouvelles technologies."
-      },
-      "firstEducationCard": {
-        "title": "Master en Informatique",
-        "desc": "De la compréhension d'Unix et des principes de code bas-niveau, à l'apprentissage des derniers frameworks et technologies. "
-      },
-      "secondEducationCard": {
-        "title": "Année d'echange à Seoul",
-        "desc": "Immersion dans la culture coréenne à l'université Chung-Ang pour explorer l'Entreprenariat, la Big Data ou l'IA."
-      }
     },
     "worksSection": {
       "title": "Portfolio"

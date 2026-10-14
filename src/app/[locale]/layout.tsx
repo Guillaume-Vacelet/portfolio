@@ -13,16 +13,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const nuckle = localFont({
   src: [
     {
-      path: '../../../public/static/fonts/Nuckle/Nuckle-Extralight.woff2',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: '../../../public/static/fonts/Nuckle/Nuckle-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
       path: '../../../public/static/fonts/Nuckle/Nuckle-Regular.woff2',
       weight: '400',
       style: 'normal',
@@ -37,11 +27,6 @@ const nuckle = localFont({
       weight: '600',
       style: 'normal',
     },
-    {
-      path: '../../../public/static/fonts/Nuckle/Nuckle-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    }
   ],
   variable: '--font-nuckle'
 }) 
@@ -96,7 +81,7 @@ export default async function RootLayout({
 
   const messages = await getMessages();
   // Only client components need messages in the browser. Add the namespace here
-  // when a client component starts using a new one (e.g. the About section).
+  // when a client component starts using a new one.
   const clientMessages = { navbar: messages.navbar };
 
   return (

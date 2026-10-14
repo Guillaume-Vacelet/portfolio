@@ -1,8 +1,6 @@
 {
   "navbar": {
     "home": "홈",
-    "about": "소개",
-    "projects": "프로젝트",
     "works": "프로젝트",
     "contact": "연락처",
     "openMenu": "메뉴 열기",
@@ -16,34 +14,6 @@
       "jobTitle": "프론트엔드 엔지니어",
       "flipCard": "명함 뒤집기",
       "openToWork": "일에 열려 있음"
-    },
-    "aboutSection": {
-      "selfIntro": "프론트엔드 개발에 전문화된 소프트웨어 엔지니어로, 매력적인 사용자 경험을 만드는 데 열정을 가지고 있습니다.",
-      "resumeCard": {
-        "title": "제 이력서",
-        "french": "프랑스어",
-        "english": "영어",
-        "korean": "한국어"
-      },
-      "scrollToProjectsCard": {
-        "title": "제 프로젝트 탐색"
-      },
-      "callToActionCard": {
-        "title": "연락 주세요",
-        "button": "Malt에서 저에게 연락하기"
-      },
-      "techStackCard": {
-        "title": "익숙한 기술 스택",
-        "desc": "주로 JavaScript 환경을 사용하지만, 항상 새로운 기술을 배우려고 노력합니다."
-      },
-      "firstEducationCard": {
-        "title": "IT 석사 학위",
-        "desc": "유닉스와 저수준 코딩 원칙을 이해하고, 최신 스택 및 개발 프레임워크를 배우는 것."
-      },
-      "secondEducationCard": {
-        "title": "서울에서의 교환 학년",
-        "desc": "창안대학교에서 한국 문화에 몰입하여 창업, 빅데이터 또는 AI와 같은 분야를 탐구."
-      }
     },
     "worksSection": {
       "title": "주요 작업"

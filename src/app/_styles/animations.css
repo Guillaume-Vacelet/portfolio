@@ -1,26 +1,3 @@
-.fade-drop-0 {
-  opacity: 0;
-  animation: .5s fade-drop 1.25s ease-in forwards;
-}
-.fade-drop-1 {
-  opacity: 0;
-  animation: .5s fade-drop 1.30s ease-in forwards;
-}
-.fade-drop-2 {
-  opacity: 0;
-  animation: .5s fade-drop 1.35s ease-in forwards;
-}
-@keyframes fade-drop {
-  from {
-    opacity: 0;
-    transform: translateY(-24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .folding {
   animation: folding .3s ease-in-out both;
 }

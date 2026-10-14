@@ -11,10 +11,6 @@
   --sm-header-h: 64px;
 
   --card-border: #D2D2D2;
-  --card-background: #EEEEEE;
-  --card-primary: white;
-  --card-accent: var(--accent);
-  --card-hover: rgba(255, 55, 0, 0.05);
 }
 
 html {
@@ -78,12 +74,4 @@ strong {
 .icon-chip-gradient {
   background: rgb(0,0,0);
   background: linear-gradient(0deg, #1d1d1d 0%, #111111 100%);
-}
-
-.card-hover-style {
-  transition: all;
-  transition-duration: 300ms;
-}
-.card-hover-style:hover {
-  transform: scale(1.02);
 }

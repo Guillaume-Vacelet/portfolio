@@ -139,8 +139,6 @@ export default function InteractiveCard({
                     />
                 </div>
             </div>
-
-            {/* <div className="ellipse absolute border-2 border-blue-500 rounded-full"></div> */}
         </div>
         </FlipContext.Provider>
   );
